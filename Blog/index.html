@@ -74,13 +74,11 @@
 </head>
 <body>
 
-    <!-- === Encabezado del Sitio === -->
     <header class="site-header">
         <div class="container header-content">
             <!-- Logo SATEKOR -->
             <a href="/" class="logo">
-                 <!-- !! AJUSTA LA RUTA SI ES NECESARIO !! -->
-                <img src="../Assets/Imagenes/logoB.png" alt="Logo SATEKOR Telecomunicaciones Almería">
+                <img src="Assets/Imagenes/logoB.png" alt="Logo SATEKOR Telecomunicaciones Almería">
             </a>
             <!-- Botón Hamburguesa -->
             <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
@@ -110,6 +108,15 @@
                             <li><a href="Servicios/internet-rural.html">Internet Rural Empresas</a></li>
                         </ul>
                     </li>
+                    <!-- Fin Elemento de Menú Desplegable -->
+            
+                    <!-- Si las secciones #clientes y #faq están en tu index.html principal -->
+                    <li><a href="index.html#clientes">Clientes</a></li>
+                    <li><a href="index.html#faq">FAQ</a></li>
+                    <li><a href="Blog/">Blog</a></li> <!-- Funciona si 'Blog' es una carpeta en la raíz -->
+                    <li><a href="contacto.html" class="nav-cta-button">Contacto</a></li> <!-- Funciona si 'contacto.html' está en la raíz -->
+                </ul>
+            </nav>
             <!-- === FIN Navegación Principal === -->
 
         </div>
@@ -235,9 +242,9 @@
             <p>© <span id="current-year"></span> SATEKOR Telecomunicaciones. Todos los derechos reservados.</p>
             <nav class="footer-nav" aria-label="Navegación secundaria">
                  <!-- !! AJUSTA LAS RUTAS SI ES NECESARIO !! -->
-                <a href="/politica-privacidad.html">Política de Privacidad</a> |
-                <a href="/terminos-uso.html">Términos de Uso</a> |
-                <a href="/politica-cookies.html">Política de Cookies</a>
+                <a href="politica-privacidad.html">Política de Privacidad</a> |
+                <a href="terminos-uso.html">Términos de Uso</a> |
+                <a href="politica-cookies.html">Política de Cookies</a>
             </nav>
         </div>
     </footer>

@@ -78,13 +78,17 @@
 
     <header class="site-header">
         <div class="container header-content">
+            <!-- Logo SATEKOR -->
             <a href="/" class="logo">
-                <img src="../Assets/Imagenes/logoB.png" alt="Logo SATEKOR Telecomunicaciones Almería">
+                <img src="Assets/Imagenes/logoB.png" alt="Logo SATEKOR Telecomunicaciones Almería">
             </a>
+            <!-- Botón Hamburguesa -->
             <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
                 <span class="hamburger"></span>
             </button>
-            <nav id="main-nav" class="main-nav" aria-label="Navegación principal">
+
+             <!-- === Navegación Principal con Desplegable === -->
+             <nav id="main-nav" class="main-nav" aria-label="Navegación principal">
                 <ul>
                     <!-- Enlace a Inicio (index.html en la raíz) -->
                     <li><a href="index.html">Inicio</a></li> <!-- O puedes usar "." si esta nav SÓLO está en index.html -->
@@ -106,6 +110,17 @@
                             <li><a href="Servicios/internet-rural.html">Internet Rural Empresas</a></li>
                         </ul>
                     </li>
+                    <!-- Fin Elemento de Menú Desplegable -->
+            
+                    <!-- Si las secciones #clientes y #faq están en tu index.html principal -->
+                    <li><a href="index.html#clientes">Clientes</a></li>
+                    <li><a href="index.html#faq">FAQ</a></li>
+                    <li><a href="Blog/">Blog</a></li> <!-- Funciona si 'Blog' es una carpeta en la raíz -->
+                    <li><a href="contacto.html" class="nav-cta-button">Contacto</a></li> <!-- Funciona si 'contacto.html' está en la raíz -->
+                </ul>
+            </nav>
+            <!-- === FIN Navegación Principal === -->
+
         </div>
     </header>
 
@@ -126,7 +141,7 @@
                 <div class="post-content-full">
                    <p>La provincia de Almería, con su diversa geografía que combina costa, desierto y montaña, presenta desafíos únicos para la conectividad a internet. Mientras que los núcleos urbanos disfrutan cada vez más de la fibra óptica, muchas empresas y viviendas en zonas rurales aún luchan por acceder a una conexión estable y de alta velocidad. ¿Significa esto que deben resignarse a la brecha digital? Afortunadamente, no.</p>
 
-                    <p>En SATEKOR Telecomunicaciones, somos especialistas en llevar <a href="/Servicios/internet-rural.html">soluciones de conectividad a las zonas más remotas de Almería</a>. Entendemos que una conexión a internet fiable es tan crucial para una finca agrícola, un hotel rural o una nave industrial aislada como lo es para una oficina en el centro de la ciudad. Exploremos algunas de las opciones más viables cuando la fibra óptica no es una alternativa.</p>
+                    <p>En SATEKOR Telecomunicaciones, somos especialistas en llevar <a href="Servicios/internet-rural.html">soluciones de conectividad a las zonas más remotas de Almería</a>. Entendemos que una conexión a internet fiable es tan crucial para una finca agrícola, un hotel rural o una nave industrial aislada como lo es para una oficina en el centro de la ciudad. Exploremos algunas de las opciones más viables cuando la fibra óptica no es una alternativa.</p>
 
                     <h2>1. Internet por Satélite: Cobertura Universal</h2>
                     <p>El internet por satélite ha evolucionado enormemente. Las nuevas constelaciones de satélites de órbita baja (LEO), como Starlink, han revolucionado el sector ofreciendo velocidades considerablemente más altas y, lo que es más importante, una latencia mucho menor que los satélites geoestacionarios tradicionales. Esto lo convierte en una opción muy atractiva para empresas rurales.</p>
@@ -227,9 +242,9 @@
          <div class="container footer-content">
             <p>© <span id="current-year"></span> SATEKOR Telecomunicaciones. Todos los derechos reservados.</p>
             <nav class="footer-nav" aria-label="Navegación secundaria">
-                <a href="/politica-privacidad.html">Política de Privacidad</a> |
-                <a href="/terminos-uso.html">Términos de Uso</a> |
-                <a href="/politica-cookies.html">Política de Cookies</a>
+                <a href="politica-privacidad.html">Política de Privacidad</a> |
+                <a href="terminos-uso.html">Términos de Uso</a> |
+                <a href="politica-cookies.html">Política de Cookies</a>
             </nav>
         </div>
     </footer>

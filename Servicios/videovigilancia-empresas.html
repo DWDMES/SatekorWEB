@@ -78,13 +78,17 @@
     <!-- === Encabezado del Sitio === -->
     <header class="site-header">
         <div class="container header-content">
+            <!-- Logo SATEKOR -->
             <a href="/" class="logo">
-                <img src="../Assets/Imagenes/logoB.png" alt="Logo SATEKOR Telecomunicaciones Almería">
+                <img src="Assets/Imagenes/logoB.png" alt="Logo SATEKOR Telecomunicaciones Almería">
             </a>
+            <!-- Botón Hamburguesa -->
             <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
                 <span class="hamburger"></span>
             </button>
-            <nav id="main-nav" class="main-nav" aria-label="Navegación principal">
+
+             <!-- === Navegación Principal con Desplegable === -->
+             <nav id="main-nav" class="main-nav" aria-label="Navegación principal">
                 <ul>
                     <!-- Enlace a Inicio (index.html en la raíz) -->
                     <li><a href="index.html">Inicio</a></li> <!-- O puedes usar "." si esta nav SÓLO está en index.html -->
@@ -106,6 +110,17 @@
                             <li><a href="Servicios/internet-rural.html">Internet Rural Empresas</a></li>
                         </ul>
                     </li>
+                    <!-- Fin Elemento de Menú Desplegable -->
+            
+                    <!-- Si las secciones #clientes y #faq están en tu index.html principal -->
+                    <li><a href="index.html#clientes">Clientes</a></li>
+                    <li><a href="index.html#faq">FAQ</a></li>
+                    <li><a href="Blog/">Blog</a></li> <!-- Funciona si 'Blog' es una carpeta en la raíz -->
+                    <li><a href="contacto.html" class="nav-cta-button">Contacto</a></li> <!-- Funciona si 'contacto.html' está en la raíz -->
+                </ul>
+            </nav>
+            <!-- === FIN Navegación Principal === -->
+
         </div>
     </header>
 
@@ -136,7 +151,7 @@
                 <div class="hero-text-content">
                     <h1>Videovigilancia Profesional para Empresas en Almería</h1>
                     <p class="subtitle">Proteja sus activos, personal y clientes con sistemas de cámaras de seguridad IP y CCTV de alta definición, instalación experta y monitoreo avanzado por SATEKOR.</p>
-                    <a href="/contacto.html?servicio=videovigilancia" class="btn btn-primary">Solicitar Asesoramiento Gratuito</a>
+                    <a href="contacto.html?servicio=videovigilancia" class="btn btn-primary">Solicitar Asesoramiento Gratuito</a>
                 </div>
             </div>
         </section>
@@ -249,7 +264,7 @@
                                  <li><strong>Integración con Alarmas:</strong> Conectamos su videovigilancia con sistemas de alarma existentes o nuevos.</li>
                                  <li><strong>Control de Accesos:</strong> Vinculación con sistemas de apertura de puertas o barreras.</li>
                                  <li><strong>Preparado para Crecer:</strong> Sistemas modulares que permiten añadir cámaras fácilmente.</li>
-                                 <li><strong>Compatibilidad IoT:</strong> Potencial integración con <a href="/Servicios/soluciones-iot.html">soluciones de automatización</a>.</li>
+                                 <li><strong>Compatibilidad IoT:</strong> Potencial integración con <a href="Servicios/soluciones-iot.html">soluciones de automatización</a>.</li>
                                  <li><strong>API y SDK (Avanzado):</strong> Posibilidades de integración con software de gestión propio.</li>
                              </ul>
                         </div>
@@ -357,7 +372,7 @@
             <div class="container"> <!-- Quitamos text-center inline, se maneja por CSS -->
                 <h2 class="section-title" style="color: var(--color-primary);">Proteja su Negocio en Almería Hoy Mismo</h2>
                 <p class="subtitle" style="color: var(--color-text-primary);">Contacte con SATEKOR para un estudio de seguridad personalizado y un presupuesto sin compromiso para su sistema de videovigilancia.</p>
-                <a href="/contacto.html?servicio=videovigilancia" class="btn btn-primary btn-large">Solicitar Presupuesto Ahora</a>
+                <a href="contacto.html?servicio=videovigilancia" class="btn btn-primary btn-large">Solicitar Presupuesto Ahora</a>
                 <p><a href="tel:+34642531300">O llámenos al <strong>642 53 13 00</strong></a></p> <!-- Puse strong en el número -->
             </div>
         </section>
@@ -369,21 +384,21 @@
                 <div class="service-grid"> <!-- Quitamos estilos inline -->
                      <article class="service-card related-card">
                         <i class="fas fa-tools service-icon" aria-hidden="true"></i>
-                        <h3><a href="/Servicios/mantenimiento-redes.html">Mantenimiento y Soporte</a></h3>
+                        <h3><a href="Servicios/mantenimiento-redes.html">Mantenimiento y Soporte</a></h3>
                         <p>Asegure el rendimiento continuo de su sistema de videovigilancia y redes con nuestros planes de mantenimiento.</p>
-                        <a href="/Servicios/mantenimiento-redes.html" class="btn btn-small btn-secondary">Ver Mantenimiento</a>
+                        <a href="Servicios/mantenimiento-redes.html" class="btn btn-small btn-secondary">Ver Mantenimiento</a>
                     </article>
                      <article class="service-card related-card">
                         <i class="fas fa-server service-icon" aria-hidden="true"></i>
-                        <h3><a href="/Servicios/infraestructura-telecom.html">Infraestructura de Red</a></h3>
+                        <h3><a href="Servicios/infraestructura-telecom.html">Infraestructura de Red</a></h3>
                         <p>Una base sólida con cableado estructurado y racks adecuados es esencial para su sistema de seguridad.</p>
-                        <a href="/Servicios/infraestructura-telecom.html" class="btn btn-small btn-secondary">Ver Infraestructura</a>
+                        <a href="Servicios/infraestructura-telecom.html" class="btn btn-small btn-secondary">Ver Infraestructura</a>
                     </article>
                     <article class="service-card related-card">
                         <i class="fas fa-microchip service-icon" aria-hidden="true"></i>
-                        <h3><a href="/Servicios/soluciones-iot.html">Automatización / IoT</a></h3>
+                        <h3><a href="Servicios/soluciones-iot.html">Automatización / IoT</a></h3>
                         <p>Integre sus cámaras con sensores y sistemas inteligentes para una seguridad y gestión más avanzadas.</p>
-                        <a href="/Servicios/soluciones-iot.html" class="btn btn-small btn-secondary">Ver IoT</a>
+                        <a href="Servicios/soluciones-iot.html" class="btn btn-small btn-secondary">Ver IoT</a>
                     </article>
                 </div>
             </div>
@@ -402,9 +417,9 @@
          <div class="container footer-content">
             <p>© <span id="current-year"></span> SATEKOR Telecomunicaciones. Todos los derechos reservados.</p>
             <nav class="footer-nav" aria-label="Navegación secundaria">
-                <a href="/politica-privacidad.html">Política de Privacidad</a>
-                <a href="/terminos-uso.html">Términos de Uso</a>
-                <a href="/politica-cookies.html">Política de Cookies</a>
+                <a href="politica-privacidad.html">Política de Privacidad</a>
+                <a href="terminos-uso.html">Términos de Uso</a>
+                <a href="politica-cookies.html">Política de Cookies</a>
             </nav>
         </div>
     </footer>

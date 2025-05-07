@@ -78,13 +78,17 @@
 
     <header class="site-header">
         <div class="container header-content">
+            <!-- Logo SATEKOR -->
             <a href="/" class="logo">
-                <img src="../Assets/Imagenes/logoB.png" alt="Logo SATEKOR Telecomunicaciones Almería">
+                <img src="Assets/Imagenes/logoB.png" alt="Logo SATEKOR Telecomunicaciones Almería">
             </a>
+            <!-- Botón Hamburguesa -->
             <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
                 <span class="hamburger"></span>
             </button>
-            <nav id="main-nav" class="main-nav" aria-label="Navegación principal">
+
+             <!-- === Navegación Principal con Desplegable === -->
+             <nav id="main-nav" class="main-nav" aria-label="Navegación principal">
                 <ul>
                     <!-- Enlace a Inicio (index.html en la raíz) -->
                     <li><a href="index.html">Inicio</a></li> <!-- O puedes usar "." si esta nav SÓLO está en index.html -->
@@ -106,6 +110,17 @@
                             <li><a href="Servicios/internet-rural.html">Internet Rural Empresas</a></li>
                         </ul>
                     </li>
+                    <!-- Fin Elemento de Menú Desplegable -->
+            
+                    <!-- Si las secciones #clientes y #faq están en tu index.html principal -->
+                    <li><a href="index.html#clientes">Clientes</a></li>
+                    <li><a href="index.html#faq">FAQ</a></li>
+                    <li><a href="Blog/">Blog</a></li> <!-- Funciona si 'Blog' es una carpeta en la raíz -->
+                    <li><a href="contacto.html" class="nav-cta-button">Contacto</a></li> <!-- Funciona si 'contacto.html' está en la raíz -->
+                </ul>
+            </nav>
+            <!-- === FIN Navegación Principal === -->
+
         </div>
     </header>
 
@@ -165,7 +180,7 @@
 
                     <h2>SATEKOR: Tu Experto en Infraestructura de Red en Almería</h2>
                     <p>En SATEKOR Telecomunicaciones, somos especialistas en el diseño, instalación y certificación de cableado estructurado en Almería, incluyendo Cat 6A, Cat 7 y Cat 8. Analizamos las necesidades específicas de tu negocio para recomendarte la solución de infraestructura que te ofrezca el mejor rendimiento, escalabilidad y retorno de la inversión.</p>
-                    <p>Si estás considerando una actualización de tu red o planificando nuevas instalaciones, <a href="/contacto.html?servicio=infraestructura">contacta con nosotros</a>. Te asesoraremos sobre si Cat 8 es la opción adecuada para ti y cómo podemos ayudarte a construir una red preparada para los desafíos del futuro.</p>
+                    <p>Si estás considerando una actualización de tu red o planificando nuevas instalaciones, <a href="contacto.html?servicio=infraestructura">contacta con nosotros</a>. Te asesoraremos sobre si Cat 8 es la opción adecuada para ti y cómo podemos ayudarte a construir una red preparada para los desafíos del futuro.</p>
 
                     <div class="post-tags">
                         <span>Etiquetas:</span>
@@ -206,9 +221,9 @@
          <div class="container footer-content">
             <p>© <span id="current-year"></span> SATEKOR Telecomunicaciones. Todos los derechos reservados.</p>
             <nav class="footer-nav" aria-label="Navegación secundaria">
-                <a href="/politica-privacidad.html">Política de Privacidad</a> |
-                <a href="/terminos-uso.html">Términos de Uso</a> |
-                <a href="/politica-cookies.html">Política de Cookies</a>
+                <a href="politica-privacidad.html">Política de Privacidad</a> |
+                <a href="terminos-uso.html">Términos de Uso</a> |
+                <a href="politica-cookies.html">Política de Cookies</a>
             </nav>
         </div>
     </footer>

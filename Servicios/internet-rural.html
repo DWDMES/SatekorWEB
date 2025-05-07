@@ -75,13 +75,17 @@
 
     <header class="site-header">
         <div class="container header-content">
+            <!-- Logo SATEKOR -->
             <a href="/" class="logo">
-                <img src="../Assets/Imagenes/logoB.png" alt="Logo SATEKOR Telecomunicaciones Almería">
+                <img src="Assets/Imagenes/logoB.png" alt="Logo SATEKOR Telecomunicaciones Almería">
             </a>
+            <!-- Botón Hamburguesa -->
             <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
                 <span class="hamburger"></span>
             </button>
-            <nav id="main-nav" class="main-nav" aria-label="Navegación principal">
+
+             <!-- === Navegación Principal con Desplegable === -->
+             <nav id="main-nav" class="main-nav" aria-label="Navegación principal">
                 <ul>
                     <!-- Enlace a Inicio (index.html en la raíz) -->
                     <li><a href="index.html">Inicio</a></li> <!-- O puedes usar "." si esta nav SÓLO está en index.html -->
@@ -103,6 +107,17 @@
                             <li><a href="Servicios/internet-rural.html">Internet Rural Empresas</a></li>
                         </ul>
                     </li>
+                    <!-- Fin Elemento de Menú Desplegable -->
+            
+                    <!-- Si las secciones #clientes y #faq están en tu index.html principal -->
+                    <li><a href="index.html#clientes">Clientes</a></li>
+                    <li><a href="index.html#faq">FAQ</a></li>
+                    <li><a href="Blog/">Blog</a></li> <!-- Funciona si 'Blog' es una carpeta en la raíz -->
+                    <li><a href="contacto.html" class="nav-cta-button">Contacto</a></li> <!-- Funciona si 'contacto.html' está en la raíz -->
+                </ul>
+            </nav>
+            <!-- === FIN Navegación Principal === -->
+
         </div>
     </header>
 
@@ -131,7 +146,7 @@
                 <div class="hero-text-content">
                     <h1>Conectividad sin Límites para Empresas Rurales en Almería</h1>
                     <p class="subtitle">En SATEKOR llevamos internet de alta velocidad y fiabilidad a su negocio en zonas rurales de Almería, donde otros no llegan. Conecte su finca, hotel rural o nave industrial.</p>
-                    <a href="/contacto.html?servicio=internet-rural" class="btn btn-primary">Consultar Cobertura Rural</a>
+                    <a href="contacto.html?servicio=internet-rural" class="btn btn-primary">Consultar Cobertura Rural</a>
                 </div>
             </div>
         </section>
@@ -338,7 +353,7 @@
             <div class="container">
                 <h2 class="section-title" style="color: var(--color-primary);">Conecte su Negocio Rural al Mundo Digital en Almería</h2>
                 <p class="subtitle" style="color: var(--color-text-primary);">Descubra con SATEKOR la mejor solución de internet para su empresa en el campo almeriense. Solicite un estudio de viabilidad gratuito.</p>
-                <a href="/contacto.html?servicio=internet-rural" class="btn btn-primary btn-large">Estudio de Viabilidad Gratuito</a>
+                <a href="contacto.html?servicio=internet-rural" class="btn btn-primary btn-large">Estudio de Viabilidad Gratuito</a>
                 <p><a href="tel:+34642531300">O llámenos al <strong>642 53 13 00</strong></a></p>
             </div>
         </section>
@@ -349,21 +364,21 @@
                 <div class="service-grid">
                      <article class="service-card related-card">
                         <i class="fas fa-wifi service-icon" aria-hidden="true"></i>
-                        <h3><a href="/Servicios/fibra-optica-empresas.html">Fibra Óptica (Si Aplica)</a></h3>
+                        <h3><a href="Servicios/fibra-optica-empresas.html">Fibra Óptica (Si Aplica)</a></h3>
                         <p>Si la fibra está cerca de su zona, podemos estudiar la viabilidad de una extensión.</p>
-                        <a href="/Servicios/fibra-optica-empresas.html" class="btn btn-small btn-secondary">Ver Fibra Óptica</a>
+                        <a href="Servicios/fibra-optica-empresas.html" class="btn btn-small btn-secondary">Ver Fibra Óptica</a>
                     </article>
                     <article class="service-card related-card">
                         <i class="fas fa-tools service-icon" aria-hidden="true"></i>
-                        <h3><a href="/Servicios/mantenimiento-redes.html">Mantenimiento de Red</a></h3>
+                        <h3><a href="Servicios/mantenimiento-redes.html">Mantenimiento de Red</a></h3>
                         <p>Aseguramos el funcionamiento óptimo de su conexión rural y equipos de red.</p>
-                        <a href="/Servicios/mantenimiento-redes.html" class="btn btn-small btn-secondary">Ver Mantenimiento</a>
+                        <a href="Servicios/mantenimiento-redes.html" class="btn btn-small btn-secondary">Ver Mantenimiento</a>
                     </article>
                     <article class="service-card related-card">
                         <i class="fas fa-microchip service-icon" aria-hidden="true"></i>
-                        <h3><a href="/Servicios/soluciones-iot.html">Soluciones IoT Rural</a></h3>
+                        <h3><a href="Servicios/soluciones-iot.html">Soluciones IoT Rural</a></h3>
                         <p>Conecte sensores y automatice procesos en su explotación agrícola o negocio rural.</p>
-                        <a href="/Servicios/soluciones-iot.html" class="btn btn-small btn-secondary">Ver Soluciones IoT</a>
+                        <a href="Servicios/soluciones-iot.html" class="btn btn-small btn-secondary">Ver Soluciones IoT</a>
                     </article>
                 </div>
             </div>
@@ -379,9 +394,9 @@
          <div class="container footer-content">
             <p>© <span id="current-year"></span> SATEKOR Telecomunicaciones. Todos los derechos reservados.</p>
             <nav class="footer-nav" aria-label="Navegación secundaria">
-                <a href="/politica-privacidad.html">Política de Privacidad</a> |
-                <a href="/terminos-uso.html">Términos de Uso</a> |
-                <a href="/politica-cookies.html">Política de Cookies</a>
+                <a href="politica-privacidad.html">Política de Privacidad</a> |
+                <a href="terminos-uso.html">Términos de Uso</a> |
+                <a href="politica-cookies.html">Política de Cookies</a>
             </nav>
         </div>
     </footer>

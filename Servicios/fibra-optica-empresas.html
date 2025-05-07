@@ -79,13 +79,17 @@
     <!-- === Encabezado del Sitio === -->
     <header class="site-header">
         <div class="container header-content">
+            <!-- Logo SATEKOR -->
             <a href="/" class="logo">
-                <img src="../Assets/Imagenes/logoB.png" alt="Logo SATEKOR Telecomunicaciones Almería">
+                <img src="Assets/Imagenes/logoB.png" alt="Logo SATEKOR Telecomunicaciones Almería">
             </a>
+            <!-- Botón Hamburguesa -->
             <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
                 <span class="hamburger"></span>
             </button>
-            <nav id="main-nav" class="main-nav" aria-label="Navegación principal">
+
+             <!-- === Navegación Principal con Desplegable === -->
+             <nav id="main-nav" class="main-nav" aria-label="Navegación principal">
                 <ul>
                     <!-- Enlace a Inicio (index.html en la raíz) -->
                     <li><a href="index.html">Inicio</a></li> <!-- O puedes usar "." si esta nav SÓLO está en index.html -->
@@ -107,6 +111,17 @@
                             <li><a href="Servicios/internet-rural.html">Internet Rural Empresas</a></li>
                         </ul>
                     </li>
+                    <!-- Fin Elemento de Menú Desplegable -->
+            
+                    <!-- Si las secciones #clientes y #faq están en tu index.html principal -->
+                    <li><a href="index.html#clientes">Clientes</a></li>
+                    <li><a href="index.html#faq">FAQ</a></li>
+                    <li><a href="Blog/">Blog</a></li> <!-- Funciona si 'Blog' es una carpeta en la raíz -->
+                    <li><a href="contacto.html" class="nav-cta-button">Contacto</a></li> <!-- Funciona si 'contacto.html' está en la raíz -->
+                </ul>
+            </nav>
+            <!-- === FIN Navegación Principal === -->
+
         </div>
     </header>
 
@@ -137,7 +152,7 @@
                 <div class="hero-text-content">
                     <h1>Fibra Óptica Ultrarrápida para Empresas en Almería</h1>
                     <p class="subtitle">Impulse la productividad y competitividad de su negocio con conexiones de internet por fibra óptica fiables, veloces y escalables, instaladas por los expertos de SATEKOR.</p>
-                    <a href="/contacto.html?servicio=fibra-optica" class="btn btn-primary">Consultar Cobertura y Tarifas</a>
+                    <a href="contacto.html?servicio=fibra-optica" class="btn btn-primary">Consultar Cobertura y Tarifas</a>
                 </div>
             </div>
         </section>
@@ -249,7 +264,7 @@
                              <ul>
                                  <li><strong>Monitorización Proactiva:</strong> Supervisión constante para detectar posibles incidencias.</li>
                                  <li><strong>Asistencia Técnica Rápida:</strong> Nuestro equipo en Almería para resolver averías.</li>
-                                 <li><strong><a href="/Servicios/mantenimiento-redes.html">Planes de Mantenimiento:</a></strong> Revisiones periódicas preventivas.</li>
+                                 <li><strong><a href="Servicios/mantenimiento-redes.html">Planes de Mantenimiento:</a></strong> Revisiones periódicas preventivas.</li>
                                  <li><strong>Actualizaciones y Mejoras:</strong> Mantenemos su red al día con los últimos avances.</li>
                              </ul>
                         </div>
@@ -359,7 +374,7 @@
             <div class="container">
                 <h2 class="section-title" style="color: var(--color-primary);">Conecte su Empresa a la Máxima Velocidad en Almería</h2>
                 <p class="subtitle" style="color: var(--color-text-primary);">Solicite un estudio de cobertura gratuito y descubra cómo la fibra óptica de SATEKOR puede impulsar su negocio.</p>
-                <a href="/contacto.html?servicio=fibra-optica" class="btn btn-primary btn-large">Solicitar Estudio Gratuito</a>
+                <a href="contacto.html?servicio=fibra-optica" class="btn btn-primary btn-large">Solicitar Estudio Gratuito</a>
                 <p><a href="tel:+34642531300">O llámenos al <strong>642 53 13 00</strong></a></p>
             </div>
         </section>
@@ -372,23 +387,23 @@
                      <!-- Tarjeta Infraestructura -->
                      <article class="service-card related-card">
                         <i class="fas fa-server service-icon" aria-hidden="true"></i>
-                        <h3><a href="/Servicios/infraestructura-telecom.html">Infraestructura Crítica</a></h3>
+                        <h3><a href="Servicios/infraestructura-telecom.html">Infraestructura Crítica</a></h3>
                         <p>Asegure que su cableado interno, racks y red local estén a la altura de su conexión de fibra óptica.</p>
-                        <a href="/Servicios/infraestructura-telecom.html" class="btn btn-small btn-secondary">Ver Infraestructura</a>
+                        <a href="Servicios/infraestructura-telecom.html" class="btn btn-small btn-secondary">Ver Infraestructura</a>
                     </article>
                      <!-- Tarjeta Mantenimiento -->
                     <article class="service-card related-card">
                         <i class="fas fa-tools service-icon" aria-hidden="true"></i>
-                        <h3><a href="/Servicios/mantenimiento-redes.html">Mantenimiento y Soporte</a></h3>
+                        <h3><a href="Servicios/mantenimiento-redes.html">Mantenimiento y Soporte</a></h3>
                         <p>Mantenga su conexión de fibra y toda su red empresarial funcionando sin interrupciones.</p>
-                        <a href="/Servicios/mantenimiento-redes.html" class="btn btn-small btn-secondary">Ver Mantenimiento</a>
+                        <a href="Servicios/mantenimiento-redes.html" class="btn btn-small btn-secondary">Ver Mantenimiento</a>
                     </article>
                     <!-- Tarjeta Internet Rural -->
                     <article class="service-card related-card">
                         <i class="fas fa-satellite-dish service-icon" aria-hidden="true"></i>
-                        <h3><a href="/Servicios/internet-rural.html">Internet Rural</a></h3>
+                        <h3><a href="Servicios/internet-rural.html">Internet Rural</a></h3>
                         <p>Si la fibra no llega, exploramos las mejores alternativas de alta velocidad para su ubicación.</p>
-                        <a href="/Servicios/internet-rural.html" class="btn btn-small btn-secondary">Ver Internet Rural</a>
+                        <a href="Servicios/internet-rural.html" class="btn btn-small btn-secondary">Ver Internet Rural</a>
                     </article>
                 </div>
             </div>
@@ -407,9 +422,9 @@
          <div class="container footer-content">
             <p>© <span id="current-year"></span> SATEKOR Telecomunicaciones. Todos los derechos reservados.</p>
             <nav class="footer-nav" aria-label="Navegación secundaria">
-                <a href="/politica-privacidad.html">Política de Privacidad</a>
-                <a href="/terminos-uso.html">Términos de Uso</a>
-                <a href="/politica-cookies.html">Política de Cookies</a>
+                <a href="politica-privacidad.html">Política de Privacidad</a>
+                <a href="terminos-uso.html">Términos de Uso</a>
+                <a href="politica-cookies.html">Política de Cookies</a>
             </nav>
         </div>
     </footer>

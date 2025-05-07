@@ -75,13 +75,17 @@
 
     <header class="site-header">
         <div class="container header-content">
+            <!-- Logo SATEKOR -->
             <a href="/" class="logo">
-                <img src="../Assets/Imagenes/logoB.png" alt="Logo SATEKOR Telecomunicaciones Almería">
+                <img src="Assets/Imagenes/logoB.png" alt="Logo SATEKOR Telecomunicaciones Almería">
             </a>
+            <!-- Botón Hamburguesa -->
             <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
                 <span class="hamburger"></span>
             </button>
-            <nav id="main-nav" class="main-nav" aria-label="Navegación principal">
+
+             <!-- === Navegación Principal con Desplegable === -->
+             <nav id="main-nav" class="main-nav" aria-label="Navegación principal">
                 <ul>
                     <!-- Enlace a Inicio (index.html en la raíz) -->
                     <li><a href="index.html">Inicio</a></li> <!-- O puedes usar "." si esta nav SÓLO está en index.html -->
@@ -103,9 +107,20 @@
                             <li><a href="Servicios/internet-rural.html">Internet Rural Empresas</a></li>
                         </ul>
                     </li>
+                    <!-- Fin Elemento de Menú Desplegable -->
+            
+                    <!-- Si las secciones #clientes y #faq están en tu index.html principal -->
+                    <li><a href="index.html#clientes">Clientes</a></li>
+                    <li><a href="index.html#faq">FAQ</a></li>
+                    <li><a href="Blog/">Blog</a></li> <!-- Funciona si 'Blog' es una carpeta en la raíz -->
+                    <li><a href="contacto.html" class="nav-cta-button">Contacto</a></li> <!-- Funciona si 'contacto.html' está en la raíz -->
+                </ul>
+            </nav>
+            <!-- === FIN Navegación Principal === -->
+
         </div>
     </header>
-
+    
     <main>
         <section class="hero service-hero">
             <div class="container hero-content">
@@ -131,7 +146,7 @@
                 <div class="hero-text-content">
                     <h1>Infraestructura de Red Robusta y Escalable en Almería</h1>
                     <p class="subtitle">SATEKOR construye la base sólida para sus comunicaciones empresariales: cableado estructurado de alto rendimiento, racks organizados y CPDs eficientes en Almería.</p>
-                    <a href="/contacto.html?servicio=infraestructura" class="btn btn-primary">Evaluar Mi Infraestructura</a>
+                    <a href="contacto.html?servicio=infraestructura" class="btn btn-primary">Evaluar Mi Infraestructura</a>
                 </div>
             </div>
         </section>
@@ -338,7 +353,7 @@
             <div class="container">
                 <h2 class="section-title" style="color: var(--color-primary);">Construya la Base Tecnológica de su Empresa en Almería</h2>
                 <p class="subtitle" style="color: var(--color-text-primary);">Invierta en una infraestructura de telecomunicaciones profesional con SATEKOR y asegure el futuro digital de su negocio.</p>
-                <a href="/contacto.html?servicio=infraestructura" class="btn btn-primary btn-large">Solicitar Auditoría de Red</a>
+                <a href="contacto.html?servicio=infraestructura" class="btn btn-primary btn-large">Solicitar Auditoría de Red</a>
                 <p><a href="tel:+34642531300">O llámenos al <strong>642 53 13 00</strong></a></p>
             </div>
         </section>
@@ -349,21 +364,21 @@
                 <div class="service-grid">
                      <article class="service-card related-card">
                         <i class="fas fa-wifi service-icon" aria-hidden="true"></i>
-                        <h3><a href="/Servicios/fibra-optica-empresas.html">Fibra Óptica Empresas</a></h3>
+                        <h3><a href="Servicios/fibra-optica-empresas.html">Fibra Óptica Empresas</a></h3>
                         <p>Conecte su infraestructura a la máxima velocidad con nuestras soluciones de fibra óptica.</p>
-                        <a href="/Servicios/fibra-optica-empresas.html" class="btn btn-small btn-secondary">Ver Fibra Óptica</a>
+                        <a href="Servicios/fibra-optica-empresas.html" class="btn btn-small btn-secondary">Ver Fibra Óptica</a>
                     </article>
                     <article class="service-card related-card">
                         <i class="fas fa-tools service-icon" aria-hidden="true"></i>
-                        <h3><a href="/Servicios/mantenimiento-redes.html">Mantenimiento de Redes</a></h3>
+                        <h3><a href="Servicios/mantenimiento-redes.html">Mantenimiento de Redes</a></h3>
                         <p>Mantenga su infraestructura y todos sus sistemas en perfecto estado con nuestro soporte experto.</p>
-                        <a href="/Servicios/mantenimiento-redes.html" class="btn btn-small btn-secondary">Ver Mantenimiento</a>
+                        <a href="Servicios/mantenimiento-redes.html" class="btn btn-small btn-secondary">Ver Mantenimiento</a>
                     </article>
                     <article class="service-card related-card">
                         <i class="fas fa-video service-icon" aria-hidden="true"></i>
-                        <h3><a href="/Servicios/videovigilancia-empresas.html">Videovigilancia IP</a></h3>
+                        <h3><a href="Servicios/videovigilancia-empresas.html">Videovigilancia IP</a></h3>
                         <p>Aproveche su infraestructura de red para implementar sistemas de seguridad avanzados.</p>
-                        <a href="/Servicios/videovigilancia-empresas.html" class="btn btn-small btn-secondary">Ver Videovigilancia</a>
+                        <a href="Servicios/videovigilancia-empresas.html" class="btn btn-small btn-secondary">Ver Videovigilancia</a>
                     </article>
                 </div>
             </div>
@@ -379,9 +394,9 @@
          <div class="container footer-content">
             <p>© <span id="current-year"></span> SATEKOR Telecomunicaciones. Todos los derechos reservados.</p>
             <nav class="footer-nav" aria-label="Navegación secundaria">
-                <a href="/politica-privacidad.html">Política de Privacidad</a> |
-                <a href="/terminos-uso.html">Términos de Uso</a> |
-                <a href="/politica-cookies.html">Política de Cookies</a>
+                <a href="politica-privacidad.html">Política de Privacidad</a> |
+                <a href="terminos-uso.html">Términos de Uso</a> |
+                <a href="politica-cookies.html">Política de Cookies</a>
             </nav>
         </div>
     </footer>
