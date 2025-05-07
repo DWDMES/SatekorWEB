@@ -83,26 +83,26 @@
             </button>
             <nav id="main-nav" class="main-nav" aria-label="Navegación principal">
                 <ul>
-                    <li><a href="/">Inicio</a></li>
+                    <!-- Enlace a Inicio (index.html en la raíz) -->
+                    <li><a href="index.html">Inicio</a></li> <!-- O puedes usar "." si esta nav SÓLO está en index.html -->
+            
+                    <!-- Elemento de Menú con Desplegable para Servicios -->
                     <li class="has-dropdown dropdown-servicios">
-                        <a href="/#servicios" aria-haspopup="true" aria-expanded="false">
+                        <!-- Si la sección #servicios está en tu index.html principal -->
+                        <a href="index.html#servicios" aria-haspopup="true" aria-expanded="false">
                             Servicios <i class="fas fa-chevron-down fa-xs nav-arrow"></i>
                         </a>
                         <ul class="dropdown-menu" aria-label="Submenú de servicios">
-                            <li><a href="/Servicios/videovigilancia-empresas.html">Videovigilancia Empresas</a></li>
-                            <li><a href="/Servicios/fibra-optica-empresas.html">Fibra Óptica Empresas</a></li>
-                            <li><a href="/Servicios/infraestructura-telecom.html">Infraestructura Crítica</a></li>
-                            <li><a href="/Servicios/mantenimiento-redes.html" aria-current="page">Mantenimiento Urgente</a></li>
-                            <li><a href="/Servicios/soluciones-iot.html">Automatización / IoT</a></li>
-                            <li><a href="/Servicios/internet-rural.html">Internet Rural Empresas</a></li>
+                            <!-- Estas rutas son relativas a la raíz del sitio.
+                                 Funcionarán si la página actual está en la raíz. -->
+                            <li><a href="Servicios/videovigilancia-empresas.html">Videovigilancia Empresas</a></li>
+                            <li><a href="Servicios/fibra-optica-empresas.html">Fibra Óptica Empresas</a></li>
+                            <li><a href="Servicios/infraestructura-telecom.html">Infraestructura Crítica</a></li>
+                            <li><a href="Servicios/mantenimiento-redes.html">Mantenimiento Urgente</a></li>
+                            <li><a href="Servicios/soluciones-iot.html">Automatización / IoT</a></li>
+                            <li><a href="Servicios/internet-rural.html">Internet Rural Empresas</a></li>
                         </ul>
                     </li>
-                    <li><a href="/#clientes">Clientes</a></li>
-                    <li><a href="/#faq">FAQ</a></li>
-                    <li><a href="/Blog/">Blog</a></li>
-                    <li><a href="/contacto.html" class="nav-cta-button">Contacto</a></li>
-                </ul>
-            </nav>
         </div>
     </header>
 
