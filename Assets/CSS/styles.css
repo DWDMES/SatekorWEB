@@ -590,8 +590,7 @@ textarea:focus:not(:focus-visible) {
 /* ==========================================================================
    7. SECCIÓN HERO
    ========================================================================== */
-/* ... (Sección Hero sin cambios) ... */
-.hero {
+   .hero {
     background-color: var(--color-background);
     padding: clamp(5rem, 15vh, 8rem) 0;
     text-align: center;
@@ -600,28 +599,30 @@ textarea:focus:not(:focus-visible) {
     align-items: center;
     justify-content: center;
     color: var(--color-text-primary);
-    overflow: hidden;
+    overflow: hidden; /* Mantenemos el overflow hidden aquí */
     position: relative;
 }
-.hero-content {
+
+.hero-content { /* El contenedor dentro de .container */
     position: relative;
     text-align: center;
     width: 100%;
+    z-index: 2; /* Aseguramos que esté por encima del data-stream-container */
 }
+
+/* Estilo para el contenedor del texto y botón del hero */
 .hero-text-content {
-    position: relative;
-    z-index: 3;
-    background-color: var(--color-background);
-    padding: 1.5rem; /* Mantenemos el padding para el espacio interno */
-    text-align: center; /* Mantenemos la alineación del texto */
-    width: 100%; /* ¡NUEVO! Para que ocupe todo el ancho disponible dentro de .hero-content */
-    box-sizing: border-box; /* ¡NUEVO Y CRUCIAL! Para que el 'padding' se reste del 'width: 100%' en lugar de sumarse */
-    /* Los opcionales pueden quedarse si los quieres */
-    /* Opcional: border-radius: var(--border-radius); */
-    /* Opcional: box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15); */
+    position: relative; 
+    background-color: transparent; /* VOLVEMOS A TRANSPARENTE para ver el data-stream */
+    padding: 0; /* ELIMINAMOS EL PADDING AQUÍ, se manejará en los hijos */
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
 }
-.hero h1 {
-    font-size: clamp(2.0rem, 6vw, 3.5rem);
+
+/* Estilo para el H1 dentro del hero */
+.hero-text-content h1 { /* Nota: Cambiado de '.hero h1' a '.hero-text-content h1' para mayor especificidad y para aplicar el fondo solo aquí */
+    font-size: clamp(1.7rem, 6vw, 3.5rem); /* AJUSTADO el mínimo a 1.7rem o el valor que necesites */
     font-weight: 700;
     margin-bottom: 1.2rem;
     line-height: var(--line-height-heading);
@@ -630,14 +631,33 @@ textarea:focus:not(:focus-visible) {
     background-clip: text;
     color: transparent;
     -webkit-text-fill-color: transparent;
+    
+    /* Nuevas propiedades para el fondo individual del H1 */
+    padding: 0.5rem 1rem; 
+    background-color: var(--color-background); /* Fondo sólido SÓLO para el H1 */
+    border-radius: calc(var(--border-radius) * 0.5); 
+    display: inline-block; 
+    max-width: 100%; 
+    box-sizing: border-box; 
 }
-.hero .subtitle {
-    font-size: clamp(1.1rem, 3.5vw, 1.35rem);
-    color: var(--color-text-primary);
-    max-width: 800px;
+
+/* Estilo para el subtítulo dentro del hero */
+.hero-text-content .subtitle { /* Usamos .hero-text-content .subtitle para más especificidad */
+    font-size: clamp(1.0rem, 3.5vw, 1.35rem); 
+    color: var(--color-text-primary); /* Asegúrate que el color sea el correcto para el texto sobre fondo oscuro */
+    max-width: 90%; 
     margin: 0 auto 2.8rem auto;
     line-height: 1.7;
+
+    /* Nuevas propiedades para el fondo individual del subtítulo */
+    padding: 0.75rem 1.25rem; 
+    background-color: var(--color-background); /* Fondo sólido SÓLO para el subtítulo */
+    border-radius: calc(var(--border-radius) * 0.5); 
+    display: inline-block; 
+    box-sizing: border-box;
 }
+
+/* El data-stream-container (sin cambios respecto a tu original, solo aseguramos su z-index) */
 .data-stream-container {
     position: absolute;
     top: 0;
@@ -645,7 +665,7 @@ textarea:focus:not(:focus-visible) {
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: 1;
+    z-index: 1; /* Detrás de .hero-content */
     overflow: hidden;
     -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
     mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
@@ -670,6 +690,7 @@ textarea:focus:not(:focus-visible) {
     animation-timing-function: linear;
     animation-iteration-count: infinite;
 }
+/* Keyframes y estilos de los 'li' del data-stream (estos no necesitan cambio) */
 @keyframes fileNameFlow {
     0% { transform: translateX(-300px); opacity: 0; }
     15% { opacity: .4; }
