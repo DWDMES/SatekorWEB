@@ -77,51 +77,52 @@
     <header class="site-header">
         <div class="container header-content">
             <!-- Logo SATEKOR -->
-            <a href="/" class="logo">
-                <img src="Assets/Imagenes/logoB.png" alt="Logo SATEKOR Telecomunicaciones Almería">
+            <!-- La ruta ahora sube un nivel para encontrar Assets -->
+            <a href="../index.html" class="logo">
+                <img src="../Assets/Imagenes/logoB.png" alt="Logo SATEKOR Telecomunicaciones Almería">
             </a>
             <!-- Botón Hamburguesa -->
             <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
                 <span class="hamburger"></span>
             </button>
-
+    
              <!-- === Navegación Principal con Desplegable === -->
              <nav id="main-nav" class="main-nav" aria-label="Navegación principal">
                 <ul>
-                    <!-- Enlace a Inicio (index.html en la raíz) -->
-                    <li><a href="index.html">Inicio</a></li> <!-- O puedes usar "." si esta nav SÓLO está en index.html -->
+                    <!-- Enlace a Inicio (sube un nivel para encontrar index.html en la raíz) -->
+                    <li><a href="../index.html">Inicio</a></li>
             
                     <!-- Elemento de Menú con Desplegable para Servicios -->
                     <li class="has-dropdown dropdown-servicios">
-                        <!-- Si la sección #servicios está en tu index.html principal -->
-                        <a href="index.html#servicios" aria-haspopup="true" aria-expanded="false">
+                        <!-- El enlace principal a la sección #servicios en index.html (sube un nivel) -->
+                        <a href="../index.html#servicios" aria-haspopup="true" aria-expanded="false">
                             Servicios <i class="fas fa-chevron-down fa-xs nav-arrow"></i>
                         </a>
                         <ul class="dropdown-menu" aria-label="Submenú de servicios">
-                            <!-- Estas rutas son relativas a la raíz del sitio.
-                                 Funcionarán si la página actual está en la raíz. -->
-                            <li><a href="Servicios/videovigilancia-empresas.html">Videovigilancia Empresas</a></li>
-                            <li><a href="Servicios/fibra-optica-empresas.html">Fibra Óptica Empresas</a></li>
-                            <li><a href="Servicios/infraestructura-telecom.html">Infraestructura Crítica</a></li>
-                            <li><a href="Servicios/mantenimiento-redes.html">Mantenimiento Urgente</a></li>
-                            <li><a href="Servicios/soluciones-iot.html">Automatización / IoT</a></li>
-                            <li><a href="Servicios/internet-rural.html">Internet Rural Empresas</a></li>
+                            <!-- Estas rutas son relativas A LA CARPETA ACTUAL (Servicios/).
+                                 Por lo tanto, no necesitan 'Servicios/' delante. -->
+                            <li><a href="videovigilancia-empresas.html">Videovigilancia Empresas</a></li>
+                            <li><a href="fibra-optica-empresas.html">Fibra Óptica Empresas</a></li>
+                            <li><a href="infraestructura-telecom.html">Infraestructura Crítica</a></li>
+                            <li><a href="mantenimiento-redes.html">Mantenimiento Urgente</a></li>
+                            <li><a href="soluciones-iot.html">Automatización / IoT</a></li>
+                            <li><a href="internet-rural.html">Internet Rural Empresas</a></li>
                         </ul>
                     </li>
                     <!-- Fin Elemento de Menú Desplegable -->
             
-                    <!-- Si las secciones #clientes y #faq están en tu index.html principal -->
-                    <li><a href="index.html#clientes">Clientes</a></li>
-                    <li><a href="index.html#faq">FAQ</a></li>
-                    <li><a href="Blog/">Blog</a></li> <!-- Funciona si 'Blog' es una carpeta en la raíz -->
-                    <li><a href="contacto.html" class="nav-cta-button">Contacto</a></li> <!-- Funciona si 'contacto.html' está en la raíz -->
+                    <!-- Enlaces a secciones en index.html (suben un nivel) -->
+                    <li><a href="../index.html#clientes">Clientes</a></li>
+                    <li><a href="../index.html#faq">FAQ</a></li>
+                    <!-- Enlace a la carpeta Blog (sube un nivel para encontrar la carpeta Blog) -->
+                    <li><a href="../Blog/">Blog</a></li>
+                    <!-- Enlace a contacto.html (sube un nivel para encontrar contacto.html en la raíz) -->
+                    <li><a href="../contacto.html" class="nav-cta-button">Contacto</a></li>
                 </ul>
             </nav>
             <!-- === FIN Navegación Principal === -->
-
         </div>
     </header>
-
     <main>
         <section class="hero service-hero">
             <div class="container hero-content">
