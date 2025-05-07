@@ -60,10 +60,11 @@
     --header-height: 75px;
     --logo-max-width-mobile: 140px;
     --logo-max-width-desktop: 160px;
-    --header-padding-inline: 1.5rem;
-    --section-padding-mobile: 4rem;
+    --header-padding-inline: 1.5rem; /* Padding lateral del header */
+    --container-padding-inline: 1rem; /* Padding lateral del .container */
+    --section-padding-mobile: 3.5rem; /* Reducido ligeramente para móviles */
     --section-padding-desktop: 6rem;
-    --grid-gap: 2rem;
+    --grid-gap: 1.5rem; /* Gap reducido para móviles, se aumenta en desktop */
 
     /* --- Específico Menú Móvil --- */
     --menu-toggle-size: 60px;
@@ -104,7 +105,7 @@
 html {
     scroll-behavior: smooth;
     font-size: var(--base-font-size);
-    scroll-padding-top: calc(var(--header-height) + 1rem);
+    scroll-padding-top: calc(var(--header-height) + 1rem); /* Espacio para el header fijo al hacer scroll a un ancla */
 }
 
 body {
@@ -115,14 +116,14 @@ body {
     font-size: 1rem;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden;
-    padding-bottom: 0;
+    overflow-x: hidden; /* Previene scroll horizontal accidental */
+    padding-bottom: 0; /* El padding para botones flotantes se maneja en media query móvil */
     background-image: linear-gradient(rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.98)), url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%231E293B' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='M0 60L60 0H30L0 30M60 60V30L30 60'/%3E%3C/g%3E%3C/svg%3E");
     background-size: auto, 60px 60px;
     background-attachment: fixed;
 }
 
-body.no-scroll {
+body.no-scroll { /* Para cuando el menú móvil está abierto */
     overflow: hidden;
 }
 
@@ -144,6 +145,13 @@ a:hover, a:focus {
     outline: none;
 }
 
+img { /* Imágenes responsivas por defecto */
+    max-width: 100%;
+    height: auto;
+    display: block; /* Elimina espacio extra debajo de la imagen */
+}
+
+/* Estilos de foco visibles para accesibilidad */
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
@@ -153,6 +161,7 @@ textarea:focus-visible {
     outline-offset: 2px;
     border-radius: 3px;
 }
+/* Quita el outline si el foco no es "visible" (ej. solo por clic de ratón en algunos navegadores) */
 a:focus:not(:focus-visible),
 button:focus:not(:focus-visible),
 input:focus:not(:focus-visible),
@@ -169,8 +178,8 @@ textarea:focus:not(:focus-visible) {
     max-width: var(--container-width);
     margin-left: auto;
     margin-right: auto;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: var(--container-padding-inline);
+    padding-right: var(--container-padding-inline);
 }
 
 .section-padding {
@@ -179,7 +188,7 @@ textarea:focus:not(:focus-visible) {
 }
 
 .section-title {
-    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    font-size: clamp(1.6rem, 5vw, 2.5rem); /* Mínimo reducido para móviles */
     font-weight: 600;
     text-align: center;
     margin-bottom: 2.5rem;
@@ -189,11 +198,11 @@ textarea:focus:not(:focus-visible) {
     letter-spacing: 0.5px;
 }
 
-.subtitle { /* Este es un subtítulo genérico, el de hero tiene su propio estilo en Sección 7 */
-    font-size: clamp(1rem, 3vw, 1.15rem);
+.subtitle { /* Subtítulo genérico */
+    font-size: clamp(0.95rem, 3vw, 1.15rem); /* Mínimo reducido */
     color: var(--color-text-secondary);
     max-width: 700px;
-    margin: 0 auto 3rem auto;
+    margin: 0 auto 2.5rem auto; /* Margen inferior reducido */
     text-align: center;
     font-weight: 300;
     letter-spacing: 0.3px;
@@ -203,26 +212,27 @@ textarea:focus:not(:focus-visible) {
 /* ==========================================================================
    3.1 BOTONES (Estilos Base y Variantes)
    ========================================================================== */
-.btn {
+   .btn {
     display: inline-block;
-    padding: 0.8rem 2rem;
+    padding: 0.7rem 1.5rem;
     border: 1px solid transparent;
     border-radius: var(--border-radius);
     font-family: inherit;
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 600;
-    /* text-decoration y color son manejados por la regla global más abajo */
     cursor: pointer;
     transition: background-color var(--transition-speed) ease,
                 transform var(--transition-speed) ease,
                 box-shadow var(--transition-speed) ease,
                 border-color var(--transition-speed) ease,
-                color var(--transition-speed) ease; /* Transición de color puede mantenerse */
+                color var(--transition-speed) ease;
     text-align: center;
-    min-height: 48px;
+    min-height: 44px;
     line-height: 1.4;
+    /* color y text-decoration son manejados por la regla global más abajo */
 }
 
+/* --- Botón Primario (Verde oscuro -> Verde claro) --- */
 .btn-primary,
 a.btn-primary:visited {
     background-color: var(--color-primary-darker);
@@ -238,56 +248,61 @@ a.btn-primary:focus {
     box-shadow: 0 6px 16px var(--color-shadow-light);
 }
 
+/* --- Botón Secundario (AHORA: Verde oscuro -> Verde claro) --- */
 .btn-secondary,
 a.btn-secondary:visited {
-    background-color: transparent;
-    border: 1px solid var(--color-border);
+    background-color: var(--color-primary-darker); /* CAMBIO: Antes transparent */
+    border-color: var(--color-primary-darker);     /* CAMBIO: Antes color-border */
+    /* color es manejado por la regla global */
 }
 .btn-secondary:hover,
 .btn-secondary:focus {
-    background-color: var(--color-surface-light);
-    border-color: var(--color-text-secondary);
+    background-color: var(--color-primary);     /* CAMBIO: Antes surface-light */
+    border-color: var(--color-primary);         /* CAMBIO: Antes text-secondary */
     transform: translateY(-2px);
+    /* Opcional: añadir sombra en hover si se desea */
+    /* box-shadow: 0 4px 10px var(--color-shadow-light); */
 }
 
-.btn-small { /* Hereda de .btn, solo ajusta padding y font-size */
-    padding: 0.6rem 1.2rem;
-    font-size: 0.9rem;
+/* --- Botón Pequeño (Ajusta tamaño) --- */
+.btn-small {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
     min-height: auto;
-    line-height: 1.3;
 }
 
-/* Botones dentro de las tarjetas de servicio (Sección 8) */
+/* --- Botones dentro de las tarjetas de servicio (Verde claro -> Verde oscuro) --- */
 .service-card .btn,
-.service-card a.btn:visited {
-    background-color: var(--color-primary);
+.service-card a.btn:visited { /* Usan .btn o .btn-small + estos estilos */
+    background-color: var(--color-primary); /* Fondo verde claro por defecto */
     border-color: var(--color-primary);
     box-shadow: none;
-    font-weight: 600; /* Ya estaba en .btn, pero se puede reforzar */
-    margin-top: auto; /* Específico para el layout de la tarjeta */
+    margin-top: auto;
 }
 
 .service-card .btn:hover,
 .service-card a.btn:focus {
-    background-color: var(--color-primary-darker);
+    background-color: var(--color-primary-darker); /* Verde oscuro en hover */
     border-color: var(--color-primary-darker);
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(0, 255, 170, 0.2);
     outline: none;
 }
 
-/* Botón "Leer Más" en las tarjetas del blog (Sección 13.5) */
+/* --- Botón "Leer Más" del blog (AHORA: Verde oscuro -> Verde claro) --- */
 .read-more-btn,
-a.read-more-btn:visited {
-    background-color: transparent;
-    border: 1px solid var(--color-button-text); /* Borde que coincida con el texto del botón */
+a.read-more-btn:visited { /* Usan .btn o .btn-small + estos estilos */
+    background-color: var(--color-primary-darker); /* CAMBIO: Antes transparent */
+    border-color: var(--color-primary-darker);     /* CAMBIO: Antes color-button-text */
     margin-top: auto;
     align-self: flex-start;
+    /* Aplicar padding si no usa .btn-small explícitamente */
+    /* padding: 0.5rem 1rem; */ /* Descomentar si es necesario */
 }
 .read-more-btn:hover,
 .read-more-btn:focus {
-    background-color: var(--color-primary);
-    border-color: var(--color-primary); /* Borde coincide con fondo en hover */
+    background-color: var(--color-primary);     /* Ya era verde claro */
+    border-color: var(--color-primary);         /* Ya era verde claro */
     transform: translateY(-2px);
     outline: none;
 }
@@ -295,6 +310,7 @@ a.read-more-btn:visited {
 /* ==========================================================================
    3.1.1 REGLA GLOBAL COLOR TEXTO BOTONES
    ========================================================================== */
+/* Asegura que el texto de todos los botones listados sea siempre azul oscuro */
 .btn, 
 a.btn:link, a.btn:visited, a.btn:hover, a.btn:focus, a.btn:active,
 .btn-primary, 
@@ -309,20 +325,19 @@ a.btn-small:link, a.btn-small:visited, a.btn-small:hover, a.btn-small:focus, a.b
 .main-nav a.nav-cta-button:link, .main-nav a.nav-cta-button:visited, .main-nav a.nav-cta-button:hover, .main-nav a.nav-cta-button:focus, .main-nav a.nav-cta-button:active,
 .read-more-btn, 
 a.read-more-btn:link, a.read-more-btn:visited, a.read-more-btn:hover, a.read-more-btn:focus, a.read-more-btn:active,
-.contact-form button[type="submit"] /* Botón submit del form (si tiene clase .btn, ya está cubierto) */
+.contact-form button[type="submit"]
 {
-    color: var(--color-button-text) !important;
+    color: var(--color-button-text) !important; /* Texto siempre azul oscuro */
     text-decoration: none !important; 
 }
 
-/* Para el botón de submit del formulario si NO tiene la clase .btn y necesita forzar color */
+/* Regla adicional por si el botón de submit no tiene clase .btn */
 .contact-form button[type="submit"]:not(.btn) {
     color: var(--color-button-text) !important;
 }
 .contact-form button[type="submit"]:not(.btn):hover,
 .contact-form button[type="submit"]:not(.btn):focus {
     color: var(--color-button-text) !important;
-    /* Aquí se mantendrían los estilos de background-color específicos del submit en hover/focus */
 }
 
 /* ==========================================================================
@@ -341,7 +356,7 @@ a.read-more-btn:link, a.read-more-btn:visited, a.read-more-btn:hover, a.read-mor
 }
 
 .header-content {
-    position: relative;
+    position: relative; /* Para el logo en móvil */
     height: 100%;
     display: flex;
     align-items: center;
@@ -350,19 +365,17 @@ a.read-more-btn:link, a.read-more-btn:visited, a.read-more-btn:hover, a.read-mor
 }
 
 .logo {
-    position: absolute;
+    position: absolute; /* Centrado en móvil */
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    z-index: 1001;
+    z-index: 1001; /* Por encima de otros elementos del header en móvil */
     max-width: var(--logo-max-width-mobile);
     display: block;
 }
-.logo img {
-    display: block;
-    height: auto;
-    max-height: calc(var(--header-height) - 30px);
-    width: 100%;
+.logo img { /* max-width y height: auto ya son globales para img */
+    max-height: calc(var(--header-height) - 30px); /* Limita altura en header */
+    width: 100%; /* Para que use el max-width del contenedor .logo */
 }
 
 .menu-toggle {
@@ -379,7 +392,7 @@ a.read-more-btn:link, a.read-more-btn:visited, a.read-more-btn:hover, a.read-mor
     border: none;
     box-shadow: 0 6px 18px var(--color-shadow-light);
     cursor: pointer;
-    z-index: 1200;
+    z-index: 1200; /* Muy alto para estar sobre todo */
     pointer-events: auto;
     transition: transform var(--transition-speed) ease,
                 background-color var(--transition-speed) ease,
@@ -419,15 +432,15 @@ a.read-more-btn:link, a.read-more-btn:visited, a.read-more-btn:hover, a.read-mor
     box-shadow: 0 4px 12px var(--color-shadow-dark);
 }
 .menu-toggle.active .hamburger {
-    background-color: transparent;
+    background-color: transparent; /* Barra central desaparece */
 }
 .menu-toggle.active .hamburger::before {
     transform: translateY(8px) rotate(45deg);
-    background-color: var(--color-primary);
+    background-color: var(--color-primary); /* Color de la X */
 }
 .menu-toggle.active .hamburger::after {
     transform: translateY(-8px) rotate(-45deg);
-    background-color: var(--color-primary);
+    background-color: var(--color-primary); /* Color de la X */
 }
 
 /* ==========================================================================
@@ -444,18 +457,18 @@ a.read-more-btn:link, a.read-more-btn:visited, a.read-more-btn:hover, a.read-mor
     border-top-left-radius: var(--border-radius);
     border-top-right-radius: var(--border-radius);
     box-shadow: 0 -8px 20px var(--color-shadow-dark);
-    z-index: 1050;
+    z-index: 1050; /* Debajo del menu-toggle pero encima del contenido */
     max-height: var(--mobile-menu-max-height);
     overflow-y: auto;
     padding: 1.5rem 0;
-    transform: translateY(100%);
+    transform: translateY(100%); /* Oculto por defecto */
     transition: transform var(--transition-speed) ease-in-out,
                 visibility var(--transition-speed) ease-in-out;
     visibility: hidden;
     pointer-events: none;
 }
 .main-nav.active {
-    transform: translateY(0);
+    transform: translateY(0); /* Visible */
     visibility: visible;
     pointer-events: auto;
 }
@@ -469,39 +482,39 @@ a.read-more-btn:link, a.read-more-btn:visited, a.read-more-btn:hover, a.read-mor
 .main-nav > ul {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
+    align-items: center; /* Centra los items de la lista */
+    gap: 0.5rem; /* Espacio entre items */
 }
 
 .main-nav li {
-    position: relative;
+    position: relative; /* Para posicionar submenús si es necesario */
     list-style: none;
 }
 .main-nav > ul > li {
-    width: 100%;
+    width: 100%; /* Items ocupan todo el ancho en móvil */
     text-align: center;
 }
 
-.main-nav a { /* Estilos generales para enlaces de nav, el botón CTA tendrá los suyos */
+.main-nav a {
     text-decoration: none;
     transition: background-color var(--transition-speed-fast) ease,
                 color var(--transition-speed-fast) ease;
     font-weight: 500;
 }
 
-.main-nav > ul > li > a { /* Enlaces de primer nivel en móvil */
+.main-nav > ul > li > a {
     display: block;
     padding: 1.2rem 1.5rem;
     width: 100%;
-    color: var(--color-text-primary); /* Texto blanco para enlaces normales de nav */
+    color: var(--color-text-primary); /* Texto blanco para enlaces normales */
 }
 .main-nav > ul > li > a:hover,
 .main-nav > ul > li > a:focus {
     background-color: var(--color-surface-light);
-    color: var(--color-primary); /* Cambia a color primario en hover/focus */
+    color: var(--color-primary);
     outline: none;
 }
-.main-nav > ul > li > a::after { /* No se usa en este diseño de nav */
+.main-nav > ul > li > a::after {
     display: none;
 }
 
@@ -514,7 +527,7 @@ a.read-more-btn:link, a.read-more-btn:visited, a.read-more-btn:hover, a.read-mor
     transition: transform 0.3s ease-in-out, color var(--transition-speed-fast) ease;
     display: inline-block;
     vertical-align: middle;
-    color: inherit; /* Hereda color del enlace padre */
+    color: inherit;
 }
 
 .dropdown-menu {
@@ -529,7 +542,7 @@ a.read-more-btn:link, a.read-more-btn:visited, a.read-more-btn:hover, a.read-mor
         display: block;
         position: static;
         width: 100%;
-        background-color: transparent;
+        background-color: transparent; /* Fondo del contenedor general del nav */
         border: none;
         box-shadow: none;
         padding: 0.2rem 0 0.5rem 0;
@@ -545,11 +558,11 @@ a.read-more-btn:link, a.read-more-btn:visited, a.read-more-btn:hover, a.read-mor
     .dropdown-menu li a {
         display: block;
         width: 100%;
-        padding: 0.8rem 1.5rem 0.8rem 2.5rem;
+        padding: 0.8rem 1.5rem 0.8rem 2.5rem; /* Más indentado */
         font-size: 0.9rem;
         font-weight: 400;
         color: var(--color-text-secondary);
-        background-color: rgba(0,0,0, 0.1);
+        background-color: rgba(0,0,0, 0.1); /* Fondo ligeramente diferente para subitems */
         border-top: 1px solid var(--color-border);
         text-align: center;
     }
@@ -571,7 +584,7 @@ a.read-more-btn:link, a.read-more-btn:visited, a.read-more-btn:hover, a.read-mor
         left: 0;
         z-index: 1100;
         min-width: 200px;
-        width: max-content;
+        width: max-content; /* Ancho según el contenido más largo */
         padding: var(--desktop-dropdown-padding-y) 0;
         background-color: var(--color-dropdown-bg-new);
         border-radius: calc(var(--border-radius) * 0.5);
@@ -587,7 +600,7 @@ a.read-more-btn:link, a.read-more-btn:visited, a.read-more-btn:hover, a.read-mor
     }
 
     .main-nav > ul > li.has-dropdown:hover > .dropdown-menu,
-    .main-nav > ul > li.has-dropdown:focus-within > .dropdown-menu {
+    .main-nav > ul > li.has-dropdown:focus-within > .dropdown-menu { /* focus-within para accesibilidad con teclado */
         opacity: 1;
         visibility: visible;
         transform: translateY(0);
@@ -606,8 +619,8 @@ a.read-more-btn:link, a.read-more-btn:visited, a.read-more-btn:hover, a.read-mor
         font-size: 0.9rem;
         font-weight: 400;
         padding: var(--desktop-dropdown-item-padding-y) var(--desktop-dropdown-item-padding-x);
-        white-space: nowrap;
-        border-left: 3px solid transparent;
+        white-space: nowrap; /* Evita que el texto del submenú se rompa en varias líneas */
+        border-left: 3px solid transparent; /* Para efecto hover */
         transition: padding-left var(--transition-speed-fast) ease,
                     color var(--transition-speed-fast) ease,
                     background-color var(--transition-speed-fast) ease,
@@ -618,7 +631,7 @@ a.read-more-btn:link, a.read-more-btn:visited, a.read-more-btn:hover, a.read-mor
     .dropdown-menu li a:focus {
         color: var(--color-primary);
         background-color: var(--color-dropdown-hover-bg);
-        padding-left: calc(var(--desktop-dropdown-item-padding-x) + var(--desktop-dropdown-hover-shift));
+        padding-left: calc(var(--desktop-dropdown-item-padding-x) + var(--desktop-dropdown-hover-shift)); /* Efecto de desplazamiento */
         border-left-color: var(--color-dropdown-border-hover);
         outline: none;
     }
@@ -629,42 +642,41 @@ a.read-more-btn:link, a.read-more-btn:visited, a.read-more-btn:hover, a.read-mor
    ========================================================================== */
 .hero {
     background-color: var(--color-background);
-    padding: clamp(5rem, 15vh, 8rem) 0;
+    padding: clamp(4rem, 15vh, 8rem) 0; /* Padding superior/inferior responsive */
     text-align: center;
-    min-height: 60vh;
+    min-height: 60vh; /* Altura mínima */
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--color-text-primary);
     overflow: hidden;
-    position: relative;
+    position: relative; /* Contexto de apilamiento para hijos posicionados */
 }
 
-.hero-content {
+.hero-content { /* Contenedor principal dentro de .hero y .container */
     position: relative;
     text-align: center;
     width: 100%;
-    z-index: 2; 
+    z-index: 2; /* Por encima del data-stream */
 }
 
-.hero-text-content {
+.hero-text-content { /* Contenedor del H1, subtítulo y botón */
     position: relative; 
-    background-color: transparent; 
-    padding: 0; 
+    background-color: transparent; /* Para que se vea el data-stream alrededor */
+    padding: 0; /* Padding se maneja en los hijos (h1, subtitle) */
     text-align: center;
     width: 100%;
     box-sizing: border-box;
-    /* Para centrar verticalmente los elementos hijos si es necesario:
-    display: flex;
+    display: flex; /* Para mejor control del espaciado y alineación de hijos */
     flex-direction: column;
-    align-items: center;
-    justify-content: center; */
+    align-items: center; /* Centra los hijos horizontalmente */
+    gap: 1.5rem; /* Espacio entre h1, subtítulo y botón */
 }
 
 .hero-text-content h1 {
-    font-size: clamp(1.7rem, 6vw, 3.5rem); 
+    font-size: clamp(1.7rem, 5.5vw, 3.2rem); /* Ligeramente ajustado el clamp */
     font-weight: 700;
-    margin-bottom: 1.2rem; /* Espacio entre h1 y subtítulo */
+    /* margin-bottom eliminado, se usa gap en el padre flex */
     line-height: var(--line-height-heading);
     background: linear-gradient(90deg, var(--color-primary), #00ccff);
     -webkit-background-clip: text;
@@ -673,27 +685,28 @@ a.read-more-btn:link, a.read-more-btn:visited, a.read-more-btn:hover, a.read-mor
     -webkit-text-fill-color: transparent;
     
     padding: 0.5rem 1rem; 
-    background-color: var(--color-background); 
+    background-color: var(--color-background); /* Fondo sólido para el H1 */
     border-radius: calc(var(--border-radius) * 0.5); 
-    display: inline-block; /* Para que el fondo se ajuste al contenido */
+    display: inline-block; 
     max-width: 100%; 
     box-sizing: border-box; 
 }
 
 .hero-text-content .subtitle { 
-    font-size: clamp(1.0rem, 3.5vw, 1.35rem); 
+    font-size: clamp(0.95rem, 3.5vw, 1.3rem); 
     color: var(--color-text-primary); 
-    max-width: 90%; /* Para que no toque los bordes si tiene fondo */
-    margin: 0 auto 2.8rem auto; /* Centrado y con margen inferior para el botón */
+    max-width: 90%; /* Ancho máximo para evitar que toque bordes */
+    margin: 0 auto; /* Centrado (aunque el padre flex ya lo centra) */
+    /* margin-bottom eliminado, se usa gap */
     line-height: 1.7;
 
     padding: 0.75rem 1.25rem; 
-    background-color: var(--color-background); 
+    background-color: var(--color-background); /* Fondo sólido para el subtítulo */
     border-radius: calc(var(--border-radius) * 0.5); 
-    display: inline-block; /* Para que el fondo se ajuste al contenido */
+    display: inline-block; 
     box-sizing: border-box;
 }
-/* El botón .btn-primary dentro de .hero-text-content usará los estilos definidos en la Sección 3.1 */
+/* El botón .btn-primary en el hero usará los estilos de Sección 3.1 */
 
 .data-stream-container {
     position: absolute;
@@ -701,9 +714,9 @@ a.read-more-btn:link, a.read-more-btn:visited, a.read-more-btn:hover, a.read-mor
     left: 0;
     width: 100%;
     height: 100%;
-    pointer-events: none;
-    z-index: 1;
-    overflow: hidden;
+    pointer-events: none; /* No interfiere con clics */
+    z-index: 1; /* Detrás del .hero-content */
+    overflow: hidden; /* Importante para la máscara */
     -webkit-mask-image: linear-gradient(to right, transparent 0%, black 1%, black 99%, transparent 100%);
     mask-image: linear-gradient(to right, transparent 0%, black 1%, black 99%, transparent 100%);
 }
@@ -718,12 +731,11 @@ a.read-more-btn:link, a.read-more-btn:visited, a.read-more-btn:hover, a.read-mor
 .data-stream-container li {
     position: absolute;
     opacity: 0;
-    white-space: normal;
+    white-space: normal; /* Permite que el texto se rompa si es muy largo (aunque no debería serlo) */
     font-family: monospace, var(--font-main);
     font-size: .85rem;
     color: var(--color-text-secondary);
     animation-name: fileNameFlow;
-    /* animation-duration se define por cada nth-child */
     animation-timing-function: linear;
     animation-iteration-count: infinite;
 }
@@ -733,7 +745,6 @@ a.read-more-btn:link, a.read-more-btn:visited, a.read-more-btn:hover, a.read-mor
     85% { opacity: .4; }
     100% { transform: translateX(calc(100vw + 50px)); opacity: 0; }
 }
-/* Delays y Duraciones ajustados para inicio rápido y continuidad */
 .data-stream-container li:nth-child(1) { top: 2%; animation-delay: 0s; animation-duration: 28s; font-size: .8rem; }
 .data-stream-container li:nth-child(2) { top: 15%; animation-delay: 0.8s; animation-duration: 26s; }
 .data-stream-container li:nth-child(3) { top: 22%; animation-delay: 1.7s; animation-duration: 29s; color: rgba(148,163,184,.35); }
@@ -769,12 +780,13 @@ a.read-more-btn:link, a.read-more-btn:visited, a.read-more-btn:hover, a.read-mor
 }
 .service-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    /* Usamos clamp para el tamaño mínimo de las tarjetas, permitiendo que sean 100% del ancho menos padding en móviles muy pequeños */
+    grid-template-columns: repeat(auto-fit, minmax(clamp(240px, calc(100% - 2 * var(--container-padding-inline)), 320px), 1fr));
     gap: var(--grid-gap);
 }
 .service-card {
     background-color: var(--color-background);
-    padding: 2.5rem 1.8rem;
+    padding: 2rem 1.5rem; /* Padding ajustado */
     border-radius: var(--border-radius);
     text-align: center;
     border: 1px solid var(--color-border);
@@ -792,33 +804,31 @@ a.read-more-btn:link, a.read-more-btn:visited, a.read-more-btn:hover, a.read-mor
     border-color: var(--color-primary);
 }
 .service-icon {
-    font-size: 3.5rem;
-    margin-bottom: 1.8rem;
+    font-size: 3rem; /* Ligeramente más pequeño */
+    margin-bottom: 1.5rem;
     color: var(--color-primary);
     line-height: 1;
-    width: auto;
 }
 .service-card h3 {
-    font-size: clamp(1.2rem, 4vw, 1.4rem);
+    font-size: clamp(1.1rem, 4vw, 1.3rem); /* Ajustado */
     font-weight: 600;
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
     color: var(--color-text-primary);
     line-height: var(--line-height-heading);
 }
 .service-card h3 a {
     color: inherit;
-    text-decoration: none;
 }
 .service-card h3 a:hover {
     text-decoration: underline;
     color: var(--color-primary);
 }
 .service-card p {
-    font-size: 0.95rem;
+    font-size: 0.9rem; /* Ligeramente más pequeño */
     color: var(--color-text-secondary);
     flex-grow: 1;
     line-height: 1.6;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem;
 }
 
 /* ==========================================================================
@@ -833,7 +843,7 @@ a.read-more-btn:link, a.read-more-btn:visited, a.read-more-btn:hover, a.read-mor
     text-align: center;
 }
 #nosotros p {
-    font-size: 1.1rem;
+    font-size: clamp(0.95rem, 2.5vw, 1.1rem); /* Responsive font size */
     color: var(--color-text-secondary);
     line-height: 1.8;
     margin-bottom: 1.5rem;
@@ -849,40 +859,40 @@ a.read-more-btn:link, a.read-more-btn:visited, a.read-more-btn:hover, a.read-mor
     background-color: var(--color-surface);
 }
 .contact .subtitle {
-    margin-bottom: 3.5rem;
+    margin-bottom: 3rem; /* Ajustado el margen inferior */
 }
 .contact-form {
     max-width: 700px;
     margin: 0 auto;
     background-color: var(--color-background);
-    padding: clamp(2rem, 6vw, 3rem);
+    padding: clamp(1.5rem, 5vw, 2.5rem); /* Padding responsive */
     border-radius: var(--border-radius);
     border: 1px solid var(--color-border);
     box-shadow: 0 5px 15px var(--color-shadow-dark);
 }
 .form-group {
-    margin-bottom: 1.8rem;
+    margin-bottom: 1.5rem; /* Reducido */
 }
 .form-group label {
     display: block;
-    margin-bottom: 0.7rem;
+    margin-bottom: 0.6rem;
     font-weight: 500;
     color: var(--color-text-secondary);
-    font-size: 0.95rem;
+    font-size: 0.9rem;
 }
 .form-group input[type="text"],
 .form-group input[type="email"],
 .form-group input[type="tel"],
 .form-group select,
 .form-group textarea {
-    width: 100%;
-    padding: 1rem 1.2rem;
+    width: 100%; /* Ocupan todo el ancho */
+    padding: 0.8rem 1rem; /* Padding ajustado */
     background-color: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: calc(var(--border-radius) * 0.7);
     color: var(--color-text-primary);
     font-family: inherit;
-    font-size: 1rem;
+    font-size: 0.95rem; /* Tamaño de fuente de los inputs */
     transition: border-color var(--transition-speed) ease,
                 box-shadow var(--transition-speed) ease;
     line-height: 1.5;
@@ -893,26 +903,26 @@ a.read-more-btn:link, a.read-more-btn:visited, a.read-more-btn:hover, a.read-mor
     -moz-appearance: none;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2394A3B8' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M8 11.646l-4.854-4.853.708-.708L8 10.23l4.146-4.145.708.708z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
-    background-position: right 1.2rem center;
-    background-size: 1em;
-    padding-right: 3rem;
+    background-position: right 1rem center; /* Ajustado */
+    background-size: 0.9em; /* Ajustado */
+    padding-right: 2.5rem; /* Espacio para la flecha */
 }
 .form-group select:focus {
      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2300FFAA' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M8 11.646l-4.854-4.853.708-.708L8 10.23l4.146-4.145.708.708z'/%3E%3C/svg%3E");
 }
 .form-group textarea {
     resize: vertical;
-    min-height: 140px;
+    min-height: 120px; /* Reducido */
 }
 .form-group input::placeholder,
 .form-group textarea::placeholder {
     color: var(--color-text-secondary);
     opacity: 0.7;
 }
-.contact-form button[type="submit"] { /* Este botón heredará de .btn y .btn-primary si se le aplican esas clases en HTML */
+.contact-form button[type="submit"] {
     width: 100%;
-    margin-top: 1.5rem;
-    padding: 1rem 2rem; /* Puede necesitar ajustes si .btn define padding diferente */
+    margin-top: 1.2rem; /* Reducido */
+    /* padding y color heredados de .btn y regla global */
 }
 .contact-info p {
     margin-bottom: 0.8rem;
@@ -925,7 +935,7 @@ a.read-more-btn:link, a.read-more-btn:visited, a.read-more-btn:hover, a.read-mor
     text-align: center;
 }
 .map-container {
-    margin-top: 3rem;
+    margin-top: 2.5rem; /* Reducido */
     border-radius: var(--border-radius);
     overflow: hidden;
     border: 1px solid var(--color-border);
@@ -934,15 +944,15 @@ a.read-more-btn:link, a.read-more-btn:visited, a.read-more-btn:hover, a.read-mor
     display: block;
     border: 0;
     width: 100%;
-    height: 400px;
+    height: 350px; /* Altura reducida para móviles */
 }
 
 /* ==========================================================================
    11. SECCIÓN TICKER LOGOS CLIENTES
    ========================================================================== */
 .section-padding-ticker {
-    padding-top: 2.5rem;
-    padding-bottom: 2.5rem;
+    padding-top: 2rem; /* Reducido */
+    padding-bottom: 2rem; /* Reducido */
     background-color: var(--color-surface);
     border-top: 1px solid var(--color-border);
     border-bottom: 1px solid var(--color-border);
@@ -952,9 +962,9 @@ a.read-more-btn:link, a.read-more-btn:visited, a.read-more-btn:hover, a.read-mor
 }
 .ticker-title {
     color: var(--color-text-secondary);
-    font-size: 1rem;
+    font-size: 0.9rem; /* Reducido */
     font-weight: 500;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem; /* Reducido */
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -962,76 +972,59 @@ a.read-more-btn:link, a.read-more-btn:visited, a.read-more-btn:hover, a.read-mor
     width: 100%;
     overflow: hidden;
     position: relative;
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
-    mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%); /* Fade más corto */
+    mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
 }
 .logos-ticker-track {
     display: flex;
     align-items: center;
-    width: fit-content;
+    width: fit-content; /* Para que la animación funcione correctamente */
     animation: ticker-scroll 40s linear infinite;
 }
 .logos-ticker-track:hover {
     animation-play-state: paused;
 }
 .logo-slide {
-    padding: 0 2.5rem;
+    padding: 0 1.5rem; /* Padding reducido */
     flex-shrink: 0;
-    height: 50px;
+    height: 40px; /* Altura reducida */
     display: flex;
     align-items: center;
     justify-content: center;
 }
 .logo-slide img {
     max-height: 100%;
-    max-width: 150px;
+    max-width: 120px; /* Ancho máximo reducido */
     width: auto;
-    filter: none;
+    filter: none; /* O considera `filter: grayscale(50%) brightness(150%);` para un look más integrado */
     opacity: .7;
     transition: opacity .3s ease, filter .3s ease;
 }
+/* No es necesario @media query para .logo-slide si los valores base ya son pequeños */
 @keyframes ticker-scroll {
     0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
-@media (max-width: 767px) {
-    .section-padding-ticker {
-        padding-top: 2rem;
-        padding-bottom: 2rem;
-    }
-    .ticker-title {
-        margin-bottom: 1.5rem;
-    }
-    .logo-slide {
-        padding: 0 1.5rem;
-        height: 40px;
-    }
-}
-@media (max-width: 480px) {
-    .logo-slide {
-        padding: 0 1rem;
-    }
+    100% { transform: translateX(-50%); } /* Asume que el track se duplica */
 }
 
 /* ==========================================================================
    12. SECCIÓN PREGUNTAS FRECUENTES (FAQ)
    ========================================================================== */
 .faq {
-    padding-top: calc(var(--section-padding-mobile) * 0.7);
-    padding-bottom: calc(var(--section-padding-mobile) * 0.7);
+    padding-top: calc(var(--section-padding-mobile) * 0.8); /* Ligeramente ajustado */
+    padding-bottom: calc(var(--section-padding-mobile) * 0.8);
     background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)),
                 radial-gradient(circle at top left, rgba(0, 255, 170, 0.05), transparent 40%),
                 radial-gradient(circle at bottom right, rgba(0, 153, 255, 0.05), transparent 50%),
                 var(--color-background);
-    background-attachment: fixed;
+    background-attachment: fixed; /* Puede ser costoso en rendimiento móvil, considera `scroll` */
 }
 .faq .section-title {
     margin-bottom: 1.5rem;
-    font-size: clamp(1.7rem, 4vw, 2.2rem);
+    font-size: clamp(1.5rem, 4vw, 2.2rem); /* Ajustado */
 }
-.faq .subtitle { /* Este es el subtítulo específico de la sección FAQ */
-    margin-bottom: 3rem;
-    font-size: clamp(0.95rem, 2.3vw, 1.1rem);
+.faq .subtitle {
+    margin-bottom: 2.5rem; /* Ajustado */
+    font-size: clamp(0.9rem, 2.3vw, 1.05rem); /* Ajustado */
     color: var(--color-text-primary);
     max-width: 750px;
 }
@@ -1040,13 +1033,13 @@ a.read-more-btn:link, a.read-more-btn:visited, a.read-more-btn:hover, a.read-mor
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 0.8rem;
+    gap: 0.6rem; /* Gap reducido */
 }
 .faq-item {
     background-color: var(--color-surface);
     border-radius: calc(var(--border-radius) * 0.8);
     border: 1px solid var(--color-border);
-    overflow: hidden;
+    overflow: hidden; /* Para el efecto acordeón */
     transition: border-color var(--transition-speed) ease,
                 box-shadow var(--transition-speed) ease;
     box-shadow: 0 1px 3px rgba(0,0,0, 0.15);
@@ -1054,68 +1047,68 @@ a.read-more-btn:link, a.read-more-btn:visited, a.read-more-btn:hover, a.read-mor
 .faq-item:hover {
     box-shadow: 0 3px 10px var(--color-shadow-dark);
 }
-.faq-item:has(.faq-toggle:checked) {
+.faq-item:has(.faq-toggle:checked) { /* Estilo cuando el acordeón está abierto */
     border-color: var(--color-primary);
     box-shadow: 0 4px 12px var(--color-shadow-light);
 }
-.faq-toggle {
+.faq-toggle { /* Checkbox oculto */
     display: none;
 }
 .faq-question {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: clamp(1rem, 3.5vw, 1.1rem);
+    font-size: clamp(0.95rem, 3.5vw, 1.1rem); /* Ajustado */
     font-weight: 600;
     color: var(--color-text-primary);
-    padding: 1.2rem 1.5rem;
+    padding: 1rem 1.2rem; /* Padding ajustado */
     text-align: left;
     cursor: pointer;
     position: relative;
     transition: background-color var(--transition-speed-fast) ease;
-    margin-bottom: 0;
+    margin-bottom: 0; /* p por defecto tiene margen */
     width: 100%;
     line-height: 1.4;
 }
 .faq-question:hover {
     background-color: rgba(255, 255, 255, 0.03);
 }
-.faq-question::after {
-    content: '\f078';
+.faq-question::after { /* Icono flecha */
+    content: '\f078'; /* Font Awesome chevron-down */
     font-family: 'Font Awesome 6 Free';
     font-weight: 900;
-    font-size: 0.8rem;
+    font-size: 0.75rem; /* Ajustado */
     color: var(--color-primary);
     transition: transform 0.3s ease-in-out, color 0.2s ease;
     line-height: 1;
-    flex-shrink: 0;
-    padding-left: 1rem;
+    flex-shrink: 0; /* Para que no se encoja */
+    padding-left: 0.8rem; /* Espacio a la izquierda del icono */
 }
 .faq-toggle:checked + .faq-question::after {
     transform: rotate(180deg);
     color: var(--color-primary-darker);
 }
 .faq-answer {
-    max-height: 0;
+    max-height: 0; /* Oculto por defecto */
     opacity: 0;
     overflow: hidden;
     transition: max-height 0.4s cubic-bezier(0.23, 1, 0.32, 1),
                 opacity 0.35s ease-in-out,
                 padding-top 0.35s ease-in-out,
                 padding-bottom 0.35s ease-in-out;
-    border-left: 3px solid transparent;
-    padding: 0 1.5rem 0 1.8rem;
+    border-left: 3px solid transparent; /* Borde al abrir */
+    padding: 0 1.2rem 0 1.5rem; /* Padding ajustado */
 }
 .faq-toggle:checked + .faq-question + .faq-answer {
-    max-height: 700px;
+    max-height: 700px; /* Altura máxima estimada para el contenido */
     opacity: 1;
     border-left-color: var(--color-primary);
-    padding-top: 1rem;
-    padding-bottom: 1.5rem;
+    padding-top: 0.8rem; /* Padding al abrir */
+    padding-bottom: 1.2rem;
 }
 .faq-answer-content {
     color: var(--color-text-secondary);
-    font-size: 0.95rem;
+    font-size: 0.9rem; /* Ajustado */
     line-height: 1.65;
     text-align: left;
 }
@@ -1124,13 +1117,15 @@ a.read-more-btn:link, a.read-more-btn:visited, a.read-more-btn:hover, a.read-mor
 }
 .faq-answer-content ul {
     list-style: disc;
-    padding-left: 1.5rem;
-    margin-top: 0.8rem;
-    margin-bottom: 1rem;
+    padding-left: 1.2rem; /* Indentación de la lista */
+    margin-top: 0.6rem;
+    margin-bottom: 0.8rem;
 }
 .faq-answer-content li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
 }
+
+/* Ajustes FAQ para escritorio se mantienen, pero los valores base ya son más responsivos */
 @media (min-width: 768px) {
     .faq {
         padding-top: calc(var(--section-padding-desktop) * 0.7);
@@ -1138,9 +1133,9 @@ a.read-more-btn:link, a.read-more-btn:visited, a.read-more-btn:hover, a.read-mor
     }
     .faq-list {
         max-width: 1100px;
-        gap: 2rem;
+        gap: 1.5rem; /* Ajustado */
     }
-    .faq-list-flex-columns {
+    .faq-list-flex-columns { /* Para layout de 2 columnas si se usa esa clase */
         display: flex;
         flex-direction: row;
         align-items: flex-start;
@@ -1149,7 +1144,7 @@ a.read-more-btn:link, a.read-more-btn:visited, a.read-more-btn:hover, a.read-mor
         flex: 1;
         display: flex;
         flex-direction: column;
-        gap: 1.5rem;
+        gap: 1.5rem; /* Gap entre items en una columna */
     }
     .faq-question {
         font-size: clamp(1.1rem, 2.5vw, 1.15rem);
@@ -1169,7 +1164,7 @@ a.read-more-btn:link, a.read-more-btn:visited, a.read-more-btn:hover, a.read-mor
 @media (min-width: 1024px) {
     .faq-list {
         max-width: 1200px;
-        gap: 2.5rem;
+        gap: 2rem; /* Más gap en pantallas grandes */
     }
     .faq-column {
         gap: 1.8rem;
@@ -1181,17 +1176,17 @@ a.read-more-btn:link, a.read-more-btn:visited, a.read-more-btn:hover, a.read-mor
    ========================================================================== */
 .site-footer {
     background-color: var(--color-background);
-    padding: 2.5rem 1rem;
-    margin-top: var(--section-padding-mobile); /* Asegura espacio antes del footer */
+    padding: 2rem 1rem; /* Padding reducido */
+    margin-top: var(--section-padding-mobile);
     border-top: 1px solid var(--color-border);
     text-align: center;
     color: var(--color-text-secondary);
-    font-size: 0.9rem;
+    font-size: 0.85rem; /* Ligeramente más pequeño */
 }
 .footer-content {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.8rem; /* Gap reducido */
     align-items: center;
     justify-content: center;
 }
@@ -1206,7 +1201,7 @@ a.read-more-btn:link, a.read-more-btn:visited, a.read-more-btn:hover, a.read-mor
 .footer-nav a {
     color: inherit;
     text-decoration: none;
-    margin: 0 0.6rem;
+    margin: 0 0.5rem; /* Espacio entre enlaces del footer reducido */
     transition: color var(--transition-speed-fast) ease;
     font-size: inherit;
 }
@@ -1215,15 +1210,14 @@ a.read-more-btn:link, a.read-more-btn:visited, a.read-more-btn:hover, a.read-mor
 }
 
 /* ==========================================================================
-   13.5 ESTILOS PÁGINA BLOG (LISTADO POSTS)
-   ========================================================================== */
-.blog-listing-page {} /* Contenedor general de la página de listado del blog */
+13.5 ESTILOS PÁGINA BLOG (LISTADO POSTS)
+========================================================================== */
 
 .blog-post-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: calc(var(--grid-gap, 2.5rem) * 0.8); /* Un poco menos de gap que el general */
-    margin-top: 2.5rem; /* Espacio después del título de la página del blog */
+    grid-template-columns: repeat(auto-fit, minmax(clamp(250px, calc(100% - 2 * var(--container-padding-inline)), 320px), 1fr));
+    gap: var(--grid-gap); /* Usa el grid-gap general, que ya es responsive */
+    margin-top: 2rem; /* Espacio reducido */
 }
 .blog-post-card {
     background-color: var(--color-surface);
@@ -1236,7 +1230,7 @@ a.read-more-btn:link, a.read-more-btn:visited, a.read-more-btn:hover, a.read-mor
     transition: transform var(--transition-speed-fast) ease,
                 box-shadow var(--transition-speed-fast) ease,
                 border-color var(--transition-speed-fast) ease;
-    height: 100%; /* Para que todas las tarjetas tengan la misma altura si están en la misma fila */
+    height: 100%;
 }
 .blog-post-card:hover {
     transform: translateY(-4px);
@@ -1245,53 +1239,49 @@ a.read-more-btn:link, a.read-more-btn:visited, a.read-more-btn:hover, a.read-mor
 }
 .post-image {
     width: 100%;
-    height: 160px; /* Altura fija para la imagen */
+    height: 160px;
     overflow: hidden;
     position: relative;
 }
-.post-image img {
+.post-image img { /* max-width y height:auto ya son globales */
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
-    display: block;
+    object-fit: cover;
     transition: transform 0.25s ease;
 }
 .blog-post-card:hover .post-image img {
     transform: scale(1.04);
 }
 .post-content {
-    padding: 1.2rem 1.5rem;
+    padding: 1rem 1.2rem; /* Padding reducido */
     display: flex;
     flex-direction: column;
-    flex-grow: 1; /* Permite que el contenido crezca y el botón se alinee abajo */
-    /* height: 100%; Esto no es necesario aquí, .blog-post-card ya lo tiene */
+    flex-grow: 1;
 }
 .post-title {
-    font-size: clamp(1.0rem, 2.8vw, 1.2rem);
+    font-size: clamp(1.0rem, 2.8vw, 1.15rem); /* Ajustado */
     font-weight: 600;
     margin-bottom: 0.4rem;
     line-height: 1.3;
 }
 .post-title a {
     color: var(--color-text-primary);
-    text-decoration: none;
-    transition: color var(--transition-speed-fast) ease;
 }
 .post-title a:hover {
     color: var(--color-primary);
     text-decoration: underline;
 }
 .post-meta {
-    font-size: 0.8rem;
+    font-size: 0.75rem; /* Reducido */
     color: var(--color-text-secondary);
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.6rem; /* Reducido */
     display: flex;
-    flex-wrap: wrap; /* Para que los elementos meta se ajusten si no caben */
-    gap: 0.3rem 0.8rem; /* Espacio entre elementos meta */
+    flex-wrap: wrap;
+    gap: 0.3rem 0.6rem; /* Gap reducido */
     line-height: 1.3;
 }
 .post-meta span {
-    display: inline-flex; /* Para alinear icono y texto */
+    display: inline-flex;
     align-items: center;
 }
 .post-meta i {
@@ -1301,37 +1291,36 @@ a.read-more-btn:link, a.read-more-btn:visited, a.read-more-btn:hover, a.read-mor
 }
 .post-meta a {
      color: var(--color-text-secondary);
-     transition: color var(--transition-speed-fast) ease;
 }
 .post-meta a:hover {
      color: var(--color-primary);
 }
 .post-excerpt {
-    font-size: 0.9rem;
+    font-size: 0.85rem; /* Reducido */
     color: var(--color-text-secondary);
     line-height: 1.5;
-    margin-bottom: 1.2rem;
-    flex-grow: 1; /* Empuja el botón "Leer más" hacia abajo */
+    margin-bottom: 1rem; /* Reducido */
+    flex-grow: 1;
 }
 .post-excerpt p {
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.6rem;
 }
 .post-excerpt p:last-child {
     margin-bottom: 0;
 }
-/* .read-more-btn ya está estilizado en la Sección 3.1 BOTONES */
+/* .read-more-btn estilizado en Sección 3.1 */
 
 .pagination {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 3rem;
-    gap: 0.5rem;
+    margin-top: 2.5rem; /* Reducido */
+    gap: 0.4rem; /* Reducido */
 }
 .pagination a,
-.pagination span { /* Para el número de página actual o puntos suspensivos */
+.pagination span {
     display: inline-block;
-    padding: 0.6rem 1rem;
+    padding: 0.5rem 0.8rem; /* Reducido */
     border: 1px solid var(--color-border);
     border-radius: calc(var(--border-radius) * 0.5);
     color: var(--color-text-secondary);
@@ -1339,9 +1328,9 @@ a.read-more-btn:link, a.read-more-btn:visited, a.read-more-btn:hover, a.read-mor
     transition: background-color var(--transition-speed-fast) ease,
                 border-color var(--transition-speed-fast) ease,
                 color var(--transition-speed-fast) ease;
-    min-width: 40px; /* Para que todos los números tengan un ancho similar */
+    min-width: 36px; /* Reducido */
     text-align: center;
-    font-size: 0.9rem;
+    font-size: 0.85rem; /* Reducido */
 }
 .pagination a:hover,
 .pagination a:focus {
@@ -1350,16 +1339,16 @@ a.read-more-btn:link, a.read-more-btn:visited, a.read-more-btn:hover, a.read-mor
     color: var(--color-text-primary);
     outline: none;
 }
-.pagination .current { /* Para el número de página actual */
+.pagination .current {
     background-color: var(--color-primary);
     border-color: var(--color-primary);
-    color: var(--color-button-text); /* Color de texto del botón */
+    color: var(--color-button-text); /* Color de texto ya forzado globalmente */
     font-weight: 600;
     cursor: default;
 }
-.pagination .dots { /* Para los "..." */
+.pagination .dots {
     border: none;
-    padding: 0.6rem 0.4rem; /* Menos padding horizontal para los puntos */
+    padding: 0.5rem 0.3rem; /* Reducido */
     cursor: default;
     color: var(--color-text-secondary);
 }
@@ -1372,77 +1361,114 @@ a.read-more-btn:link, a.read-more-btn:visited, a.read-more-btn:hover, a.read-mor
     bottom: var(--whatsapp-btn-offset-base);
     right: var(--whatsapp-btn-offset-base);
     background-color: var(--color-whatsapp-green);
-    color: white; /* El icono FontAwesome hereda esto */
+    color: white;
     border-radius: 50%;
     width: var(--whatsapp-btn-size);
     height: var(--whatsapp-btn-size);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2.2rem; /* Tamaño del icono */
+    font-size: 2.2rem;
     text-decoration: none;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
-    z-index: 1000; /* Por encima de la mayoría de los elementos */
+    z-index: 1000;
     transition: transform 0.2s ease-in-out,
                 background-color 0.2s ease-in-out,
-                bottom 0.2s ease-in-out; /* Para el ajuste en móvil */
-    pointer-events: auto; /* Asegura que sea clickeable */
+                bottom 0.2s ease-in-out;
+    pointer-events: auto;
 }
 .whatsapp-btn:hover {
     background-color: var(--color-whatsapp-green-darker);
     transform: scale(1.1);
-    color: white; /* Mantiene el color del icono */
+    color: white;
 }
 
 /* ==========================================================================
    15. MEDIA QUERIES
    ========================================================================== */
 
+/* --- Ajustes para pantallas muy pequeñas (opcional, si los grids necesitan una columna antes) --- */
+@media (max-width: 520px) { /* Punto de corte donde dos tarjetas de min ~240px ya no caben bien con gaps */
+    .service-grid,
+    .blog-post-grid {
+        grid-template-columns: 1fr; /* Fuerza una sola columna */
+    }
+     .data-stream-container { /* Opcional: reducir máscara para que se vea más en móviles muy pequeños */
+        -webkit-mask-image: linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%);
+        mask-image: linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%);
+    }
+}
+
 /* --- 15.1 Ajustes Generales Escritorio (min-width: 768px) --- */
 @media (min-width: 768px) {
-    :root { /* Sobrescribe variables para escritorio */
+    :root {
         --header-padding-inline: 2rem;
+        --container-padding-inline: 1.5rem; /* Más padding para el container en desktop */
         --section-padding-desktop: 6rem;
-        --grid-gap: 2.5rem;
+        --grid-gap: 2rem; /* Aumenta el gap en desktop */
+        --btn-padding-x: 2rem; /* Padding horizontal de botones más grande en desktop */
+        --btn-font-size: 1rem; /* Tamaño de fuente de botones vuelve a 1rem */
+    }
+    .btn { /* Restaura padding y font-size de botones para desktop */
+        padding: 0.8rem var(--btn-padding-x);
+        font-size: var(--btn-font-size);
+    }
+    .btn-small { /* Ajusta btn-small para desktop si es necesario */
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
     }
     .section-padding {
         padding-top: var(--section-padding-desktop);
         padding-bottom: var(--section-padding-desktop);
     }
-    body { /* Quita el padding-bottom de móvil */
+    body {
         padding-bottom: 0;
     }
-    .subtitle { /* Ajusta margen del subtítulo general */
+    .subtitle {
         margin-bottom: 3.5rem;
     }
-    .footer-content { /* Footer en fila en escritorio */
+    .footer-content {
         flex-direction: row;
         justify-content: space-between;
     }
     .footer-nav {
         margin-top: 0;
     }
+    .map-container iframe { /* Restaura altura del mapa */
+        height: 400px;
+    }
+     .logos-ticker-wrap { /* Restaura máscara de logos para desktop */
+        -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+        mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+    }
+    .logo-slide { /* Restaura padding y altura de logos */
+        padding: 0 2.5rem;
+        height: 50px;
+    }
+    .logo-slide img {
+        max-width: 150px;
+    }
 }
 
 /* --- 15.2 Sobrescrituras Encabezado y Navegación Escritorio (min-width: 768px) --- */
 @media (min-width: 768px) {
     .header-content {
-        justify-content: space-between; /* Logo a la izq, Nav a la der */
-        position: static; /* El logo ya no necesita ser posicionado absolutamente */
+        justify-content: space-between;
+        position: static;
     }
     .logo {
-        position: static; /* Vuelve a flujo normal */
+        position: static;
         transform: none;
         max-width: var(--logo-max-width-desktop);
-        flex-shrink: 0; /* Evita que el logo se encoja */
+        flex-shrink: 0;
     }
     .logo img {
-        max-height: calc(var(--header-height) - 25px); /* Ajusta altura del logo */
+        max-height: calc(var(--header-height) - 25px);
     }
-    .menu-toggle { /* Oculta botón hamburguesa */
+    .menu-toggle {
         display: none;
     }
-    .main-nav { /* Nav principal en modo escritorio */
+    .main-nav {
         display: flex;
         position: static;
         transform: none;
@@ -1453,133 +1479,126 @@ a.read-more-btn:link, a.read-more-btn:visited, a.read-more-btn:hover, a.read-mor
         box-shadow: none;
         padding: 0;
         background-color: transparent;
-        width: auto; /* Ancho automático según contenido */
+        width: auto;
         bottom: auto;
-        margin-left: auto; /* Empuja la nav a la derecha */
+        margin-left: auto;
         border-radius: 0;
         pointer-events: auto;
-        height: 100%; /* Para alinear verticalmente los items */
+        height: 100%;
     }
-    .main-nav > ul { /* Lista principal de nav en fila */
+    .main-nav > ul {
         display: flex;
         flex-direction: row;
-        align-items: stretch; /* Los LI se estiran verticalmente */
+        align-items: stretch;
         justify-content: flex-end;
-        gap: 0; /* Sin gap, el padding de los 'a' maneja el espacio */
+        gap: 0;
         height: 100%;
         padding: 0;
     }
-    .main-nav > ul > li { /* Items de la lista principal */
-        display: flex; /* Para alinear el 'a' dentro */
+    .main-nav > ul > li {
+        display: flex;
         align-items: center;
         padding: 0;
         margin: 0;
-        /* border, cursor, position, width son manejados por el 'a' o no necesarios */
     }
-    .main-nav > ul > li > a:not(.nav-cta-button) { /* Enlaces normales de nav en escritorio */
+    .main-nav > ul > li > a:not(.nav-cta-button) {
         display: flex;
         align-items: center;
         height: 100%; 
         padding: var(--desktop-nav-item-padding-y) var(--desktop-nav-item-spacing);
         position: relative;
-        color: var(--color-text-secondary); /* Color de texto secundario para nav */
+        color: var(--color-text-secondary);
         background-color: transparent;
         font-weight: 500;
         width: auto;
         font-size: 0.95rem;
-        text-transform: none; /* Si no quieres mayúsculas */
-        border-radius: calc(var(--border-radius) * 0.5); /* Pequeño borde redondeado */
+        text-transform: none;
+        border-radius: calc(var(--border-radius) * 0.5);
         transition: color var(--transition-speed-fast) ease,
                     background-color var(--transition-speed-fast) ease;
-        vertical-align: middle; /* Aunque flex align-items ya lo hace */
+        vertical-align: middle;
     }
     .main-nav > ul > li > a:not(.nav-cta-button):hover,
     .main-nav > ul > li > a:not(.nav-cta-button):focus,
-    .main-nav > ul > li:hover > a:not(.nav-cta-button) { /* Hover/Focus para enlaces normales */
+    .main-nav > ul > li:hover > a:not(.nav-cta-button) {
         color: var(--color-primary);
         background-color: var(--desktop-nav-hover-bg);
     }
-    /* Hereda el color de la flecha en hover/focus */
     .main-nav > ul > li > a:hover .nav-arrow,
     .main-nav > ul > li > a:focus .nav-arrow,
     .main-nav > ul > li:hover > a .nav-arrow {
         color: var(--color-primary);
     }
-    /* El botón CTA tiene su propia sección de estilos (16) */
 }
 
 /* --- 15.3 Ajustes Específicos Móvil (max-width: 767px) --- */
 @media (max-width: 767px) {
-    body { /* Añade padding abajo para que el contenido no quede oculto por botones flotantes */
+    body {
          padding-bottom: calc(var(--whatsapp-btn-offset-mobile) + var(--whatsapp-btn-size) + 15px);
     }
-    .whatsapp-btn { /* Mueve el botón de WhatsApp más arriba para no interferir con el menú hamburguesa */
+    .whatsapp-btn {
         bottom: var(--whatsapp-btn-offset-mobile);
     }
-    /* Las reglas del menú desplegable móvil ya están en la Sección 6 dentro de su propia media query */
 }
 
 /* --- 15.4 Mejoras Pantalla Grande (min-width: 1200px) --- */
 @media (min-width: 1200px) {
-    :root { /* Variables para pantallas más grandes */
+    :root {
         --section-padding-desktop: 7rem;
-        --grid-gap: 3rem;
-        --desktop-nav-item-spacing: 1.5rem; /* Más espacio entre items de nav */
+        --grid-gap: 2.5rem; /* Aumenta un poco más el gap */
+        --desktop-nav-item-spacing: 1.5rem;
     }
-    .hero { /* Hero más alto */
+    .hero {
         min-height: 70vh;
     }
-    .hero-text-content h1 { /* Texto de Hero más grande */
-        font-size: clamp(3rem, 7vw, 3.8rem); /* Ajusta el clamp del H1 en hero */
+    .hero-text-content h1 { /* H1 del hero aún más grande */
+        font-size: clamp(3rem, 7vw, 3.8rem);
+    }
+    .service-grid, .blog-post-grid { /* Asegura que el minmax no sea demasiado pequeño en desktop */
+         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
 }
 
 /* ==========================================================================
    16. ESTILOS ESPECÍFICOS DE COMPONENTES (BOTÓN CONTACTO CTA NAV)
    ========================================================================== */
-/* Estilo BASE para el enlace "Contacto" como botón CTA SÓLIDO */
 .main-nav .nav-cta-button,
 .main-nav a.nav-cta-button:visited {
     background-color: var(--color-primary-darker);
-    /* color es manejado por la regla global en Sección 3.1.1 */
-    display: inline-flex; /* Para centrar contenido y que se comporte como bloque */
+    /* color manejado por regla global */
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 0.2rem 1.2rem; /* Padding vertical MUY reducido para nav */
+    padding: 0.2rem 1.2rem; /* Padding ajustado para nav desktop */
     border-radius: var(--border-radius);
-    font-weight: 600;
+    font-weight: 600; /* Ya es default de .btn */
     transition: background-color var(--transition-speed-fast) ease,
                 transform var(--transition-speed-fast) ease,
                 box-shadow var(--transition-speed-fast) ease,
                 color var(--transition-speed-fast) ease;
-    /* text-decoration es manejado por la regla global */
-    vertical-align: middle; /* Alineación con otros items de nav */
-    box-sizing: border-box; /* Importante con padding */
+    vertical-align: middle;
+    box-sizing: border-box;
 }
 
-/* Estado Hover/Focus para el botón CTA de Contacto */
 .main-nav .nav-cta-button:hover,
 .main-nav .nav-cta-button:focus {
     background-color: var(--color-primary);
-    /* color es manejado por la regla global */
+    /* color manejado por regla global */
     transform: translateY(-2px);
     box-shadow: 0 4px 10px var(--color-shadow-light);
-    outline: none; /* Quita el outline por defecto en focus */
+    outline: none;
 }
 
-/* Ajustes para el botón CTA en el Menú Móvil */
-@media (max-width: 767px) {
+@media (max-width: 767px) { /* Botón CTA Nav en Móvil */
     .main-nav > ul > li > a.nav-cta-button,
     .main-nav > ul > li > a.nav-cta-button:visited {
-        display: inline-flex; /* Para que se pueda centrar con margin auto */
-        width: auto; /* Ancho según contenido y padding */
-        margin: 0.8rem auto 0.5rem auto; /* Centrado y con márgenes verticales */
-        padding: 0.8rem 1.8rem; /* Padding más generoso en móvil, similar a .btn */
-        /* background-color y color ya definidos arriba y por la regla global */
+        display: inline-flex;
+        width: auto;
+        margin: 0.8rem auto 0.5rem auto;
+        padding: 0.7rem 1.5rem; /* Similar al .btn base móvil */
+        /* background-color ya definido, color es global */
     }
-
-    /* El hover/focus en móvil heredará los estilos definidos arriba para .main-nav .nav-cta-button:hover/focus */
-    /* Si se necesita un comportamiento diferente en hover/focus para móvil, se especifica aquí */
+    /* Hover/Focus para móvil hereda del general, si se necesita diferente, se especifica aquí */
 }
 
 /* ==========================================================================
