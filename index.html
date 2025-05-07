@@ -98,16 +98,18 @@
              <!-- === Navegación Principal con Desplegable === -->
              <nav id="main-nav" class="main-nav" aria-label="Navegación principal">
                 <ul>
-                    <!-- !! NUEVO: Enlace a Inicio !! -->
-                    <li><a href=".">Inicio</a></li>
-
+                    <!-- Enlace a Inicio (index.html en la raíz) -->
+                    <li><a href="index.html">Inicio</a></li> <!-- O puedes usar "." si esta nav SÓLO está en index.html -->
+            
                     <!-- Elemento de Menú con Desplegable para Servicios -->
                     <li class="has-dropdown dropdown-servicios">
-                        <!-- !! CAMBIO: href apunta a la sección #servicios !! -->
-                        <a href="#servicios" aria-haspopup="true" aria-expanded="false">
+                        <!-- Si la sección #servicios está en tu index.html principal -->
+                        <a href="index.html#servicios" aria-haspopup="true" aria-expanded="false">
                             Servicios <i class="fas fa-chevron-down fa-xs nav-arrow"></i>
                         </a>
                         <ul class="dropdown-menu" aria-label="Submenú de servicios">
+                            <!-- Estas rutas son relativas a la raíz del sitio.
+                                 Funcionarán si la página actual está en la raíz. -->
                             <li><a href="Servicios/videovigilancia-empresas.html">Videovigilancia Empresas</a></li>
                             <li><a href="Servicios/fibra-optica-empresas.html">Fibra Óptica Empresas</a></li>
                             <li><a href="Servicios/infraestructura-telecom.html">Infraestructura Crítica</a></li>
@@ -117,11 +119,12 @@
                         </ul>
                     </li>
                     <!-- Fin Elemento de Menú Desplegable -->
-
-                    <li><a href="#clientes">Clientes</a></li> <!-- Apunta a sección en esta página -->
-                    <li><a href="#faq">FAQ</a></li>       <!-- Apunta a sección en esta página -->
-                    <li><a href="Blog/">Blog</a></li>         <!-- Apunta al índice del Blog -->
-                    <li><a href="contacto.html" class="nav-cta-button">Contacto</a></li>                
+            
+                    <!-- Si las secciones #clientes y #faq están en tu index.html principal -->
+                    <li><a href="index.html#clientes">Clientes</a></li>
+                    <li><a href="index.html#faq">FAQ</a></li>
+                    <li><a href="Blog/">Blog</a></li> <!-- Funciona si 'Blog' es una carpeta en la raíz -->
+                    <li><a href="contacto.html" class="nav-cta-button">Contacto</a></li> <!-- Funciona si 'contacto.html' está en la raíz -->
                 </ul>
             </nav>
             <!-- === FIN Navegación Principal === -->
