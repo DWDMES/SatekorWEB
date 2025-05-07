@@ -612,8 +612,11 @@ textarea:focus:not(:focus-visible) {
     position: relative;
     z-index: 3;
     background-color: var(--color-background);
-    padding: 1.5rem;
-    text-align: center;
+    padding: 1.5rem; /* Mantenemos el padding para el espacio interno */
+    text-align: center; /* Mantenemos la alineación del texto */
+    width: 100%; /* ¡NUEVO! Para que ocupe todo el ancho disponible dentro de .hero-content */
+    box-sizing: border-box; /* ¡NUEVO Y CRUCIAL! Para que el 'padding' se reste del 'width: 100%' en lugar de sumarse */
+    /* Los opcionales pueden quedarse si los quieres */
     /* Opcional: border-radius: var(--border-radius); */
     /* Opcional: box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15); */
 }
