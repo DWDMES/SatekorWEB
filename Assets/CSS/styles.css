@@ -4,28 +4,26 @@
 
    TABLA DE CONTENIDOS:
    ------------------
-   1.  Variables y Configuración Base (Colores, Fuentes, Layout)
-   2.  Reseteo y Estilos Globales (Box Sizing, Body, Enlaces, Tipografía por defecto)
-   3.  Layout y Componentes Comunes (Contenedor, Botones, Estilo de Sección)
-   4.  Encabezado del Sitio (Logo, Botón Móvil, Estructura Básica)
-   5.  Navegación Principal (Estructura Menú Móvil y Barra Menú Escritorio)
-   6.  Menú Desplegable (Comportamiento Móvil y Escritorio)
-   7.  Sección Hero (Banner Principal Portada)
-   8.  Sección Servicios (Grid, Tarjetas)
-   9.  Sección Sobre Nosotros (Estilos Placeholder)
-   10. Sección Contacto (Formulario, Información, Mapa)
-   11. Sección Ticker Logos Clientes
-   12. Sección Preguntas Frecuentes (FAQ) (Estilo Acordeón)
-   13. Pie de Página del Sitio
-   13.5 Estilos Página Blog (Listado Posts) - Versión Compacta
-   14. Botón Flotante WhatsApp
-   15. Media Queries (Puntos de Corte y Sobrescrituras Responsivas)
-       15.1 Ajustes Generales Escritorio
-       15.2 Sobrescrituras Encabezado y Navegación Escritorio (Mantiene stretch)
-       15.3 Ajustes Específicos Móvil (Posicionamiento Botones y Menú)
-       15.4 Mejoras Pantalla Grande
-   16. Estilos Específicos de Componentes / Sobrescrituras (Botón Contacto CTA)
-   17. Opcional: Desactivar Botón WhatsApp (Comentado)
+   1.  VARIABLES Y CONFIGURACIÓN BASE
+   2.  RESETEO Y ESTILOS GLOBALES
+   3.  LAYOUT Y COMPONENTES COMUNES
+       3.1 BOTONES (Estilos Base y Variantes)
+           3.1.1 REGLA GLOBAL COLOR TEXTO BOTONES
+   4.  ENCABEZADO DEL SITIO
+   5.  NAVEGACIÓN PRINCIPAL
+   6.  MENÚ DESPLEGABLE
+   7.  SECCIÓN HERO
+   8.  SECCIÓN SERVICIOS
+   9.  SECCIÓN SOBRE NOSOTROS
+   10. SECCIÓN CONTACTO
+   11. SECCIÓN TICKER LOGOS CLIENTES
+   12. SECCIÓN PREGUNTAS FRECUENTES (FAQ)
+   13. PIE DE PÁGINA DEL SITIO
+   13.5 ESTILOS PÁGINA BLOG (LISTADO POSTS)
+   14. BOTÓN FLOTANTE WHATSAPP
+   15. MEDIA QUERIES
+   16. ESTILOS ESPECÍFICOS DE COMPONENTES (BOTÓN CONTACTO CTA NAV)
+   17. OPCIONAL: DESACTIVAR BOTÓN WHATSAPP
 
 ========================================================================== */
 
@@ -46,7 +44,7 @@
     --color-shadow-dark: rgba(0, 0, 0, 0.2);
     --color-whatsapp-green: #25D366;
     --color-whatsapp-green-darker: #128C7E;
-    --color-button-text: var(--color-background); /* Nueva variable para texto de botones */
+    --color-button-text: var(--color-background); /* Azul Oscuro #0F172A */
 
     /* --- Tipografía --- */
     --font-main: 'Poppins', sans-serif;
@@ -72,7 +70,7 @@
     --menu-toggle-offset: 1.5rem;
     --mobile-menu-max-height: 70vh;
 
-    /* --- Navegación Escritorio (Estilo Barra Menú) --- */
+    /* --- Navegación Escritorio --- */
     --desktop-nav-item-spacing: 1rem;
     --desktop-nav-item-padding-y: 0.5rem;
     --desktop-nav-hover-bg: var(--color-surface);
@@ -88,10 +86,10 @@
     --desktop-dropdown-item-padding-y: 0.7rem;
     --desktop-dropdown-hover-shift: 8px;
 
-     /* --- Botón Flotante WhatsApp --- */
-     --whatsapp-btn-size: 60px;
-     --whatsapp-btn-offset-base: 25px;
-     --whatsapp-btn-offset-mobile: calc(var(--menu-toggle-offset) + var(--menu-toggle-size) + 15px);
+    /* --- Botón Flotante WhatsApp --- */
+    --whatsapp-btn-size: 60px;
+    --whatsapp-btn-offset-base: 25px;
+    --whatsapp-btn-offset-mobile: calc(var(--menu-toggle-offset) + var(--menu-toggle-size) + 15px);
 }
 
 /* ==========================================================================
@@ -166,7 +164,6 @@ textarea:focus:not(:focus-visible) {
 /* ==========================================================================
    3. LAYOUT Y COMPONENTES COMUNES
    ========================================================================== */
-
 .container {
     width: 100%;
     max-width: var(--container-width);
@@ -192,7 +189,7 @@ textarea:focus:not(:focus-visible) {
     letter-spacing: 0.5px;
 }
 
-.subtitle {
+.subtitle { /* Este es un subtítulo genérico, el de hero tiene su propio estilo en Sección 7 */
     font-size: clamp(1rem, 3vw, 1.15rem);
     color: var(--color-text-secondary);
     max-width: 700px;
@@ -203,6 +200,9 @@ textarea:focus:not(:focus-visible) {
     line-height: 1.6;
 }
 
+/* ==========================================================================
+   3.1 BOTONES (Estilos Base y Variantes)
+   ========================================================================== */
 .btn {
     display: inline-block;
     padding: 0.8rem 2rem;
@@ -211,76 +211,122 @@ textarea:focus:not(:focus-visible) {
     font-family: inherit;
     font-size: 1rem;
     font-weight: 600;
-    text-decoration: none;
+    /* text-decoration y color son manejados por la regla global más abajo */
     cursor: pointer;
     transition: background-color var(--transition-speed) ease,
                 transform var(--transition-speed) ease,
                 box-shadow var(--transition-speed) ease,
                 border-color var(--transition-speed) ease,
-                color var(--transition-speed) ease;
+                color var(--transition-speed) ease; /* Transición de color puede mantenerse */
     text-align: center;
     min-height: 48px;
     line-height: 1.4;
 }
 
-.btn-primary {
+.btn-primary,
+a.btn-primary:visited {
     background-color: var(--color-primary-darker);
-    color: var(--color-button-text); /* MODIFICADO */
     border-color: var(--color-primary-darker);
     box-shadow: 0 4px 12px var(--color-shadow-light);
 }
-.btn-primary:hover, .btn-primary:focus {
+
+.btn-primary:hover,
+a.btn-primary:focus {
     background-color: var(--color-primary);
     border-color: var(--color-primary);
-    color: var(--color-button-text); /* MODIFICADO */
     transform: translateY(-3px);
     box-shadow: 0 6px 16px var(--color-shadow-light);
 }
 
-.btn-secondary {
+.btn-secondary,
+a.btn-secondary:visited {
     background-color: transparent;
-    color: var(--color-text-primary); /* MODIFICADO: Texto primario (blanco/claro) por defecto */
     border: 1px solid var(--color-border);
 }
-.btn-secondary:hover, .btn-secondary:focus {
+.btn-secondary:hover,
+.btn-secondary:focus {
     background-color: var(--color-surface-light);
     border-color: var(--color-text-secondary);
-    color: var(--color-text-primary); /* MODIFICADO: Mantener texto primario en hover */
     transform: translateY(-2px);
 }
 
-.btn-small {
+.btn-small { /* Hereda de .btn, solo ajusta padding y font-size */
     padding: 0.6rem 1.2rem;
     font-size: 0.9rem;
     min-height: auto;
     line-height: 1.3;
 }
 
-.service-card .btn {
+/* Botones dentro de las tarjetas de servicio (Sección 8) */
+.service-card .btn,
+.service-card a.btn:visited {
     background-color: var(--color-primary);
-    color: var(--color-button-text); /* MODIFICADO */
     border-color: var(--color-primary);
     box-shadow: none;
-    font-weight: 600;
-    margin-top: auto;
-    transition: background-color var(--transition-speed-fast) ease,
-                border-color var(--transition-speed-fast) ease,
-                color var(--transition-speed-fast) ease,
-                transform var(--transition-speed-fast) ease,
-                box-shadow var(--transition-speed-fast) ease;
+    font-weight: 600; /* Ya estaba en .btn, pero se puede reforzar */
+    margin-top: auto; /* Específico para el layout de la tarjeta */
 }
+
 .service-card .btn:hover,
-.service-card .btn:focus {
+.service-card a.btn:focus {
     background-color: var(--color-primary-darker);
     border-color: var(--color-primary-darker);
-    color: var(--color-button-text); /* MODIFICADO */
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(0, 255, 170, 0.2);
     outline: none;
 }
 
+/* Botón "Leer Más" en las tarjetas del blog (Sección 13.5) */
+.read-more-btn,
+a.read-more-btn:visited {
+    background-color: transparent;
+    border: 1px solid var(--color-button-text); /* Borde que coincida con el texto del botón */
+    margin-top: auto;
+    align-self: flex-start;
+}
+.read-more-btn:hover,
+.read-more-btn:focus {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary); /* Borde coincide con fondo en hover */
+    transform: translateY(-2px);
+    outline: none;
+}
+
 /* ==========================================================================
-   4. ENCABEZADO DEL SITIO (Mobile First)
+   3.1.1 REGLA GLOBAL COLOR TEXTO BOTONES
+   ========================================================================== */
+.btn, 
+a.btn:link, a.btn:visited, a.btn:hover, a.btn:focus, a.btn:active,
+.btn-primary, 
+a.btn-primary:link, a.btn-primary:visited, a.btn-primary:hover, a.btn-primary:focus, a.btn-primary:active,
+.btn-secondary, 
+a.btn-secondary:link, a.btn-secondary:visited, a.btn-secondary:hover, a.btn-secondary:focus, a.btn-secondary:active,
+.btn-small, 
+a.btn-small:link, a.btn-small:visited, a.btn-small:hover, a.btn-small:focus, a.btn-small:active,
+.service-card .btn, 
+.service-card a.btn:link, .service-card a.btn:visited, .service-card a.btn:hover, .service-card a.btn:focus, .service-card a.btn:active,
+.main-nav .nav-cta-button, /* Botón CTA de Nav (definido en Sección 16) */
+.main-nav a.nav-cta-button:link, .main-nav a.nav-cta-button:visited, .main-nav a.nav-cta-button:hover, .main-nav a.nav-cta-button:focus, .main-nav a.nav-cta-button:active,
+.read-more-btn, 
+a.read-more-btn:link, a.read-more-btn:visited, a.read-more-btn:hover, a.read-more-btn:focus, a.read-more-btn:active,
+.contact-form button[type="submit"] /* Botón submit del form (si tiene clase .btn, ya está cubierto) */
+{
+    color: var(--color-button-text) !important;
+    text-decoration: none !important; 
+}
+
+/* Para el botón de submit del formulario si NO tiene la clase .btn y necesita forzar color */
+.contact-form button[type="submit"]:not(.btn) {
+    color: var(--color-button-text) !important;
+}
+.contact-form button[type="submit"]:not(.btn):hover,
+.contact-form button[type="submit"]:not(.btn):focus {
+    color: var(--color-button-text) !important;
+    /* Aquí se mantendrían los estilos de background-color específicos del submit en hover/focus */
+}
+
+/* ==========================================================================
+   4. ENCABEZADO DEL SITIO
    ========================================================================== */
 .site-header {
     background-color: var(--color-background);
@@ -350,7 +396,7 @@ textarea:focus:not(:focus-visible) {
     position: relative;
     width: 26px;
     height: 3px;
-    background-color: var(--color-surface); /* Color de las barras */
+    background-color: var(--color-surface);
     border-radius: 3px;
     transition: all var(--transition-speed) ease-in-out;
 }
@@ -361,7 +407,7 @@ textarea:focus:not(:focus-visible) {
     left: 0;
     width: 100%;
     height: 3px;
-    background-color: var(--color-surface); /* Color de las barras */
+    background-color: var(--color-surface);
     border-radius: 3px;
     transition: all var(--transition-speed) ease-in-out;
 }
@@ -377,17 +423,16 @@ textarea:focus:not(:focus-visible) {
 }
 .menu-toggle.active .hamburger::before {
     transform: translateY(8px) rotate(45deg);
-    background-color: var(--color-primary); /* Color de la X */
+    background-color: var(--color-primary);
 }
 .menu-toggle.active .hamburger::after {
     transform: translateY(-8px) rotate(-45deg);
-    background-color: var(--color-primary); /* Color de la X */
+    background-color: var(--color-primary);
 }
 
 /* ==========================================================================
-   5. NAVEGACIÓN PRINCIPAL (Mobile First y Estructura Escritorio)
+   5. NAVEGACIÓN PRINCIPAL
    ========================================================================== */
-
 .main-nav {
     display: block;
     position: fixed;
@@ -437,53 +482,49 @@ textarea:focus:not(:focus-visible) {
     text-align: center;
 }
 
-.main-nav a {
+.main-nav a { /* Estilos generales para enlaces de nav, el botón CTA tendrá los suyos */
     text-decoration: none;
     transition: background-color var(--transition-speed-fast) ease,
                 color var(--transition-speed-fast) ease;
     font-weight: 500;
 }
 
-.main-nav > ul > li > a {
+.main-nav > ul > li > a { /* Enlaces de primer nivel en móvil */
     display: block;
     padding: 1.2rem 1.5rem;
     width: 100%;
-    color: var(--color-text-primary);
+    color: var(--color-text-primary); /* Texto blanco para enlaces normales de nav */
 }
 .main-nav > ul > li > a:hover,
 .main-nav > ul > li > a:focus {
     background-color: var(--color-surface-light);
-    color: var(--color-primary);
+    color: var(--color-primary); /* Cambia a color primario en hover/focus */
     outline: none;
 }
-.main-nav > ul > li > a::after {
+.main-nav > ul > li > a::after { /* No se usa en este diseño de nav */
     display: none;
 }
 
-
 /* ==========================================================================
-   6. MENÚ DESPLEGABLE (Comportamiento Móvil y Escritorio)
+   6. MENÚ DESPLEGABLE
    ========================================================================== */
-
 .nav-arrow {
     font-size: 0.65em;
     margin-left: 0.4em;
-    transition: transform 0.3s ease-in-out, color var(--transition-speed-fast) ease; /* Ajustado para rotación */
+    transition: transform 0.3s ease-in-out, color var(--transition-speed-fast) ease;
     display: inline-block;
     vertical-align: middle;
-    color: inherit;
+    color: inherit; /* Hereda color del enlace padre */
 }
 
-/* --- Comportamiento Desplegable Móvil --- */
 .dropdown-menu {
-    display: none; /* Oculto por defecto */
+    display: none;
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-@media (max-width: 767px) {
-    /* Muestra el submenú SOLO si el LI padre tiene la clase .submenu-open */
+@media (max-width: 767px) { /* Desplegable Móvil */
     .main-nav.active .has-dropdown.submenu-open > .dropdown-menu {
         display: block;
         position: static;
@@ -497,12 +538,10 @@ textarea:focus:not(:focus-visible) {
         transform: none;
     }
 
-    /* Rota la flecha cuando el submenú está abierto en móvil */
     .main-nav.active .has-dropdown.submenu-open > a > .nav-arrow {
          transform: rotate(180deg);
     }
 
-    /* Ítems del desplegable móvil (estilo sin cambios) */
     .dropdown-menu li a {
         display: block;
         width: 100%;
@@ -524,8 +563,7 @@ textarea:focus:not(:focus-visible) {
     }
 }
 
-/* --- Comportamiento Desplegable Escritorio (sin cambios) --- */
-@media (min-width: 768px) {
+@media (min-width: 768px) { /* Desplegable Escritorio */
     .dropdown-menu {
         display: block;
         position: absolute;
@@ -586,11 +624,10 @@ textarea:focus:not(:focus-visible) {
     }
 }
 
-
 /* ==========================================================================
    7. SECCIÓN HERO
    ========================================================================== */
-   .hero {
+.hero {
     background-color: var(--color-background);
     padding: clamp(5rem, 15vh, 8rem) 0;
     text-align: center;
@@ -599,32 +636,35 @@ textarea:focus:not(:focus-visible) {
     align-items: center;
     justify-content: center;
     color: var(--color-text-primary);
-    overflow: hidden; /* Mantenemos el overflow hidden aquí */
+    overflow: hidden;
     position: relative;
 }
 
-.hero-content { /* El contenedor dentro de .container */
+.hero-content {
     position: relative;
     text-align: center;
     width: 100%;
-    z-index: 2; /* Aseguramos que esté por encima del data-stream-container */
+    z-index: 2; 
 }
 
-/* Estilo para el contenedor del texto y botón del hero */
 .hero-text-content {
     position: relative; 
-    background-color: transparent; /* VOLVEMOS A TRANSPARENTE para ver el data-stream */
-    padding: 0; /* ELIMINAMOS EL PADDING AQUÍ, se manejará en los hijos */
+    background-color: transparent; 
+    padding: 0; 
     text-align: center;
     width: 100%;
     box-sizing: border-box;
+    /* Para centrar verticalmente los elementos hijos si es necesario:
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; */
 }
 
-/* Estilo para el H1 dentro del hero */
-.hero-text-content h1 { /* Nota: Cambiado de '.hero h1' a '.hero-text-content h1' para mayor especificidad y para aplicar el fondo solo aquí */
-    font-size: clamp(1.7rem, 6vw, 3.5rem); /* AJUSTADO el mínimo a 1.7rem o el valor que necesites */
+.hero-text-content h1 {
+    font-size: clamp(1.7rem, 6vw, 3.5rem); 
     font-weight: 700;
-    margin-bottom: 1.2rem;
+    margin-bottom: 1.2rem; /* Espacio entre h1 y subtítulo */
     line-height: var(--line-height-heading);
     background: linear-gradient(90deg, var(--color-primary), #00ccff);
     -webkit-background-clip: text;
@@ -632,32 +672,29 @@ textarea:focus:not(:focus-visible) {
     color: transparent;
     -webkit-text-fill-color: transparent;
     
-    /* Nuevas propiedades para el fondo individual del H1 */
     padding: 0.5rem 1rem; 
-    background-color: var(--color-background); /* Fondo sólido SÓLO para el H1 */
+    background-color: var(--color-background); 
     border-radius: calc(var(--border-radius) * 0.5); 
-    display: inline-block; 
+    display: inline-block; /* Para que el fondo se ajuste al contenido */
     max-width: 100%; 
     box-sizing: border-box; 
 }
 
-/* Estilo para el subtítulo dentro del hero */
-.hero-text-content .subtitle { /* Usamos .hero-text-content .subtitle para más especificidad */
+.hero-text-content .subtitle { 
     font-size: clamp(1.0rem, 3.5vw, 1.35rem); 
-    color: var(--color-text-primary); /* Asegúrate que el color sea el correcto para el texto sobre fondo oscuro */
-    max-width: 90%; 
-    margin: 0 auto 2.8rem auto;
+    color: var(--color-text-primary); 
+    max-width: 90%; /* Para que no toque los bordes si tiene fondo */
+    margin: 0 auto 2.8rem auto; /* Centrado y con margen inferior para el botón */
     line-height: 1.7;
 
-    /* Nuevas propiedades para el fondo individual del subtítulo */
     padding: 0.75rem 1.25rem; 
-    background-color: var(--color-background); /* Fondo sólido SÓLO para el subtítulo */
+    background-color: var(--color-background); 
     border-radius: calc(var(--border-radius) * 0.5); 
-    display: inline-block; 
+    display: inline-block; /* Para que el fondo se ajuste al contenido */
     box-sizing: border-box;
 }
+/* El botón .btn-primary dentro de .hero-text-content usará los estilos definidos en la Sección 3.1 */
 
-/* El data-stream-container (sin cambios respecto a tu original, solo aseguramos su z-index) */
 .data-stream-container {
     position: absolute;
     top: 0;
@@ -665,10 +702,10 @@ textarea:focus:not(:focus-visible) {
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: 1; /* Detrás de .hero-content */
+    z-index: 1;
     overflow: hidden;
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
-    mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 1%, black 99%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 1%, black 99%, transparent 100%);
 }
 .data-stream-container ul {
     list-style: none;
@@ -686,50 +723,48 @@ textarea:focus:not(:focus-visible) {
     font-size: .85rem;
     color: var(--color-text-secondary);
     animation-name: fileNameFlow;
-    animation-duration: 50s;
+    /* animation-duration se define por cada nth-child */
     animation-timing-function: linear;
     animation-iteration-count: infinite;
 }
-/* Keyframes y estilos de los 'li' del data-stream (estos no necesitan cambio) */
 @keyframes fileNameFlow {
-    0% { transform: translateX(-300px); opacity: 0; }
-    15% { opacity: .4; }
+    0% { transform: translateX(-50px); opacity: 0; }
+    5% { opacity: .4; }
     85% { opacity: .4; }
-    100% { transform: translateX(calc(100vw + 300px)); opacity: 0; }
+    100% { transform: translateX(calc(100vw + 50px)); opacity: 0; }
 }
+/* Delays y Duraciones ajustados para inicio rápido y continuidad */
 .data-stream-container li:nth-child(1) { top: 2%; animation-delay: 0s; animation-duration: 28s; font-size: .8rem; }
-.data-stream-container li:nth-child(2) { top: 15%; animation-delay: 2.5s; animation-duration: 24s; }
-.data-stream-container li:nth-child(3) { top: 22%; animation-delay: 5s; animation-duration: 26s; color: rgba(148,163,184,.35); }
-.data-stream-container li:nth-child(4) { top: 29%; animation-delay: 7.5s; animation-duration: 22s; }
-.data-stream-container li:nth-child(5) { top: 36%; animation-delay: 1s; animation-duration: 30s; }
-.data-stream-container li:nth-child(6) { top: 43%; animation-delay: 4s; animation-duration: 25s; font-size: .9rem; }
-.data-stream-container li:nth-child(7) { top: 50%; animation-delay: 6.5s; animation-duration: 27s; }
-.data-stream-container li:nth-child(8) { top: 57%; animation-delay: 9s; animation-duration: 23s; }
-.data-stream-container li:nth-child(9) { top: 64%; animation-delay: 1.5s; animation-duration: 29s; color: rgba(148,163,184,.45); }
-.data-stream-container li:nth-child(10) { top: 71%; animation-delay: 4.5s; animation-duration: 24s; }
-.data-stream-container li:nth-child(11) { top: 81%; animation-delay: 7s; animation-duration: 31s; }
-.data-stream-container li:nth-child(12) { top: 85%; animation-delay: 9.5s; animation-duration: 25s; }
-.data-stream-container li:nth-child(13) { top: 92%; animation-delay: .5s; animation-duration: 27s; }
-.data-stream-container li:nth-child(14) { top: 12%; animation-delay: 11s; animation-duration: 26s; }
-.data-stream-container li:nth-child(15) { top: 40%; animation-delay: 13s; animation-duration: 22s; }
-.data-stream-container li:nth-child(16) { top: 68%; animation-delay: 15s; animation-duration: 28s; font-size: .8rem; }
-.data-stream-container li:nth-child(17) { top: 5%; animation-delay: 10s; animation-duration: 25s; }
-.data-stream-container li:nth-child(18) { top: 95%; animation-delay: 12s; animation-duration: 29s; }
-.data-stream-container li:nth-child(19) { top: 33%; animation-delay: 14s; animation-duration: 26s; }
-.data-stream-container li:nth-child(20) { top: 60%; animation-delay: 16s; animation-duration: 30s; }
-.data-stream-container li:nth-child(21) { top: 25%; animation-delay: 17s; animation-duration: 24s; color: rgba(148,163,184,.3); }
-.data-stream-container li:nth-child(22) { top: 75%; animation-delay: 18s; animation-duration: 27s; }
-.data-stream-container li:nth-child(23) { top: 55%; animation-delay: 19s; animation-duration: 23s; font-size: .9rem; }
-.data-stream-container li:nth-child(24) { top: 90%; animation-delay: 20s; animation-duration: 29s; }
-.data-stream-container li:nth-child(25) { top: 88%; animation-delay: 20s; animation-duration: 41s; }
-.data-stream-container li:nth-child(26) { top: 98%; animation-delay: 20s; animation-duration: 29s; }
-
+.data-stream-container li:nth-child(2) { top: 15%; animation-delay: 0.8s; animation-duration: 26s; }
+.data-stream-container li:nth-child(3) { top: 22%; animation-delay: 1.7s; animation-duration: 29s; color: rgba(148,163,184,.35); }
+.data-stream-container li:nth-child(4) { top: 29%; animation-delay: 2.5s; animation-duration: 25s; }
+.data-stream-container li:nth-child(5) { top: 36%; animation-delay: 0.3s; animation-duration: 30s; }
+.data-stream-container li:nth-child(6) { top: 43%; animation-delay: 1.3s; animation-duration: 27s; font-size: .9rem; }
+.data-stream-container li:nth-child(7) { top: 50%; animation-delay: 2.2s; animation-duration: 29s; }
+.data-stream-container li:nth-child(8) { top: 57%; animation-delay: 3s; animation-duration: 26s; }
+.data-stream-container li:nth-child(9) { top: 64%; animation-delay: 0.5s; animation-duration: 31s; color: rgba(148,163,184,.45); }
+.data-stream-container li:nth-child(10) { top: 71%; animation-delay: 1.5s; animation-duration: 28s; }
+.data-stream-container li:nth-child(11) { top: 81%; animation-delay: 2.3s; animation-duration: 32s; }
+.data-stream-container li:nth-child(12) { top: 85%; animation-delay: 3.2s; animation-duration: 27s; }
+.data-stream-container li:nth-child(13) { top: 92%; animation-delay: 0.2s; animation-duration: 29s; }
+.data-stream-container li:nth-child(14) { top: 12%; animation-delay: 3.7s; animation-duration: 28s; }
+.data-stream-container li:nth-child(15) { top: 40%; animation-delay: 4.3s; animation-duration: 25s; }
+.data-stream-container li:nth-child(16) { top: 68%; animation-delay: 5s; animation-duration: 30s; font-size: .8rem; }
+.data-stream-container li:nth-child(17) { top: 5%; animation-delay: 3.3s; animation-duration: 27s; }
+.data-stream-container li:nth-child(18) { top: 95%; animation-delay: 4s; animation-duration: 31s; }
+.data-stream-container li:nth-child(19) { top: 33%; animation-delay: 4.7s; animation-duration: 28s; }
+.data-stream-container li:nth-child(20) { top: 60%; animation-delay: 5.3s; animation-duration: 32s; }
+.data-stream-container li:nth-child(21) { top: 25%; animation-delay: 5.7s; animation-duration: 26s; color: rgba(148,163,184,.3); }
+.data-stream-container li:nth-child(22) { top: 75%; animation-delay: 6s; animation-duration: 29s; }
+.data-stream-container li:nth-child(23) { top: 55%; animation-delay: 6.3s; animation-duration: 25s; font-size: .9rem; }
+.data-stream-container li:nth-child(24) { top: 90%; animation-delay: 6.7s; animation-duration: 31s; }
+.data-stream-container li:nth-child(25) { top: 88%; animation-delay: 6.7s; animation-duration: 33s; }
+.data-stream-container li:nth-child(26) { top: 98%; animation-delay: 6.7s; animation-duration: 29s; }
 
 /* ==========================================================================
    8. SECCIÓN SERVICIOS
    ========================================================================== */
-/* ... (Sección Servicios sin cambios) ... */
-   .services {
+.services {
     background-color: var(--color-surface);
 }
 .service-grid {
@@ -786,11 +821,9 @@ textarea:focus:not(:focus-visible) {
     margin-bottom: 1.5rem;
 }
 
-
 /* ==========================================================================
-   9. SECCIÓN SOBRE NOSOTROS (Placeholder)
+   9. SECCIÓN SOBRE NOSOTROS
    ========================================================================== */
-/* ... (Sección Sobre Nosotros sin cambios) ... */
 #nosotros {
     background-color: var(--color-background);
 }
@@ -809,11 +842,9 @@ textarea:focus:not(:focus-visible) {
     margin-bottom: 0;
 }
 
-
 /* ==========================================================================
    10. SECCIÓN CONTACTO
    ========================================================================== */
-/* ... (Sección Contacto sin cambios) ... */
 .contact {
     background-color: var(--color-surface);
 }
@@ -878,11 +909,10 @@ textarea:focus:not(:focus-visible) {
     color: var(--color-text-secondary);
     opacity: 0.7;
 }
-.contact-form button[type="submit"] {
+.contact-form button[type="submit"] { /* Este botón heredará de .btn y .btn-primary si se le aplican esas clases en HTML */
     width: 100%;
     margin-top: 1.5rem;
-    padding: 1rem 2rem;
-    /* color ya heredado de .btn-primary */
+    padding: 1rem 2rem; /* Puede necesitar ajustes si .btn define padding diferente */
 }
 .contact-info p {
     margin-bottom: 0.8rem;
@@ -907,11 +937,9 @@ textarea:focus:not(:focus-visible) {
     height: 400px;
 }
 
-
 /* ==========================================================================
    11. SECCIÓN TICKER LOGOS CLIENTES
    ========================================================================== */
-/* ... (Sección Ticker sin cambios) ... */
 .section-padding-ticker {
     padding-top: 2.5rem;
     padding-bottom: 2.5rem;
@@ -985,11 +1013,9 @@ textarea:focus:not(:focus-visible) {
     }
 }
 
-
 /* ==========================================================================
-   12. SECCIÓN PREGUNTAS FRECUENTES (FAQ) (Estilo Acordeón)
+   12. SECCIÓN PREGUNTAS FRECUENTES (FAQ)
    ========================================================================== */
-/* ... (Sección FAQ sin cambios) ... */
 .faq {
     padding-top: calc(var(--section-padding-mobile) * 0.7);
     padding-bottom: calc(var(--section-padding-mobile) * 0.7);
@@ -1003,7 +1029,7 @@ textarea:focus:not(:focus-visible) {
     margin-bottom: 1.5rem;
     font-size: clamp(1.7rem, 4vw, 2.2rem);
 }
-.faq .subtitle {
+.faq .subtitle { /* Este es el subtítulo específico de la sección FAQ */
     margin-bottom: 3rem;
     font-size: clamp(0.95rem, 2.3vw, 1.1rem);
     color: var(--color-text-primary);
@@ -1150,15 +1176,13 @@ textarea:focus:not(:focus-visible) {
     }
 }
 
-
 /* ==========================================================================
    13. PIE DE PÁGINA DEL SITIO
    ========================================================================== */
-/* ... (Sección Pie de Página sin cambios) ... */
 .site-footer {
     background-color: var(--color-background);
     padding: 2.5rem 1rem;
-    margin-top: var(--section-padding-mobile);
+    margin-top: var(--section-padding-mobile); /* Asegura espacio antes del footer */
     border-top: 1px solid var(--color-border);
     text-align: center;
     color: var(--color-text-secondary);
@@ -1191,15 +1215,15 @@ textarea:focus:not(:focus-visible) {
 }
 
 /* ==========================================================================
-   13.5 ESTILOS PÁGINA BLOG (LISTADO POSTS) - VERSIÓN COMPACTA
+   13.5 ESTILOS PÁGINA BLOG (LISTADO POSTS)
    ========================================================================== */
+.blog-listing-page {} /* Contenedor general de la página de listado del blog */
 
-.blog-listing-page {}
 .blog-post-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: calc(var(--grid-gap, 2.5rem) * 0.8);
-    margin-top: 2.5rem;
+    gap: calc(var(--grid-gap, 2.5rem) * 0.8); /* Un poco menos de gap que el general */
+    margin-top: 2.5rem; /* Espacio después del título de la página del blog */
 }
 .blog-post-card {
     background-color: var(--color-surface);
@@ -1212,7 +1236,7 @@ textarea:focus:not(:focus-visible) {
     transition: transform var(--transition-speed-fast) ease,
                 box-shadow var(--transition-speed-fast) ease,
                 border-color var(--transition-speed-fast) ease;
-    height: 100%;
+    height: 100%; /* Para que todas las tarjetas tengan la misma altura si están en la misma fila */
 }
 .blog-post-card:hover {
     transform: translateY(-4px);
@@ -1221,14 +1245,14 @@ textarea:focus:not(:focus-visible) {
 }
 .post-image {
     width: 100%;
-    height: 160px;
+    height: 160px; /* Altura fija para la imagen */
     overflow: hidden;
     position: relative;
 }
 .post-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
     display: block;
     transition: transform 0.25s ease;
 }
@@ -1239,8 +1263,8 @@ textarea:focus:not(:focus-visible) {
     padding: 1.2rem 1.5rem;
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
-    height: 100%;
+    flex-grow: 1; /* Permite que el contenido crezca y el botón se alinee abajo */
+    /* height: 100%; Esto no es necesario aquí, .blog-post-card ya lo tiene */
 }
 .post-title {
     font-size: clamp(1.0rem, 2.8vw, 1.2rem);
@@ -1262,12 +1286,12 @@ textarea:focus:not(:focus-visible) {
     color: var(--color-text-secondary);
     margin-bottom: 0.8rem;
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.3rem 0.8rem;
+    flex-wrap: wrap; /* Para que los elementos meta se ajusten si no caben */
+    gap: 0.3rem 0.8rem; /* Espacio entre elementos meta */
     line-height: 1.3;
 }
 .post-meta span {
-    display: inline-flex;
+    display: inline-flex; /* Para alinear icono y texto */
     align-items: center;
 }
 .post-meta i {
@@ -1287,7 +1311,7 @@ textarea:focus:not(:focus-visible) {
     color: var(--color-text-secondary);
     line-height: 1.5;
     margin-bottom: 1.2rem;
-    flex-grow: 1;
+    flex-grow: 1; /* Empuja el botón "Leer más" hacia abajo */
 }
 .post-excerpt p {
     margin-bottom: 0.8rem;
@@ -1295,24 +1319,8 @@ textarea:focus:not(:focus-visible) {
 .post-excerpt p:last-child {
     margin-bottom: 0;
 }
-.read-more-btn {
-    background-color: transparent;
-    color: var(--color-primary); /* MODIFICADO: Texto del botón */
-    border: 1px solid var(--color-primary);
-    margin-top: auto;
-    align-self: flex-start;
-    transition: background-color var(--transition-speed-fast) ease,
-                color var(--transition-speed-fast) ease,
-                transform var(--transition-speed-fast) ease;
-}
-.read-more-btn:hover,
-.read-more-btn:focus {
-    background-color: var(--color-primary);
-    color: var(--color-button-text); /* MODIFICADO: Texto del botón en hover */
-    border-color: var(--color-primary);
-    transform: translateY(-2px);
-    outline: none;
-}
+/* .read-more-btn ya está estilizado en la Sección 3.1 BOTONES */
+
 .pagination {
     display: flex;
     justify-content: center;
@@ -1321,17 +1329,17 @@ textarea:focus:not(:focus-visible) {
     gap: 0.5rem;
 }
 .pagination a,
-.pagination span {
+.pagination span { /* Para el número de página actual o puntos suspensivos */
     display: inline-block;
     padding: 0.6rem 1rem;
     border: 1px solid var(--color-border);
     border-radius: calc(var(--border-radius) * 0.5);
-    color: var(--color-text-secondary); /* MODIFICADO: Color texto paginación normal */
+    color: var(--color-text-secondary);
     text-decoration: none;
     transition: background-color var(--transition-speed-fast) ease,
                 border-color var(--transition-speed-fast) ease,
                 color var(--transition-speed-fast) ease;
-    min-width: 40px;
+    min-width: 40px; /* Para que todos los números tengan un ancho similar */
     text-align: center;
     font-size: 0.9rem;
 }
@@ -1339,63 +1347,60 @@ textarea:focus:not(:focus-visible) {
 .pagination a:focus {
     background-color: var(--color-surface-light);
     border-color: var(--color-text-secondary);
-    color: var(--color-text-primary); /* MODIFICADO: Color texto paginación hover */
+    color: var(--color-text-primary);
     outline: none;
 }
-.pagination .current {
+.pagination .current { /* Para el número de página actual */
     background-color: var(--color-primary);
     border-color: var(--color-primary);
-    color: var(--color-button-text); /* MODIFICADO: Color texto paginación actual */
+    color: var(--color-button-text); /* Color de texto del botón */
     font-weight: 600;
     cursor: default;
 }
-.pagination .dots {
+.pagination .dots { /* Para los "..." */
     border: none;
-    padding: 0.6rem 0.4rem;
+    padding: 0.6rem 0.4rem; /* Menos padding horizontal para los puntos */
     cursor: default;
-    color: var(--color-text-secondary); /* MODIFICADO: Color puntos suspensivos */
+    color: var(--color-text-secondary);
 }
-
 
 /* ==========================================================================
    14. BOTÓN FLOTANTE WHATSAPP
    ========================================================================== */
-/* ... (Sección WhatsApp sin cambios - Texto blanco por defecto en iconos FA) ... */
 .whatsapp-btn {
     position: fixed;
     bottom: var(--whatsapp-btn-offset-base);
     right: var(--whatsapp-btn-offset-base);
     background-color: var(--color-whatsapp-green);
-    color: white; /* El icono FA hereda esto */
+    color: white; /* El icono FontAwesome hereda esto */
     border-radius: 50%;
     width: var(--whatsapp-btn-size);
     height: var(--whatsapp-btn-size);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2.2rem;
+    font-size: 2.2rem; /* Tamaño del icono */
     text-decoration: none;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
-    z-index: 1000;
+    z-index: 1000; /* Por encima de la mayoría de los elementos */
     transition: transform 0.2s ease-in-out,
                 background-color 0.2s ease-in-out,
-                bottom 0.2s ease-in-out;
-    pointer-events: auto;
+                bottom 0.2s ease-in-out; /* Para el ajuste en móvil */
+    pointer-events: auto; /* Asegura que sea clickeable */
 }
 .whatsapp-btn:hover {
     background-color: var(--color-whatsapp-green-darker);
     transform: scale(1.1);
-    color: white; /* Mantiene blanco en hover */
+    color: white; /* Mantiene el color del icono */
 }
 
-
 /* ==========================================================================
-   15. MEDIA QUERIES (Ajustes Responsivos)
+   15. MEDIA QUERIES
    ========================================================================== */
 
 /* --- 15.1 Ajustes Generales Escritorio (min-width: 768px) --- */
 @media (min-width: 768px) {
-    :root {
+    :root { /* Sobrescribe variables para escritorio */
         --header-padding-inline: 2rem;
         --section-padding-desktop: 6rem;
         --grid-gap: 2.5rem;
@@ -1404,13 +1409,13 @@ textarea:focus:not(:focus-visible) {
         padding-top: var(--section-padding-desktop);
         padding-bottom: var(--section-padding-desktop);
     }
-    body {
+    body { /* Quita el padding-bottom de móvil */
         padding-bottom: 0;
     }
-    .subtitle {
+    .subtitle { /* Ajusta margen del subtítulo general */
         margin-bottom: 3.5rem;
     }
-    .footer-content {
+    .footer-content { /* Footer en fila en escritorio */
         flex-direction: row;
         justify-content: space-between;
     }
@@ -1419,26 +1424,25 @@ textarea:focus:not(:focus-visible) {
     }
 }
 
-
 /* --- 15.2 Sobrescrituras Encabezado y Navegación Escritorio (min-width: 768px) --- */
 @media (min-width: 768px) {
     .header-content {
-        justify-content: space-between;
-        position: static;
+        justify-content: space-between; /* Logo a la izq, Nav a la der */
+        position: static; /* El logo ya no necesita ser posicionado absolutamente */
     }
     .logo {
-        position: static;
+        position: static; /* Vuelve a flujo normal */
         transform: none;
         max-width: var(--logo-max-width-desktop);
-        flex-shrink: 0;
+        flex-shrink: 0; /* Evita que el logo se encoja */
     }
     .logo img {
-        max-height: calc(var(--header-height) - 25px);
+        max-height: calc(var(--header-height) - 25px); /* Ajusta altura del logo */
     }
-    .menu-toggle {
+    .menu-toggle { /* Oculta botón hamburguesa */
         display: none;
     }
-    .main-nav {
+    .main-nav { /* Nav principal en modo escritorio */
         display: flex;
         position: static;
         transform: none;
@@ -1449,177 +1453,140 @@ textarea:focus:not(:focus-visible) {
         box-shadow: none;
         padding: 0;
         background-color: transparent;
-        width: auto;
+        width: auto; /* Ancho automático según contenido */
         bottom: auto;
-        margin-left: auto;
+        margin-left: auto; /* Empuja la nav a la derecha */
         border-radius: 0;
         pointer-events: auto;
-        height: 100%;
+        height: 100%; /* Para alinear verticalmente los items */
     }
-    /* Escritorio: Lista de nivel superior (Mantiene stretch) */
-    .main-nav > ul {
+    .main-nav > ul { /* Lista principal de nav en fila */
         display: flex;
         flex-direction: row;
         align-items: stretch; /* Los LI se estiran verticalmente */
         justify-content: flex-end;
-        gap: 0;
+        gap: 0; /* Sin gap, el padding de los 'a' maneja el espacio */
         height: 100%;
         padding: 0;
     }
-    /* Escritorio: Ítems de lista de nivel superior */
-    .main-nav > ul > li {
-        display: flex;
-        align-items: center; /* Centra el 'a' dentro del LI */
+    .main-nav > ul > li { /* Items de la lista principal */
+        display: flex; /* Para alinear el 'a' dentro */
+        align-items: center;
         padding: 0;
         margin: 0;
-        border: none;
-        cursor: pointer;
-        position: relative;
-        width: auto;
+        /* border, cursor, position, width son manejados por el 'a' o no necesarios */
     }
-    /* Escritorio: Enlaces de nivel superior (Excepto botón CTA) */
-    .main-nav > ul > li > a:not(.nav-cta-button) {
+    .main-nav > ul > li > a:not(.nav-cta-button) { /* Enlaces normales de nav en escritorio */
         display: flex;
         align-items: center;
-        height: 100%; /* Ocupa altura LI estirado */
+        height: 100%; 
         padding: var(--desktop-nav-item-padding-y) var(--desktop-nav-item-spacing);
         position: relative;
-        color: var(--color-text-secondary);
+        color: var(--color-text-secondary); /* Color de texto secundario para nav */
         background-color: transparent;
         font-weight: 500;
         width: auto;
         font-size: 0.95rem;
-        text-transform: none;
-        border-radius: calc(var(--border-radius) * 0.5);
+        text-transform: none; /* Si no quieres mayúsculas */
+        border-radius: calc(var(--border-radius) * 0.5); /* Pequeño borde redondeado */
         transition: color var(--transition-speed-fast) ease,
                     background-color var(--transition-speed-fast) ease;
-        vertical-align: middle;
+        vertical-align: middle; /* Aunque flex align-items ya lo hace */
     }
-    /* Estado Hover/Focus Enlace Escritorio (Excepto botón CTA) */
     .main-nav > ul > li > a:not(.nav-cta-button):hover,
     .main-nav > ul > li > a:not(.nav-cta-button):focus,
-    .main-nav > ul > li:hover > a:not(.nav-cta-button) {
+    .main-nav > ul > li:hover > a:not(.nav-cta-button) { /* Hover/Focus para enlaces normales */
         color: var(--color-primary);
         background-color: var(--desktop-nav-hover-bg);
     }
+    /* Hereda el color de la flecha en hover/focus */
     .main-nav > ul > li > a:hover .nav-arrow,
     .main-nav > ul > li > a:focus .nav-arrow,
     .main-nav > ul > li:hover > a .nav-arrow {
         color: var(--color-primary);
     }
-    .main-nav > ul > li > a::after {
-        display: none;
-    }
-    /* Estilos específicos del botón CTA en escritorio */
-    .main-nav > ul > li > a.nav-cta-button {
-        margin-left: 0.8rem;
-        /* padding vertical definido en regla base */
-         padding-top: 0.2rem;
-         padding-bottom: 0.2rem;
-         /* color ya heredado de .nav-cta-button */
-    }
-    /* Asegura fondo/color hover correcto para botón CTA */
-    .main-nav > ul > li > a.nav-cta-button:hover,
-    .main-nav > ul > li > a.nav-cta-button:focus,
-    .main-nav > ul > li:hover > a.nav-cta-button {
-        background-color: var(--color-primary);
-        color: var(--color-button-text); /* MODIFICADO */
-    }
+    /* El botón CTA tiene su propia sección de estilos (16) */
 }
-
 
 /* --- 15.3 Ajustes Específicos Móvil (max-width: 767px) --- */
 @media (max-width: 767px) {
-    body {
+    body { /* Añade padding abajo para que el contenido no quede oculto por botones flotantes */
          padding-bottom: calc(var(--whatsapp-btn-offset-mobile) + var(--whatsapp-btn-size) + 15px);
     }
-    .whatsapp-btn {
+    .whatsapp-btn { /* Mueve el botón de WhatsApp más arriba para no interferir con el menú hamburguesa */
         bottom: var(--whatsapp-btn-offset-mobile);
     }
-    /* Aquí van las reglas del menú desplegable móvil modificadas en la sección 6 */
+    /* Las reglas del menú desplegable móvil ya están en la Sección 6 dentro de su propia media query */
 }
-
 
 /* --- 15.4 Mejoras Pantalla Grande (min-width: 1200px) --- */
 @media (min-width: 1200px) {
-    :root {
+    :root { /* Variables para pantallas más grandes */
         --section-padding-desktop: 7rem;
         --grid-gap: 3rem;
-        --desktop-nav-item-spacing: 1.5rem;
+        --desktop-nav-item-spacing: 1.5rem; /* Más espacio entre items de nav */
     }
-    .hero {
+    .hero { /* Hero más alto */
         min-height: 70vh;
     }
-    .hero h1 {
-        font-size: clamp(3rem, 7vw, 3.8rem);
+    .hero-text-content h1 { /* Texto de Hero más grande */
+        font-size: clamp(3rem, 7vw, 3.8rem); /* Ajusta el clamp del H1 en hero */
     }
 }
 
-
 /* ==========================================================================
-   16. ESTILOS ESPECÍFICOS DE COMPONENTES / SOBREESCRITURAS (Botón Contacto CTA)
+   16. ESTILOS ESPECÍFICOS DE COMPONENTES (BOTÓN CONTACTO CTA NAV)
    ========================================================================== */
-
 /* Estilo BASE para el enlace "Contacto" como botón CTA SÓLIDO */
-.main-nav .nav-cta-button {
+.main-nav .nav-cta-button,
+.main-nav a.nav-cta-button:visited {
     background-color: var(--color-primary-darker);
-    color: var(--color-button-text); /* MODIFICADO */
-    display: inline-flex;
+    /* color es manejado por la regla global en Sección 3.1.1 */
+    display: inline-flex; /* Para centrar contenido y que se comporte como bloque */
     align-items: center;
     justify-content: center;
-    padding: 0.2rem 1.2rem; /* Padding vertical MUY reducido */
+    padding: 0.2rem 1.2rem; /* Padding vertical MUY reducido para nav */
     border-radius: var(--border-radius);
     font-weight: 600;
     transition: background-color var(--transition-speed-fast) ease,
                 transform var(--transition-speed-fast) ease,
                 box-shadow var(--transition-speed-fast) ease,
                 color var(--transition-speed-fast) ease;
-    text-decoration: none;
-    vertical-align: middle;
-    box-sizing: border-box;
+    /* text-decoration es manejado por la regla global */
+    vertical-align: middle; /* Alineación con otros items de nav */
+    box-sizing: border-box; /* Importante con padding */
 }
 
 /* Estado Hover/Focus para el botón CTA de Contacto */
 .main-nav .nav-cta-button:hover,
 .main-nav .nav-cta-button:focus {
     background-color: var(--color-primary);
-    color: var(--color-button-text); /* MODIFICADO */
+    /* color es manejado por la regla global */
     transform: translateY(-2px);
     box-shadow: 0 4px 10px var(--color-shadow-light);
-    text-decoration: none;
-    outline: none;
+    outline: none; /* Quita el outline por defecto en focus */
 }
 
-/* Ajustes para el botón CTA en el Menú Móvil (sólido, estrecho y centrado) */
+/* Ajustes para el botón CTA en el Menú Móvil */
 @media (max-width: 767px) {
-    .main-nav > ul > li > a.nav-cta-button {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: auto;
-        margin: 0.8rem auto 0.5rem auto;
-        padding: 0.3rem 1.5rem; /* Padding vertical reducido para móvil */
-        margin-left: auto;
-        margin-right: auto;
-        background-color: var(--color-primary-darker);
-        color: var(--color-button-text); /* MODIFICADO */
+    .main-nav > ul > li > a.nav-cta-button,
+    .main-nav > ul > li > a.nav-cta-button:visited {
+        display: inline-flex; /* Para que se pueda centrar con margin auto */
+        width: auto; /* Ancho según contenido y padding */
+        margin: 0.8rem auto 0.5rem auto; /* Centrado y con márgenes verticales */
+        padding: 0.8rem 1.8rem; /* Padding más generoso en móvil, similar a .btn */
+        /* background-color y color ya definidos arriba y por la regla global */
     }
 
-    .main-nav > ul > li > a.nav-cta-button:hover,
-    .main-nav > ul > li > a.nav-cta-button:focus {
-         background-color: var(--color-primary);
-         color: var(--color-button-text); /* MODIFICADO */
-         transform: translateY(-2px);
-         box-shadow: 0 4px 10px var(--color-shadow-light);
-    }
+    /* El hover/focus en móvil heredará los estilos definidos arriba para .main-nav .nav-cta-button:hover/focus */
+    /* Si se necesita un comportamiento diferente en hover/focus para móvil, se especifica aquí */
 }
-
 
 /* ==========================================================================
-   17. Opcional: Desactivar Botón WhatsApp
+   17. OPCIONAL: DESACTIVAR BOTÓN WHATSAPP
    ========================================================================== */
 /*
 .whatsapp-btn {
-  display: none !important; // Oculta el botón si no se desea
+  display: none !important;
 }
 */
