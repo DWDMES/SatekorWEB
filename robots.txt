@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /politica-cookies.html
+Disallow: /politica-privacidad.html
+Disallow: /terminos-uso.html
+
+Sitemap: https://www.satekor.es/sitemap.xml
