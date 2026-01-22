@@ -1,14 +1,33 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SATEKOR - Telecomunicaciones e Infraestructura para Empresas en Almería</title>
-    <meta name="description" content="SATEKOR: Expertos en videovigilancia para empresas, fibra óptica, infraestructura crítica, mantenimiento 24/7, automatización IoT y conexión a internet rural en Almería. Soluciones para hoteles, naves industriales y operadoras.">
-    <meta name="keywords" content="SATEKOR, telecomunicaciones empresas Almería, videovigilancia empresas Almería, cámaras seguridad negocios Almería, fibra óptica empresas Almería, internet rural Almería, infraestructura crítica Almería, cableado estructurado Cat 8, racks certificados, mantenimiento redes Almería, soporte técnico 24/7, automatización hoteles Almería, sensores inteligentes, conexión satélite Almería, radioenlace Almería">
+    <meta name="description"
+        content="SATEKOR: Expertos en videovigilancia para empresas, fibra óptica, infraestructura crítica, mantenimiento 24/7, automatización IoT y conexión a internet rural en Almería. Soluciones para hoteles, naves industriales y operadoras.">
+    <meta name="keywords"
+        content="SATEKOR, telecomunicaciones empresas Almería, videovigilancia empresas Almería, cámaras seguridad negocios Almería, fibra óptica empresas Almería, internet rural Almería, infraestructura crítica Almería, cableado estructurado Cat 8, racks certificados, mantenimiento redes Almería, soporte técnico 24/7, automatización hoteles Almería, sensores inteligentes, conexión satélite Almería, radioenlace Almería">
     <meta name="author" content="SATEKOR Telecomunicaciones">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.satekor.es/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.satekor.es/">
+    <meta property="og:title" content="SATEKOR - Telecomunicaciones e Infraestructura para Empresas en Almería">
+    <meta property="og:description"
+        content="SATEKOR: Expertos en videovigilancia para empresas, fibra óptica, infraestructura crítica, mantenimiento 24/7, automatización IoT y conexión a internet rural en Almería.">
+    <meta property="og:image" content="https://www.satekor.es/Assets/Imagenes/logoB.webp">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.satekor.es/">
+    <meta property="twitter:title" content="SATEKOR - Telecomunicaciones e Infraestructura para Empresas en Almería">
+    <meta property="twitter:description"
+        content="SATEKOR: Expertos en videovigilancia para empresas, fibra óptica, infraestructura crítica, mantenimiento 24/7, automatización IoT y conexión a internet rural en Almería.">
+    <meta property="twitter:image" content="https://www.satekor.es/Assets/Imagenes/logoB.webp">
 
     <link rel="icon" href="Assets/Imagenes/favicon.webp" type="image/webp">
     <link rel="preload" href="Assets/Imagenes/logoB.webp" as="image">
@@ -17,80 +36,188 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap">
+    <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap">
 
     <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
-      /* --- INICIO CSS CRÍTICO --- */
-      /* Pega aquí los estilos esenciales para la primera visualización de tu página. */
-      /* Esto incluye estilos para: body, header, la sección hero completa (incluido el fondo si es simple), */
-      /* el H1 y el P.SUBTITLE (tu LCP), y las variables CSS críticas. */
-      /* La generación precisa de este CSS suele requerir herramientas. */
+        /* --- INICIO CSS CRÍTICO --- */
+        :root {
+            --color-primary: #00FFAA;
+            --color-background: #0F172A;
+            --color-text-primary: #F8FAFC;
+            --color-text-secondary: #94A3B8;
+            --font-main: 'Poppins', Arial, sans-serif;
+            /* Fallback de fuente de sistema */
+            --header-height: 75px;
+            --border-radius: 10px;
+            --line-height-heading: 1.3;
+            --line-height-base: 1.7;
+        }
 
-      /* Ejemplo muy básico (DEBES COMPLETAR Y REFINAR ESTO): */
-      :root {
-        --color-primary: #00FFAA;
-        --color-background: #0F172A;
-        --color-text-primary: #F8FAFC;
-        --color-text-secondary: #94A3B8;
-        --font-main: 'Poppins', Arial, sans-serif; /* Fallback de fuente de sistema */
-        --header-height: 75px;
-        --border-radius: 10px;
-        --line-height-heading: 1.3;
-        --line-height-base: 1.7;
-      }
-      html { scroll-behavior: smooth; font-size: 16px; }
-      body {
-        font-family: var(--font-main);
-        background-color: var(--color-background);
-        color: var(--color-text-primary);
-        margin: 0;
-        padding: 0;
-        line-height: var(--line-height-base);
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        /* El background-image complejo del body original podría retrasar, considera simplificarlo para el CSS crítico */
-        /* o aplicarlo solo después con el CSS completo. */
-      }
-      .container { width: 100%; max-width: 1180px; margin-left: auto; margin-right: auto; padding-left: 1rem; padding-right: 1rem; }
-      .site-header { background-color: var(--color-background); border-bottom: 1px solid #334155; position: sticky; top: 0; left: 0; width: 100%; z-index: 1000; height: var(--header-height); box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
-      .header-content { position: relative; height: 100%; display: flex; align-items: center; padding-left: 1.5rem; padding-right: 1.5rem; justify-content: space-between; }
-      .logo { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 1001; max-width: 140px; }
-      .logo img { max-height: calc(var(--header-height) - 30px); width: 100%; display: block; }
-      @media (min-width: 768px) {
-        .logo { position: static; transform: none; max-width: 160px; }
-        .header-content { padding-left: 2rem; padding-right: 2rem; }
-      }
-      .hero { background-color: var(--color-background); padding: clamp(4rem, 15vh, 8rem) 0; text-align: center; min-height: 60vh; display: flex; align-items: center; justify-content: center; color: var(--color-text-primary); overflow: hidden; position: relative; }
-      .hero-content { position: relative; text-align: center; width: 100%; z-index: 2; }
-      .hero-text-content { position: relative; background-color: transparent; padding: 0; text-align: center; width: 100%; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
-      .hero-text-content h1 {
-        font-size: clamp(1.7rem, 5.5vw, 3.2rem); font-weight: 700; line-height: var(--line-height-heading);
-        background: linear-gradient(90deg, var(--color-primary), #00ccff);
-        -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent;
-        padding: 0.5rem 1rem; background-color: var(--color-background); border-radius: calc(var(--border-radius) * 0.5);
-        display: inline-block; max-width: 100%; box-sizing: border-box;
-      }
-      .hero-text-content .subtitle { /* Estilos críticos para tu LCP */
-        font-family: var(--font-main); /* Asegúrate de que Poppins o su fallback estén definidos */
-        font-size: clamp(0.95rem, 3.5vw, 1.3rem);
-        color: var(--color-text-primary);
-        max-width: 90%; margin: 0 auto; line-height: 1.7;
-        padding: 0.75rem 1.25rem; background-color: var(--color-background);
-        border-radius: calc(var(--border-radius) * 0.5); display: inline-block; box-sizing: border-box;
-      }
-      /* --- FIN CSS CRÍTICO --- */
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--color-background);
+            color: var(--color-text-primary);
+            margin: 0;
+            padding: 0;
+            line-height: var(--line-height-base);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1180px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .site-header {
+            background-color: var(--color-background);
+            border-bottom: 1px solid #334155;
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            height: var(--header-height);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-content {
+            position: relative;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+            justify-content: space-between;
+        }
+
+        .logo {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1001;
+            max-width: 140px;
+        }
+
+        .logo img {
+            max-height: calc(var(--header-height) - 30px);
+            width: 100%;
+            display: block;
+        }
+
+        @media (min-width: 768px) {
+            .logo {
+                position: static;
+                transform: none;
+                max-width: 160px;
+            }
+
+            .header-content {
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+        }
+
+        .hero {
+            background-color: var(--color-background);
+            padding: clamp(4rem, 15vh, 8rem) 0;
+            text-align: center;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-text-primary);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hero-content {
+            position: relative;
+            text-align: center;
+            width: 100%;
+            z-index: 2;
+        }
+
+        .hero-text-content {
+            position: relative;
+            background-color: transparent;
+            padding: 0;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .hero-text-content h1 {
+            font-size: clamp(1.7rem, 5.5vw, 3.2rem);
+            font-weight: 700;
+            line-height: var(--line-height-heading);
+            background: linear-gradient(90deg, var(--color-primary), #00ccff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+            padding: 0.5rem 1rem;
+            background-color: var(--color-background);
+            border-radius: calc(var(--border-radius) * 0.5);
+            display: inline-block;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .hero-text-content .subtitle {
+            font-family: var(--font-main);
+            font-size: clamp(0.95rem, 3.5vw, 1.3rem);
+            color: var(--color-text-primary);
+            max-width: 90%;
+            margin: 0 auto;
+            line-height: 1.7;
+            padding: 0.75rem 1.25rem;
+            background-color: var(--color-background);
+            border-radius: calc(var(--border-radius) * 0.5);
+            display: inline-block;
+            box-sizing: border-box;
+        }
+
+        /* --- FIN CSS CRÍTICO --- */
     </style>
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"></noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+        media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap">
+    </noscript>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer"></noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+            integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer">
+    </noscript>
 
     <link rel="stylesheet" href="Assets/CSS/styles.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="Assets/CSS/styles.css"></noscript>
+    <noscript>
+        <link rel="stylesheet" href="Assets/CSS/styles.css">
+    </noscript>
 
     <script type="application/ld+json">
     {
@@ -148,24 +275,27 @@
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-NY4Y6RT0TB"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-  gtag('config', 'G-NY4Y6RT0TB');
+    gtag('config', 'G-NY4Y6RT0TB');
 </script>
+
 <body>
 
     <header class="site-header">
         <div class="container header-content">
             <a href="index.html" class="logo">
-                <img src="Assets/Imagenes/logoB.webp" alt="Logo SATEKOR Telecomunicaciones Almería" fetchpriority="high" width="160" height="50">
+                <img src="Assets/Imagenes/logoB.webp" alt="Logo SATEKOR Telecomunicaciones Almería" fetchpriority="high"
+                    width="160" height="50">
             </a>
-            <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
+            <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false"
+                aria-controls="main-nav">
                 <span class="hamburger"></span>
             </button>
 
-             <nav id="main-nav" class="main-nav" aria-label="Navegación principal">
+            <nav id="main-nav" class="main-nav" aria-label="Navegación principal">
                 <ul>
                     <li><a href="index.html">Inicio</a></li>
                     <li class="has-dropdown dropdown-servicios">
@@ -194,7 +324,7 @@
         <section class="hero">
             <div class="container hero-content">
                 <div class="data-stream-container" aria-hidden="true">
-                     <ul>
+                    <ul>
                         <li>192.168.1.1</li>
                         <li>Subnet Mask 255.255.255.0</li>
                         <li>Gateway Default</li>
@@ -225,176 +355,359 @@
                 </div>
                 <div class="hero-text-content">
                     <h1>Infraestructura de Telecomunicaciones Avanzada en Almería</h1>
-                    <p class="subtitle">SATEKOR: Expertos en instalación y mantenimiento de videovigilancia, fibra óptica, redes empresariales, soluciones IoT y conexión a internet en zonas rurales de Almería.</p>
+                    <p class="subtitle">SATEKOR: Expertos en instalación y mantenimiento de videovigilancia, fibra
+                        óptica, redes empresariales, soluciones IoT y conexión a internet en zonas rurales de Almería.
+                    </p>
                     <a href="#servicios" class="btn btn-primary">Nuestros Servicios</a>
                 </div>
             </div>
         </section>
 
-        <section id="servicios" class="services section-padding">
+        <section id="servicios" class="services section-padding reveal">
             <div class="container">
-                <h2 class="section-title">Nuestros Servicios de Telecomunicaciones para Empresas en Almería</h2> <div class="service-grid">
+                <h2 class="section-title reveal delay-100">Nuestros Servicios de Telecomunicaciones para Empresas en
+                    Almería</h2>
+                <div class="service-grid">
+                    <article class="service-card reveal delay-200">
+                        <i class="fas fa-video service-icon" aria-hidden="true"></i>
+                        <h3><a href="Servicios/videovigilancia-empresas.html">Videovigilancia para Empresas en
+                                Almería</a></h3>
+                        <p>Instalación profesional de <strong>cámaras de seguridad IP, CCTV 4K y sistemas de monitoreo
+                                remoto</strong> para hoteles, naves industriales y oficinas. Cumplimos normativas y
+                            ofrecemos mantenimiento.</p>
+                        <a href="Servicios/videovigilancia-empresas.html" class="btn btn-small"
+                            aria-label="Conoce más sobre nuestras soluciones de videovigilancia profesional para empresas en Almería">
+                            Detalles de Videovigilancia
+                        </a>
+                        <script
+                            type="application/ld+json">{ "@context": "https://schema.org", "@type": "Service", "serviceType": "Instalación de cámaras de seguridad para empresas", "name": "Videovigilancia Profesional para Empresas", "description": "Instalación de cámaras IP, CCTV 4K y monitoreo remoto para hoteles, naves industriales y oficinas en Almería.", "provider": { "@type": "LocalBusiness", "name": "SATEKOR Telecomunicaciones" }, "areaServed": { "@type": "AdministrativeArea", "name": "Almería" }, "keywords": "videovigilancia empresas almería, cámaras seguridad hoteles, cctv naves industriales almería, monitoreo remoto oficinas" }</script>
+                    </article>
+                    <article class="service-card reveal delay-300">
+                        <i class="fas fa-wifi service-icon" aria-hidden="true"></i>
+                        <h3><a href="Servicios/fibra-optica-empresas.html">Fibra Óptica Empresas en Almería</a></h3>
+                        <p><strong>Internet ultra-rápido para empresas y zonas rurales</strong>. Instalación de fibra
+                            monomodo, redes FTTH y soluciones personalizadas para hoteles, centros de datos y operadoras
+                            móviles.</p>
+                        <a href="Servicios/fibra-optica-empresas.html" class="btn btn-small"
+                            aria-label="Descubre más sobre nuestros servicios de instalación de fibra óptica de alta velocidad para empresas en Almería">
+                            Ver Fibra Óptica
+                        </a>
+                        <script
+                            type="application/ld+json">{ "@context": "https://schema.org", "@type": "Service", "serviceType": "Instalación de Fibra Óptica para Empresas", "name": "Fibra Óptica de Alta Velocidad para Empresas", "description": "Instalación de fibra monomodo, redes FTTH y soluciones de internet ultra-rápido para empresas, hoteles y zonas rurales en Almería.", "provider": { "@type": "LocalBusiness", "name": "SATEKOR Telecomunicaciones" }, "areaServed": { "@type": "AdministrativeArea", "name": "Almería" }, "keywords": "fibra óptica empresas almería, internet empresas almería, ftth almería, internet hoteles almería, internet rural empresas almería" }</script>
+                    </article>
+                    <article class="service-card reveal delay-100">
+                        <i class="fas fa-server service-icon" aria-hidden="true"></i>
+                        <h3><a href="Servicios/infraestructura-telecom.html">Infraestructura Crítica para Empresas</a>
+                        </h3>
+                        <p>Expertos en <strong>racks certificados, cableado estructurado Cat 8 y redes
+                                empresariales</strong>. Diseñamos instalaciones para operadoras móviles y centros de
+                            datos en Almería, garantizando escalabilidad.</p>
+                        <a href="Servicios/infraestructura-telecom.html" class="btn btn-small"
+                            aria-label="Obtén más información sobre nuestras soluciones de infraestructura crítica de telecomunicaciones para empresas">
+                            Ver Infraestructura
+                        </a>
+                        <script
+                            type="application/ld+json">{ "@context": "https://schema.org", "@type": "Service", "serviceType": "Instalación de Infraestructura de Telecomunicaciones Crítica", "name": "Instalación de Infraestructura de Redes y Telecomunicaciones", "description": "Diseño e instalación de racks certificados, cableado estructurado Cat 8 y redes empresariales para operadoras y centros de datos en Almería.", "provider": { "@type": "LocalBusiness", "name": "SATEKOR Telecomunicaciones" }, "areaServed": { "@type": "AdministrativeArea", "name": "Almería" }, "keywords": "infraestructura telecomunicaciones almería, racks certificados almería, cableado estructurado cat 8, redes empresariales almería, instalación centros de datos almería" }</script>
+                    </article>
+                    <article class="service-card reveal delay-200">
+                        <i class="fas fa-tools service-icon" aria-hidden="true"></i>
+                        <h3><a href="Servicios/mantenimiento-redes.html">Mantenimiento Urgente para Empresas</a></h3>
+                        <p><strong>Soporte técnico 24/7</strong> en Almería. Reparación de redes, racks y fibra óptica
+                            para hoteles, naves industriales y operadoras. Contratos de mantenimiento preventivo y
+                            correctivo.</p>
+                        <a href="Servicios/mantenimiento-redes.html" class="btn btn-small"
+                            aria-label="Consulta nuestros servicios de mantenimiento urgente y soporte técnico 24/7 para empresas en Almería">
+                            Detalles de Mantenimiento
+                        </a>
+                        <script
+                            type="application/ld+json">{ "@context": "https://schema.org", "@type": "Service", "serviceType": "Mantenimiento Urgente de Telecomunicaciones para Empresas", "name": "Mantenimiento y Soporte Técnico 24/7", "description": "Servicio de mantenimiento preventivo y correctivo urgente 24/7 para redes, racks y fibra óptica en hoteles, naves y operadoras de Almería.", "provider": { "@type": "LocalBusiness", "name": "SATEKOR Telecomunicaciones" }, "areaServed": { "@type": "AdministrativeArea", "name": "Almería" }, "keywords": "mantenimiento telecomunicaciones almería, soporte técnico 24/7 almería, reparación redes almería, mantenimiento fibra óptica, mantenimiento racks almería" }</script>
+                    </article>
                     <article class="service-card">
-     <i class="fas fa-video service-icon" aria-hidden="true"></i>
-     <h3><a href="Servicios/videovigilancia-empresas.html">Videovigilancia para Empresas en Almería</a></h3>
-     <p>Instalación profesional de <strong>cámaras de seguridad IP, CCTV 4K y sistemas de monitoreo remoto</strong> para hoteles, naves industriales y oficinas. Cumplimos normativas y ofrecemos mantenimiento.</p>
-     <a href="Servicios/videovigilancia-empresas.html" 
-        class="btn btn-small" 
-        aria-label="Conoce más sobre nuestras soluciones de videovigilancia profesional para empresas en Almería">
-        Detalles de Videovigilancia
-     </a>
-     <script type="application/ld+json">{ "@context": "https://schema.org", "@type": "Service", "serviceType": "Instalación de cámaras de seguridad para empresas", "name": "Videovigilancia Profesional para Empresas", "description": "Instalación de cámaras IP, CCTV 4K y monitoreo remoto para hoteles, naves industriales y oficinas en Almería.", "provider": { "@type": "LocalBusiness", "name": "SATEKOR Telecomunicaciones" }, "areaServed": { "@type": "AdministrativeArea", "name": "Almería" }, "keywords": "videovigilancia empresas almería, cámaras seguridad hoteles, cctv naves industriales almería, monitoreo remoto oficinas" }</script>
-</article>
-                    <article class="service-card">
-    <i class="fas fa-wifi service-icon" aria-hidden="true"></i>
-    <h3><a href="Servicios/fibra-optica-empresas.html">Fibra Óptica Empresas en Almería</a></h3>
-    <p><strong>Internet ultra-rápido para empresas y zonas rurales</strong>. Instalación de fibra monomodo, redes FTTH y soluciones personalizadas para hoteles, centros de datos y operadoras móviles.</p>
-    <a href="Servicios/fibra-optica-empresas.html" 
-       class="btn btn-small" 
-       aria-label="Descubre más sobre nuestros servicios de instalación de fibra óptica de alta velocidad para empresas en Almería">
-       Ver Fibra Óptica
-    </a>
-    <script type="application/ld+json">{ "@context": "https://schema.org", "@type": "Service", "serviceType": "Instalación de Fibra Óptica para Empresas", "name": "Fibra Óptica de Alta Velocidad para Empresas", "description": "Instalación de fibra monomodo, redes FTTH y soluciones de internet ultra-rápido para empresas, hoteles y zonas rurales en Almería.", "provider": { "@type": "LocalBusiness", "name": "SATEKOR Telecomunicaciones" }, "areaServed": { "@type": "AdministrativeArea", "name": "Almería" }, "keywords": "fibra óptica empresas almería, internet empresas almería, ftth almería, internet hoteles almería, internet rural empresas almería" }</script>
-</article>
-                    <article class="service-card">
-    <i class="fas fa-server service-icon" aria-hidden="true"></i>
-    <h3><a href="Servicios/infraestructura-telecom.html">Infraestructura Crítica para Empresas</a></h3>
-    <p>Expertos en <strong>racks certificados, cableado estructurado Cat 8 y redes empresariales</strong>. Diseñamos instalaciones para operadoras móviles y centros de datos en Almería, garantizando escalabilidad.</p>
-    <a href="Servicios/infraestructura-telecom.html" 
-       class="btn btn-small" 
-       aria-label="Obtén más información sobre nuestras soluciones de infraestructura crítica de telecomunicaciones para empresas">
-       Ver Infraestructura
-    </a>
-    <script type="application/ld+json">{ "@context": "https://schema.org", "@type": "Service", "serviceType": "Instalación de Infraestructura de Telecomunicaciones Crítica", "name": "Instalación de Infraestructura de Redes y Telecomunicaciones", "description": "Diseño e instalación de racks certificados, cableado estructurado Cat 8 y redes empresariales para operadoras y centros de datos en Almería.", "provider": { "@type": "LocalBusiness", "name": "SATEKOR Telecomunicaciones" }, "areaServed": { "@type": "AdministrativeArea", "name": "Almería" }, "keywords": "infraestructura telecomunicaciones almería, racks certificados almería, cableado estructurado cat 8, redes empresariales almería, instalación centros de datos almería" }</script>
-</article>
-                    <article class="service-card">
-    <i class="fas fa-tools service-icon" aria-hidden="true"></i>
-    <h3><a href="Servicios/mantenimiento-redes.html">Mantenimiento Urgente para Empresas</a></h3>
-    <p><strong>Soporte técnico 24/7</strong> en Almería. Reparación de redes, racks y fibra óptica para hoteles, naves industriales y operadoras. Contratos de mantenimiento preventivo y correctivo.</p>
-    <a href="Servicios/mantenimiento-redes.html" 
-       class="btn btn-small" 
-       aria-label="Consulta nuestros servicios de mantenimiento urgente y soporte técnico 24/7 para empresas en Almería">
-       Detalles de Mantenimiento
-    </a>
-    <script type="application/ld+json">{ "@context": "https://schema.org", "@type": "Service", "serviceType": "Mantenimiento Urgente de Telecomunicaciones para Empresas", "name": "Mantenimiento y Soporte Técnico 24/7", "description": "Servicio de mantenimiento preventivo y correctivo urgente 24/7 para redes, racks y fibra óptica en hoteles, naves y operadoras de Almería.", "provider": { "@type": "LocalBusiness", "name": "SATEKOR Telecomunicaciones" }, "areaServed": { "@type": "AdministrativeArea", "name": "Almería" }, "keywords": "mantenimiento telecomunicaciones almería, soporte técnico 24/7 almería, reparación redes almería, mantenimiento fibra óptica, mantenimiento racks almería" }</script>
-</article>
-                    <article class="service-card">
-    <i class="fas fa-microchip service-icon" aria-hidden="true"></i>
-    <h3><a href="Servicios/soluciones-iot.html">Automatización para Empresas y Hoteles</a></h3>
-    <p>Sistemas IoT con <strong>sensores inteligentes</strong> para control de energía, seguridad y ocupación en tiempo real. Integración con cámaras y redes WiFi para hoteles y naves industriales.</p>
-     <a href="Servicios/soluciones-iot.html" 
-        class="btn btn-small" 
-        aria-label="Explora nuestras soluciones de automatización e IoT para empresas y hoteles en Almería">
-        Ver Soluciones IoT
-     </a>
-     <script type="application/ld+json">{ "@context": "https://schema.org", "@type": "Service", "serviceType": "Automatización y Soluciones IoT para Empresas y Hoteles", "name": "Soluciones de Automatización e IoT", "description": "Implementación de sistemas IoT con sensores inteligentes para control de energía, seguridad y ocupación en hoteles y naves industriales de Almería.", "provider": { "@type": "LocalBusiness", "name": "SATEKOR Telecomunicaciones" }, "areaServed": { "@type": "AdministrativeArea", "name": "Almería" }, "keywords": "iot almería, automatización empresas almería, sensores inteligentes almería, control energía iot, automatización hoteles almería" }</script>
-</article>
-                    <article class="service-card">
-    <i class="fas fa-satellite-dish service-icon" aria-hidden="true"></i>
-    <h3><a href="Servicios/internet-rural.html">Internet para Empresas Rurales en Almería</a></h3>
-    <p><strong>Conexión satélite, radioenlace y 5G</strong> en zonas sin cobertura. Soluciones estables para fincas agrícolas, hoteles rurales y naves industriales en pueblos como El Ejido o Níjar.</p>
-    <a href="Servicios/internet-rural.html" 
-       class="btn btn-small" 
-       aria-label="Infórmate sobre nuestras soluciones de conexión a internet de alta velocidad para empresas en zonas rurales de Almería">
-       Saber más de Internet Rural
-    </a>
-    <script type="application/ld+json">{ "@context": "https://schema.org", "@type": "Service", "serviceType": "Conexión a Internet para Empresas en Zonas Rurales", "name": "Internet de Alta Velocidad para Zonas Rurales", "description": "Soluciones de conexión a internet mediante satélite, radioenlace y 5G para empresas, fincas y hoteles en zonas rurales de Almería (El Ejido, Níjar, etc.).", "provider": { "@type": "LocalBusiness", "name": "SATEKOR Telecomunicaciones" }, "areaServed": { "@type": "AdministrativeArea", "name": "Almería" }, "keywords": "internet rural almería, internet empresas rurales, conexión satélite almería, radioenlace almería, internet fincas almería, internet el ejido, internet níjar" }</script>
-</article>
+                        <i class="fas fa-microchip service-icon" aria-hidden="true"></i>
+                        <h3><a href="Servicios/soluciones-iot.html">Automatización para Empresas y Hoteles</a></h3>
+                        <p>Sistemas IoT con <strong>sensores inteligentes</strong> para control de energía, seguridad y
+                            ocupación en tiempo real. Integración con cámaras y redes WiFi para hoteles y naves
+                            industriales.</p>
+                        <a href="Servicios/soluciones-iot.html" class="btn btn-small"
+                            aria-label="Explora nuestras soluciones de automatización e IoT para empresas y hoteles en Almería">
+                            Ver Soluciones IoT
+                        </a>
+                        <script
+                            type="application/ld+json">{ "@context": "https://schema.org", "@type": "Service", "serviceType": "Automatización y Soluciones IoT para Empresas y Hoteles", "name": "Soluciones de Automatización e IoT", "description": "Implementación de sistemas IoT con sensores inteligentes para control de energía, seguridad y ocupación en hoteles y naves industriales de Almería.", "provider": { "@type": "LocalBusiness", "name": "SATEKOR Telecomunicaciones" }, "areaServed": { "@type": "AdministrativeArea", "name": "Almería" }, "keywords": "iot almería, automatización empresas almería, sensores inteligentes almería, control energía iot, automatización hoteles almería" }</script>
+                    </article>
+                    <article class="service-card reveal delay-300">
+                        <i class="fas fa-satellite-dish service-icon" aria-hidden="true"></i>
+                        <h3><a href="Servicios/internet-rural.html">Internet para Empresas Rurales en Almería</a></h3>
+                        <p><strong>Conexión satélite, radioenlace y 5G</strong> en zonas sin cobertura. Soluciones
+                            estables para fincas agrícolas, hoteles rurales y naves industriales en pueblos como El
+                            Ejido o Níjar.</p>
+                        <a href="Servicios/internet-rural.html" class="btn btn-small"
+                            aria-label="Infórmate sobre nuestras soluciones de conexión a internet de alta velocidad para empresas en zonas rurales de Almería">
+                            Saber más de Internet Rural
+                        </a>
+                        <script
+                            type="application/ld+json">{ "@context": "https://schema.org", "@type": "Service", "serviceType": "Conexión a Internet para Empresas en Zonas Rurales", "name": "Internet de Alta Velocidad para Zonas Rurales", "description": "Soluciones de conexión a internet mediante satélite, radioenlace y 5G para empresas, fincas y hoteles en zonas rurales de Almería (El Ejido, Níjar, etc.).", "provider": { "@type": "LocalBusiness", "name": "SATEKOR Telecomunicaciones" }, "areaServed": { "@type": "AdministrativeArea", "name": "Almería" }, "keywords": "internet rural almería, internet empresas rurales, conexión satélite almería, radioenlace almería, internet fincas almería, internet el ejido, internet níjar" }</script>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <section id="clientes" class="clients-ticker section-padding-ticker">
-              <div class="container ticker-container">
+        <section id="clientes" class="clients-ticker section-padding-ticker reveal">
+            <div class="container ticker-container">
                 <h3 class="ticker-title">Han confiado en nosotros:</h3>
                 <div class="logos-ticker-wrap">
                     <div class="logos-ticker-track">
                         <div class="logo-slide"><img src="Assets/Imagenes/EMPRESAS/CIRCET.webp" alt="Logo Circet"></div>
-                        <div class="logo-slide"><img src="Assets/Imagenes/EMPRESAS/gcontrol.webp" alt="Logo Grupo Control"></div>
-                        <div class="logo-slide"><img src="Assets/Imagenes/EMPRESAS/MASORANGE.webp" alt="Logo MasOrange"></div>
-                        <div class="logo-slide"><img src="Assets/Imagenes/EMPRESAS/VERNE.webp" alt="Logo Verne Technology Group"></div>
-                        <div class="logo-slide"><img src="Assets/Imagenes/EMPRESAS/YOIGO.webp" alt="Logo Yoigo">
+                        <div class="logo-slide"><img src="Assets/Imagenes/EMPRESAS/gcontrol.webp"
+                                alt="Logo Grupo Control"></div>
+                        <div class="logo-slide"><img src="Assets/Imagenes/EMPRESAS/MASORANGE.webp" alt="Logo MasOrange">
+                        </div>
+                        <div class="logo-slide"><img src="Assets/Imagenes/EMPRESAS/VERNE.webp"
+                                alt="Logo Verne Technology Group"></div>
+                        <div class="logo-slide"><img src="Assets/Imagenes/EMPRESAS/YOIGO.webp" alt="Logo Yoigo"></div>
+                        <!-- Duplicated logos for continuous scroll effect -->
                         <div class="logo-slide"><img src="Assets/Imagenes/EMPRESAS/CIRCET.webp" alt="Logo Circet"></div>
-                        <div class="logo-slide"><img src="Assets/Imagenes/EMPRESAS/gcontrol.webp" alt="Logo Grupo Control"></div>
-                        <div class="logo-slide"><img src="Assets/Imagenes/EMPRESAS/MASORANGE.webp" alt="Logo MasOrange"></div>
-                        <div class="logo-slide"><img src="Assets/Imagenes/EMPRESAS/VERNE.webp" alt="Logo Verne Technology Group"></div>
+                        <div class="logo-slide"><img src="Assets/Imagenes/EMPRESAS/gcontrol.webp"
+                                alt="Logo Grupo Control"></div>
+                        <div class="logo-slide"><img src="Assets/Imagenes/EMPRESAS/MASORANGE.webp" alt="Logo MasOrange">
+                        </div>
+                        <div class="logo-slide"><img src="Assets/Imagenes/EMPRESAS/VERNE.webp"
+                                alt="Logo Verne Technology Group"></div>
                         <div class="logo-slide"><img src="Assets/Imagenes/EMPRESAS/YOIGO.webp" alt="Logo Yoigo"></div>
                     </div>
                 </div>
-            </div>
         </section>
 
-        <section id="faq" class="faq section-padding">
-             <div class="container">
+        <section id="faq" class="faq section-padding reveal">
+            <div class="container">
                 <h2 class="section-title">Preguntas Frecuentes sobre Telecomunicaciones en Almería</h2>
-                <p class="subtitle">Resolvemos las dudas clave sobre cómo SATEKOR optimiza las redes e infraestructuras para empresas en la provincia.</p>
+                <p class="subtitle">Resolvemos las dudas clave sobre cómo SATEKOR optimiza las redes e infraestructuras
+                    para empresas en la provincia.</p>
                 <div class="faq-list faq-list-flex-columns">
                     <div class="faq-column">
                         <div class="faq-item">
                             <input type="checkbox" id="faq-q1" class="faq-toggle">
-                            <label for="faq-q1" class="faq-question">¿Por qué mi empresa en Almería tiene internet lento y cómo SATEKOR lo soluciona?</label>
-                            <div class="faq-answer"><div class="faq-answer-content"><p>La lentitud suele deberse a <strong>infraestructura obsoleta, mala configuración o cobertura insuficiente</strong> en Almería. En SATEKOR:</p><ul><li>Realizamos un <strong>diagnóstico profesional</strong> de tu red actual para identificar cuellos de botella (fibra dañada, routers antiguos, interferencias WiFi).</li><li>Instalamos la solución más estable para tu ubicación: <strong>fibra óptica para empresas, radioenlaces dedicados o antenas 5G</strong> de alta capacidad.</li><li>Optimizamos tu red WiFi empresarial para garantizar una conexión rápida y estable en todas las áreas de trabajo.</li></ul></div></div>
+                            <label for="faq-q1" class="faq-question">¿Por qué mi empresa en Almería tiene internet lento
+                                y cómo SATEKOR lo soluciona?</label>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>La lentitud suele deberse a <strong>infraestructura obsoleta, mala configuración
+                                            o cobertura insuficiente</strong> en Almería. En SATEKOR:</p>
+                                    <ul>
+                                        <li>Realizamos un <strong>diagnóstico profesional</strong> de tu red actual para
+                                            identificar cuellos de botella (fibra dañada, routers antiguos,
+                                            interferencias WiFi).</li>
+                                        <li>Instalamos la solución más estable para tu ubicación: <strong>fibra óptica
+                                                para empresas, radioenlaces dedicados o antenas 5G</strong> de alta
+                                            capacidad.</li>
+                                        <li>Optimizamos tu red WiFi empresarial para garantizar una conexión rápida y
+                                            estable en todas las áreas de trabajo.</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                         <div class="faq-item">
                             <input type="checkbox" id="faq-q2" class="faq-toggle">
-                            <label for="faq-q2" class="faq-question">No llega la fibra óptica a mi negocio/finca en zona rural de Almería, ¿qué opciones tengo?</label>
-                            <div class="faq-answer"><div class="faq-answer-content"><p>Es un problema común en muchas zonas de Almería, pero tenemos soluciones profesionales:</p><ul><li><strong>Internet por Satélite:</strong> Conexiones de nueva generación con baja latencia, ideales para ubicaciones remotas.</li><li><strong>Radioenlace (Wimax):</strong> Creamos enlaces inalámbricos punto a punto de alta velocidad, fiables y dedicados para tu empresa.</li><li><strong>4G/5G Optimizado:</strong> Usamos antenas y routers profesionales para maximizar la señal móvil disponible y ofrecer una conexión estable para tu negocio.</li></ul><p>Evaluamos tu caso en El Ejido, Níjar, o cualquier punto de la provincia para ofrecerte la mejor alternativa.</p></div></div>
+                            <label for="faq-q2" class="faq-question">No llega la fibra óptica a mi negocio/finca en zona
+                                rural de Almería, ¿qué opciones tengo?</label>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>Es un problema común en muchas zonas de Almería, pero tenemos soluciones
+                                        profesionales:</p>
+                                    <ul>
+                                        <li><strong>Internet por Satélite:</strong> Conexiones de nueva generación con
+                                            baja latencia, ideales para ubicaciones remotas.</li>
+                                        <li><strong>Radioenlace (Wimax):</strong> Creamos enlaces inalámbricos punto a
+                                            punto de alta velocidad, fiables y dedicados para tu empresa.</li>
+                                        <li><strong>4G/5G Optimizado:</strong> Usamos antenas y routers profesionales
+                                            para maximizar la señal móvil disponible y ofrecer una conexión estable para
+                                            tu negocio.</li>
+                                    </ul>
+                                    <p>Evaluamos tu caso en El Ejido, Níjar, o cualquier punto de la provincia para
+                                        ofrecerte la mejor alternativa.</p>
+                                </div>
+                            </div>
                         </div>
-                         <div class="faq-item">
+                        <div class="faq-item">
                             <input type="checkbox" id="faq-q3" class="faq-toggle">
-                            <label for="faq-q3" class="faq-question">Mi red WiFi en la oficina/hotel/nave (Almería) es inestable o no llega a todas partes, ¿pueden arreglarlo?</label>
-                             <div class="faq-answer"><div class="faq-answer-content"><p>¡Por supuesto! Somos expertos en solucionar problemas de WiFi empresarial en Almería:</p><ul><li>Diseñamos e instalamos <strong>redes WiFi profesionales</strong> que garantizan cobertura total y eliminan puntos muertos.</li><li>Utilizamos <strong>puntos de acceso de alta capacidad</strong> y configuramos redes para alta densidad de usuarios (ideal para oficinas, hoteles, eventos).</li><li>Implementamos <strong>sistemas WiFi gestionados</strong> para un rendimiento óptimo y seguro.</li></ul></div></div>
+                            <label for="faq-q3" class="faq-question">Mi red WiFi en la oficina/hotel/nave (Almería) es
+                                inestable o no llega a todas partes, ¿pueden arreglarlo?</label>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>¡Por supuesto! Somos expertos en solucionar problemas de WiFi empresarial en
+                                        Almería:</p>
+                                    <ul>
+                                        <li>Diseñamos e instalamos <strong>redes WiFi profesionales</strong> que
+                                            garantizan cobertura total y eliminan puntos muertos.</li>
+                                        <li>Utilizamos <strong>puntos de acceso de alta capacidad</strong> y
+                                            configuramos redes para alta densidad de usuarios (ideal para oficinas,
+                                            hoteles, eventos).</li>
+                                        <li>Implementamos <strong>sistemas WiFi gestionados</strong> para un rendimiento
+                                            óptimo y seguro.</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                         <div class="faq-item">
                             <input type="checkbox" id="faq-q4" class="faq-toggle">
-                            <label for="faq-q4" class="faq-question">¿Cuándo necesita mi empresa en Almería mantenimiento para su red de telecomunicaciones?</label>
-                            <div class="faq-answer"><div class="faq-answer-content"><p>Si experimentas alguno de estos síntomas, es momento de un mantenimiento profesional:</p><ul><li><strong>Cortes frecuentes</strong> de internet o de la red interna.</li><li><strong>Lentitud</strong> inusual o velocidad muy variable.</li><li>Problemas persistentes de <strong>cobertura WiFi</strong>.</li><li>Fallos en sistemas conectados como <strong>videovigilancia o telefonía IP</strong>.</li></ul><p>Con nuestro servicio de <strong>mantenimiento preventivo y correctivo 24/7</strong> en Almería, revisamos cableado, equipos y configuraciones para evitar problemas antes de que afecten a tu negocio.</p></div></div>
+                            <label for="faq-q4" class="faq-question">¿Cuándo necesita mi empresa en Almería
+                                mantenimiento para su red de telecomunicaciones?</label>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>Si experimentas alguno de estos síntomas, es momento de un mantenimiento
+                                        profesional:</p>
+                                    <ul>
+                                        <li><strong>Cortes frecuentes</strong> de internet o de la red interna.</li>
+                                        <li><strong>Lentitud</strong> inusual o velocidad muy variable.</li>
+                                        <li>Problemas persistentes de <strong>cobertura WiFi</strong>.</li>
+                                        <li>Fallos en sistemas conectados como <strong>videovigilancia o telefonía
+                                                IP</strong>.</li>
+                                    </ul>
+                                    <p>Con nuestro servicio de <strong>mantenimiento preventivo y correctivo
+                                            24/7</strong> en Almería, revisamos cableado, equipos y configuraciones para
+                                        evitar problemas antes de que afecten a tu negocio.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="faq-column">
                         <div class="faq-item">
                             <input type="checkbox" id="faq-q5" class="faq-toggle">
-                            <label for="faq-q5" class="faq-question">Los cables de red de mi empresa en Almería son un caos, ¿cómo lo solucionan?</label>
-                             <div class="faq-answer"><div class="faq-answer-content"><p>Un cableado desordenado no solo es antiestético, sino que <strong>afecta al rendimiento y la seguridad</strong>. En SATEKOR realizamos:</p><ul><li><strong>Saneamiento de cableado estructurado:</strong> Organizamos y optimizamos tu instalación existente.</li><li>Instalación y organización de <strong>racks certificados</strong> para alojar tus equipos de forma segura y accesible.</li><li><strong>Etiquetado profesional</strong> de cables y puertos para una fácil identificación y gestión.</li><li>Sustitución de cables dañados o de categoría inferior (instalamos hasta <strong>Cat 8</strong>).</li></ul><p>El resultado es una red ordenada, fiable y preparada para futuras ampliaciones.</p></div></div>
+                            <label for="faq-q5" class="faq-question">Los cables de red de mi empresa en Almería son un
+                                caos, ¿cómo lo solucionan?</label>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>Un cableado desordenado no solo es antiestético, sino que <strong>afecta al
+                                            rendimiento y la seguridad</strong>. En SATEKOR realizamos:</p>
+                                    <ul>
+                                        <li><strong>Saneamiento de cableado estructurado:</strong> Organizamos y
+                                            optimizamos tu instalación existente.</li>
+                                        <li>Instalación y organización de <strong>racks certificados</strong> para
+                                            alojar tus equipos de forma segura y accesible.</li>
+                                        <li><strong>Etiquetado profesional</strong> de cables y puertos para una fácil
+                                            identificación y gestión.</li>
+                                        <li>Sustitución de cables dañados o de categoría inferior (instalamos hasta
+                                            <strong>Cat 8</strong>).
+                                        </li>
+                                    </ul>
+                                    <p>El resultado es una red ordenada, fiable y preparada para futuras ampliaciones.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                         <div class="faq-item">
+                        <div class="faq-item">
                             <input type="checkbox" id="faq-q6" class="faq-toggle">
-                            <label for="faq-q6" class="faq-question">¿Mis cámaras de seguridad en Almería seguirán grabando si falla el internet?</label>
-                            <div class="faq-answer"><div class="faq-answer-content"><p><strong>Sí, con las soluciones adecuadas que instalamos en SATEKOR.</strong> Para garantizar la grabación continua:</p><ul><li>Instalamos <strong>cámaras IP con grabación local</strong> en tarjetas SD o NVRs (Grabadores de Vídeo en Red) que siguen funcionando sin conexión a internet.</li><li>Configuramos sistemas con <strong>respaldo de conexión 4G/5G</strong> para que las alertas y el acceso remoto sigan operativos.</li><li>Ofrecemos sistemas de <strong>monitorización 24/7</strong> que nos alertan de cualquier fallo, incluyendo la conexión.</li></ul><p>Tu seguridad no se verá comprometida por un fallo temporal de internet.</p></div></div>
+                            <label for="faq-q6" class="faq-question">¿Mis cámaras de seguridad en Almería seguirán
+                                grabando si falla el internet?</label>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p><strong>Sí, con las soluciones adecuadas que instalamos en SATEKOR.</strong> Para
+                                        garantizar la grabación continua:</p>
+                                    <ul>
+                                        <li>Instalamos <strong>cámaras IP con grabación local</strong> en tarjetas SD o
+                                            NVRs (Grabadores de Vídeo en Red) que siguen funcionando sin conexión a
+                                            internet.</li>
+                                        <li>Configuramos sistemas con <strong>respaldo de conexión 4G/5G</strong> para
+                                            que las alertas y el acceso remoto sigan operativos.</li>
+                                        <li>Ofrecemos sistemas de <strong>monitorización 24/7</strong> que nos alertan
+                                            de cualquier fallo, incluyendo la conexión.</li>
+                                    </ul>
+                                    <p>Tu seguridad no se verá comprometida por un fallo temporal de internet.</p>
+                                </div>
+                            </div>
                         </div>
-                         <div class="faq-item">
-                             <input type="checkbox" id="faq-q7" class="faq-toggle">
-                             <label for="faq-q7" class="faq-question">¿Es posible tener internet rápido y fiable para mi negocio rural en Almería, aunque la cobertura sea mala?</label>
-                             <div class="faq-answer"><div class="faq-answer-content"><p><strong>¡Por supuesto!</strong> En SATEKOR somos especialistas en llevar conectividad de calidad a zonas rurales de Almería. No dependes de la fibra tradicional:</p><ul><li>Utilizamos <strong>internet por satélite</strong> de última generación, con baja latencia y velocidades adecuadas para empresas.</li><li>Implementamos <strong>radioenlaces dedicados</strong> que ofrecen una conexión estable y simétrica.</li><li>Optimizamos la recepción de <strong>4G y 5G</strong> con antenas direccionales y equipos profesionales.</li></ul><p>Evaluamos tu ubicación exacta, ya sea una finca agrícola, hotel rural o nave industrial, para ofrecerte la mejor solución técnica.</p></div></div>
-                         </div>
+                        <div class="faq-item">
+                            <input type="checkbox" id="faq-q7" class="faq-toggle">
+                            <label for="faq-q7" class="faq-question">¿Es posible tener internet rápido y fiable para mi
+                                negocio rural en Almería, aunque la cobertura sea mala?</label>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p><strong>¡Por supuesto!</strong> En SATEKOR somos especialistas en llevar
+                                        conectividad de calidad a zonas rurales de Almería. No dependes de la fibra
+                                        tradicional:</p>
+                                    <ul>
+                                        <li>Utilizamos <strong>internet por satélite</strong> de última generación, con
+                                            baja latencia y velocidades adecuadas para empresas.</li>
+                                        <li>Implementamos <strong>radioenlaces dedicados</strong> que ofrecen una
+                                            conexión estable y simétrica.</li>
+                                        <li>Optimizamos la recepción de <strong>4G y 5G</strong> con antenas
+                                            direccionales y equipos profesionales.</li>
+                                    </ul>
+                                    <p>Evaluamos tu ubicación exacta, ya sea una finca agrícola, hotel rural o nave
+                                        industrial, para ofrecerte la mejor solución técnica.</p>
+                                </div>
+                            </div>
+                        </div>
                         <div class="faq-item">
                             <input type="checkbox" id="faq-q8" class="faq-toggle">
-                            <label for="faq-q8" class="faq-question">¿Por qué contratar a SATEKOR en Almería en lugar de intentar arreglar la red yo mismo?</label>
-                            <div class="faq-answer"><div class="faq-answer-content"><p>Intentar solucionar problemas de red complejos por tu cuenta puede llevar a:</p><ul><li><strong>Configuraciones erróneas</strong> que empeoran la lentitud o crean agujeros de seguridad.</li><li>Compra de <strong>equipos no profesionales o incompatibles</strong> que no resuelven el problema real.</li><li><strong>Pérdida de tiempo productivo</strong> y frustración.</li><li>Mayor <strong>coste a largo plazo</strong> por reparaciones o sustituciones.</li></ul><p>Contratar a SATEKOR te garantiza:</p><ul><li><strong>Diagnóstico preciso</strong> por técnicos cualificados.</li><li>Soluciones <strong>profesionales y a medida</strong> de tus necesidades.</li><li><strong>Instalación garantizada</strong> con equipos de calidad.</li><li>Cumplimiento de <strong>normativas</strong>.</li><li><strong>Soporte post-instalación</strong> y tranquilidad.</li></ul></div></div>
+                            <label for="faq-q8" class="faq-question">¿Por qué contratar a SATEKOR en Almería en lugar de
+                                intentar arreglar la red yo mismo?</label>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>Intentar solucionar problemas de red complejos por tu cuenta puede llevar a:</p>
+                                    <ul>
+                                        <li><strong>Configuraciones erróneas</strong> que empeoran la lentitud o crean
+                                            agujeros de seguridad.</li>
+                                        <li>Compra de <strong>equipos no profesionales o incompatibles</strong> que no
+                                            resuelven el problema real.</li>
+                                        <li><strong>Pérdida de tiempo productivo</strong> y frustración.</li>
+                                        <li>Mayor <strong>coste a largo plazo</strong> por reparaciones o sustituciones.
+                                        </li>
+                                    </ul>
+                                    <p>Contratar a SATEKOR te garantiza:</p>
+                                    <ul>
+                                        <li><strong>Diagnóstico preciso</strong> por técnicos cualificados.</li>
+                                        <li>Soluciones <strong>profesionales y a medida</strong> de tus necesidades.
+                                        </li>
+                                        <li><strong>Instalación garantizada</strong> con equipos de calidad.</li>
+                                        <li>Cumplimiento de <strong>normativas</strong>.</li>
+                                        <li><strong>Soporte post-instalación</strong> y tranquilidad.</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <script type="application/ld+json">{ "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [ { "@type": "Question", "name": "¿Por qué mi empresa en Almería tiene internet lento y cómo SATEKOR lo soluciona?", "acceptedAnswer": { "@type": "Answer", "text": "La lentitud suele deberse a infraestructura obsoleta, mala configuración o cobertura insuficiente en Almería. En SATEKOR realizamos un diagnóstico profesional, identificamos cuellos de botella e instalamos la solución más estable (fibra óptica para empresas, radioenlaces, 5G) y optimizamos tu red WiFi empresarial." } }, { "@type": "Question", "name": "No llega la fibra óptica a mi negocio/finca en zona rural de Almería, ¿qué opciones tengo?", "acceptedAnswer": { "@type": "Answer", "text": "Ofrecemos soluciones profesionales como Internet por Satélite de baja latencia, Radioenlace (Wimax) dedicado, o 4G/5G Optimizado con antenas profesionales. Evaluamos tu ubicación en Almería (El Ejido, Níjar, etc.) para darte la mejor alternativa." } }, { "@type": "Question", "name": "Mi red WiFi en la oficina/hotel/nave (Almería) es inestable o no llega a todas partes, ¿pueden arreglarlo?", "acceptedAnswer": { "@type": "Answer", "text": "Sí, diseñamos e instalamos redes WiFi profesionales en Almería para cobertura total, eliminamos puntos muertos y configuramos redes para alta densidad de usuarios (oficinas, hoteles) usando puntos de acceso de alta capacidad y sistemas gestionados." } }, { "@type": "Question", "name": "¿Cuándo necesita mi empresa en Almería mantenimiento para su red de telecomunicaciones?", "acceptedAnswer": { "@type": "Answer", "text": "Si experimentas cortes frecuentes, lentitud, problemas WiFi o fallos en videovigilancia/telefonía IP, necesitas mantenimiento. Nuestro servicio 24/7 en Almería revisa cableado, equipos y configuraciones para prevenir problemas." } }, { "@type": "Question", "name": "Los cables de red de mi empresa en Almería son un caos, ¿cómo lo solucionan?", "acceptedAnswer": { "@type": "Answer", "text": "Realizamos saneamiento de cableado estructurado, instalamos y organizamos racks certificados, etiquetamos cables y puertos profesionalmente, y sustituimos cables dañados (hasta Cat 8) para una red ordenada, fiable y gestionable." } }, { "@type": "Question", "name": "¿Mis cámaras de seguridad en Almería seguirán grabando si falla el internet?", "acceptedAnswer": { "@type": "Answer", "text": "Sí, instalamos cámaras IP con grabación local (SD o NVR), sistemas con respaldo 4G/5G para alertas y acceso remoto, y ofrecemos monitorización 24/7 para detectar fallos. Tu seguridad no se interrumpe." } }, { "@type": "Question", "name": "¿Es posible tener internet rápido y fiable para mi negocio rural en Almería, aunque la cobertura sea mala?", "acceptedAnswer": { "@type": "Answer", "text": "¡Sí! Usamos internet por satélite de baja latencia, radioenlaces dedicados y 4G/5G optimizado con antenas profesionales. Evaluamos tu ubicación rural en Almería para ofrecerte la mejor conexión de calidad profesional." } }, { "@type": "Question", "name": "¿Por qué contratar a SATEKOR en Almería en lugar de intentar arreglar la red yo mismo?", "acceptedAnswer": { "@type": "Answer", "text": "Evitas configuraciones erróneas, equipos inadecuados, problemas de seguridad y pérdida de tiempo/dinero. SATEKOR ofrece diagnóstico preciso, soluciones a medida, instalación profesional garantizada, equipos de calidad, cumplimiento normativo y soporte." } } ] }</script>
+                <script
+                    type="application/ld+json">{ "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [ { "@type": "Question", "name": "¿Por qué mi empresa en Almería tiene internet lento y cómo SATEKOR lo soluciona?", "acceptedAnswer": { "@type": "Answer", "text": "La lentitud suele deberse a infraestructura obsoleta, mala configuración o cobertura insuficiente en Almería. En SATEKOR realizamos un diagnóstico profesional, identificamos cuellos de botella e instalamos la solución más estable (fibra óptica para empresas, radioenlaces, 5G) y optimizamos tu red WiFi empresarial." } }, { "@type": "Question", "name": "No llega la fibra óptica a mi negocio/finca en zona rural de Almería, ¿qué opciones tengo?", "acceptedAnswer": { "@type": "Answer", "text": "Ofrecemos soluciones profesionales como Internet por Satélite de baja latencia, Radioenlace (Wimax) dedicado, o 4G/5G Optimizado con antenas profesionales. Evaluamos tu ubicación en Almería (El Ejido, Níjar, etc.) para darte la mejor alternativa." } }, { "@type": "Question", "name": "Mi red WiFi en la oficina/hotel/nave (Almería) es inestable o no llega a todas partes, ¿pueden arreglarlo?", "acceptedAnswer": { "@type": "Answer", "text": "Sí, diseñamos e instalamos redes WiFi profesionales en Almería para cobertura total, eliminamos puntos muertos y configuramos redes para alta densidad de usuarios (oficinas, hoteles) usando puntos de acceso de alta capacidad y sistemas gestionados." } }, { "@type": "Question", "name": "¿Cuándo necesita mi empresa en Almería mantenimiento para su red de telecomunicaciones?", "acceptedAnswer": { "@type": "Answer", "text": "Si experimentas cortes frecuentes, lentitud, problemas WiFi o fallos en videovigilancia/telefonía IP, necesitas mantenimiento. Nuestro servicio 24/7 en Almería revisa cableado, equipos y configuraciones para prevenir problemas." } }, { "@type": "Question", "name": "Los cables de red de mi empresa en Almería son un caos, ¿cómo lo solucionan?", "acceptedAnswer": { "@type": "Answer", "text": "Realizamos saneamiento de cableado estructurado, instalamos y organizamos racks certificados, etiquetamos cables y puertos profesionalmente, y sustituimos cables dañados (hasta Cat 8) para una red ordenada, fiable y gestionable." } }, { "@type": "Question", "name": "¿Mis cámaras de seguridad en Almería seguirán grabando si falla el internet?", "acceptedAnswer": { "@type": "Answer", "text": "Sí, instalamos cámaras IP con grabación local (SD o NVR), sistemas con respaldo 4G/5G para alertas y acceso remoto, y ofrecemos monitorización 24/7 para detectar fallos. Tu seguridad no se interrumpe." } }, { "@type": "Question", "name": "¿Es posible tener internet rápido y fiable para mi negocio rural en Almería, aunque la cobertura sea mala?", "acceptedAnswer": { "@type": "Answer", "text": "¡Sí! Usamos internet por satélite de baja latencia, radioenlaces dedicados y 4G/5G optimizado con antenas profesionales. Evaluamos tu ubicación rural en Almería para ofrecerte la mejor conexión de calidad profesional." } }, { "@type": "Question", "name": "¿Por qué contratar a SATEKOR en Almería en lugar de intentar arreglar la red yo mismo?", "acceptedAnswer": { "@type": "Answer", "text": "Evitas configuraciones erróneas, equipos inadecuados, problemas de seguridad y pérdida de tiempo/dinero. SATEKOR ofrece diagnóstico preciso, soluciones a medida, instalación profesional garantizada, equipos de calidad, cumplimiento normativo y soporte." } } ] }</script>
             </div>
         </section>
 
     </main>
 
     <a href="https://wa.me/34642531300?text=Hola%2C%20necesito%20información%20sobre%20vuestros%20servicios."
-       target="_blank" rel="noopener noreferrer" class="whatsapp-btn" aria-label="Contactar por WhatsApp">
+        target="_blank" rel="noopener noreferrer" class="whatsapp-btn" aria-label="Contactar por WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <footer class="site-footer">
-         <div class="container footer-content">
+        <div class="container footer-content">
             <p>© <span id="current-year"></span> SATEKOR Telecomunicaciones. Todos los derechos reservados.</p>
-             <nav class="footer-nav" aria-label="Navegación secundaria">
+            <nav class="footer-nav" aria-label="Navegación secundaria">
                 <a href="politica-privacidad.html">Política de Privacidad</a> |
                 <a href="terminos-uso.html">Términos de Uso</a> |
                 <a href="politica-cookies.html">Política de Cookies</a>
             </nav>
         </div>
     </footer>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-banner" class="cookie-banner" role="dialog" aria-modal="true" aria-labelledby="cookie-heading"
+        hidden>
+        <div class="cookie-content">
+            <h3 id="cookie-heading" class="cookie-title">🍪 Utilizamos Cookies</h3>
+            <p>Usamos cookies para mejorar tu experiencia de usuario. Al continuar navegando, aceptas nuestra <a
+                    href="politica-cookies.html">política de cookies</a>.</p>
+        </div>
+        <div class="cookie-actions">
+            <button id="accept-cookies" class="btn btn-small btn-primary">Aceptar</button>
+        </div>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button id="scroll-to-top" class="scroll-to-top" aria-label="Volver arriba">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <script>
         const currentYearSpan = document.getElementById('current-year');
@@ -405,4 +718,5 @@
     <script src="Assets/JS/script.js" defer></script>
 
 </body>
+
 </html>
