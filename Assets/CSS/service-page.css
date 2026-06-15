@@ -1,6 +1,11 @@
 /* ==========================================================================
-   MANTENIMIENTO-REDES.CSS - Estilos Específicos Página Mantenimiento
-   ========================================================================== */
+   SERVICE-PAGE.CSS - Estilos compartidos por las páginas de Servicios
+   ==========================================================================
+   Usado por: fibra-optica-empresas, internet-rural, mantenimiento-redes
+   y soluciones-iot. (infraestructura-telecom y videovigilancia mantienen
+   su propia hoja por diferencias visuales.)
+   Complementa a styles.css.
+========================================================================== */
 
 /* ==========================================================================
    1. ESTILOS SECCIÓN DETALLES DEL SERVICIO (.service-details)
@@ -20,7 +25,7 @@
 }
 
 /* ==========================================================================
-   3. ESTILOS TARJETAS DE CARACTERÍSTICA (.feature-card)
+   3. ESTILOS TARJETAS DE CARACTERÍSTICA (.feature-card) - COPIADO/ADAPTADO
    ========================================================================== */
 .feature-card {
     background-color: var(--color-surface);
@@ -51,7 +56,7 @@
 
 .feature-icon {
     font-size: 2rem;
-    color: var(--color-primary);
+    color: var(--color-primary); /* Mantenemos el color primario */
     line-height: 1;
     flex-shrink: 0;
     width: 40px;
@@ -105,9 +110,9 @@
 }
 
 .feature-content li::before {
-    content: '\f058'; /* Font Awesome check-circle solid */
+    content: '\f058';
     font-family: 'Font Awesome 6 Free';
-    font-weight: 900; /* Necesario para iconos solid */
+    font-weight: 900;
     color: var(--color-primary-darker);
     font-size: 0.85em;
     position: absolute;
@@ -130,8 +135,9 @@
     text-decoration: underline;
 }
 
+
 /* ==========================================================================
-   4. ESTILOS SECCIÓN BENEFICIOS (.benefits)
+   4. ESTILOS SECCIÓN BENEFICIOS (.benefits) - COPIADO/ADAPTADO
    ========================================================================== */
 .benefits {
     background-color: var(--color-surface);
@@ -142,18 +148,12 @@
      margin-bottom: 3rem;
 }
 
-/* ==========================================================================
-   5. ESTILOS REJILLA DE BENEFICIOS (.benefits-grid)
-   ========================================================================== */
 .benefits-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: var(--grid-gap, 2rem);
 }
 
-/* ==========================================================================
-   6. ESTILOS ÍTEMS DE BENEFICIO (.benefit-item)
-   ========================================================================== */
 .benefit-item {
     background-color: var(--color-background);
     padding: 2rem 1.5rem;
@@ -175,12 +175,12 @@
 
 .benefit-icon {
     font-size: 2.5rem;
-    color: var(--color-primary);
+    color: var(--color-primary); /* Mantenemos color primario */
     margin-bottom: 1.2rem;
     line-height: 1;
 }
 
-.benefit-item h4 {
+.benefit-item h3 {
     font-size: 1.15rem;
     font-weight: 600;
     color: var(--color-text-primary);
@@ -197,7 +197,7 @@
 }
 
 /* ==========================================================================
-   7. ESTILOS SECCIÓN APLICACIONES (.applications)
+   5. ESTILOS SECCIÓN APLICACIONES (.applications) - COPIADO/ADAPTADO
    ========================================================================== */
 .applications .subtitle {
     margin-bottom: 2.5rem;
@@ -207,9 +207,6 @@
     text-align: center;
 }
 
-/* ==========================================================================
-   8. ESTILOS TAGS DE APLICACIÓN (.application-tag)
-   ========================================================================== */
 .application-tags-container {
     display: flex;
     flex-wrap: wrap;
@@ -253,8 +250,9 @@
     opacity: 1;
 }
 
+
 /* ==========================================================================
-   9. ESTILOS SECCIÓN CTA (.cta-section)
+   6. ESTILOS SECCIÓN CTA (.cta-section) - COPIADO/ADAPTADO
    ========================================================================== */
 .cta-section .container {
     max-width: 750px;
@@ -291,7 +289,7 @@
 
 
 /* ==========================================================================
-   10. ESTILOS SECCIÓN SERVICIOS RELACIONADOS (.related-services)
+   7. ESTILOS SECCIÓN SERVICIOS RELACIONADOS (.related-services) - COPIADO/ADAPTADO
    ========================================================================== */
 .related-services .service-grid {
     margin-top: 2.5rem;
@@ -336,7 +334,7 @@
 
 
 /* ==========================================================================
-   11. MEDIA QUERIES PARA AJUSTES RESPONSIVOS DE GRIDS ESPECÍFICOS
+   8. MEDIA QUERIES PARA AJUSTES RESPONSIVOS DE GRIDS (COPIADO/ADAPTADO)
    ========================================================================== */
 
 @media (min-width: 992px) {

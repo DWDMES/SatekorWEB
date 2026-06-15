@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0F172A">
     <!-- Meta Tags SEO (Específicos para el Listado del Blog) -->
     <title>Blog | SATEKOR Telecomunicaciones Almería</title>
     <meta name="description"
@@ -12,23 +13,40 @@
         content="blog telecomunicaciones almería, noticias fibra óptica, consejos videovigilancia, redes empresariales, internet rural, satekor blog, tecnología empresas almería">
     <meta name="author" content="SATEKOR Telecomunicaciones">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://www.satekor.es/Blog/"> <!-- Asegúrate que esta sea la URL final -->
+    <link rel="canonical" href="https://www.satekor.es/Blog/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.satekor.es/Blog/">
+    <meta property="og:title" content="Blog | SATEKOR Telecomunicaciones Almería">
+    <meta property="og:description" content="Artículos y noticias sobre telecomunicaciones, videovigilancia, fibra óptica, IoT y conectividad para empresas en Almería. Consejos de expertos por SATEKOR.">
+    <meta property="og:image" content="https://www.satekor.es/Assets/Imagenes/Blog/preview.webp">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.satekor.es/Blog/">
+    <meta property="twitter:title" content="Blog | SATEKOR Telecomunicaciones Almería">
+    <meta property="twitter:description" content="Artículos y noticias sobre telecomunicaciones, videovigilancia, fibra óptica, IoT y conectividad para empresas en Almería. Consejos de expertos por SATEKOR.">
+    <meta property="twitter:image" content="https://www.satekor.es/Assets/Imagenes/Blog/preview.webp"> <!-- Asegúrate que esta sea la URL final -->
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"></noscript>
 
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer"></noscript>
 
     <!-- Enlace a la hoja de estilos CSS PRINCIPAL -->
     <link rel="stylesheet" href="../Assets/CSS/styles.css">
 
     <!-- Favicon -->
-    <link rel="icon" href="../favicon.png" type="image/png">
+    <link rel="icon" href="../Assets/Imagenes/favicon.webp" type="image/webp">
 
     <!-- Schema.org para Blog -->
     <script type="application/ld+json">
@@ -43,16 +61,24 @@
         "name": "SATEKOR Telecomunicaciones",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://www.satekor.es/Assets/Imagenes/logoB.png" /* URL Absoluta */
+          "url": "https://www.satekor.es/Assets/Imagenes/logoB.png"
         }
       },
       "blogPost": [
          {
           "@type": "BlogPosting",
+          "headline": "Saneamiento de Armarios Rack: Cuándo lo Necesita tu Empresa",
+          "url": "https://www.satekor.es/Blog/saneamiento-armarios-rack-empresas-almeria.html",
+          "datePublished": "2026-06-15",
+          "image": "https://www.satekor.es/Assets/Imagenes/Blog/cable-de-red-almeria.webp",
+          "author": { "@type": "Organization", "name": "SATEKOR Telecomunicaciones" }
+        },
+         {
+          "@type": "BlogPosting",
           "headline": "¿Tu Empresa Necesita Cableado Cat 8? Ventajas Clave",
           "url": "https://www.satekor.es/Blog/cableado-cat-8-ventajas-empresas-almeria.html",
           "datePublished": "2024-07-15",
-          "image": "https://www.satekor.es/Assets/Imagenes/Blog/cable-de-red-almeria.jpg", // <<-- Imagen Actualizada
+          "image": "https://www.satekor.es/Assets/Imagenes/Blog/cable-de-red-almeria.webp",
           "author": { "@type": "Organization", "name": "SATEKOR Telecomunicaciones" }
         },
          {
@@ -60,7 +86,7 @@
           "headline": "Videovigilancia Inteligente: Más Allá de la Grabación",
           "url": "https://www.satekor.es/Blog/videovigilancia-inteligente-ia-seguridad-empresas-almeria.html",
           "datePublished": "2024-07-05",
-           "image": "https://www.satekor.es/Assets/Imagenes/Blog/imagen-post-2.jpg",
+           "image": "https://www.satekor.es/Assets/Imagenes/Blog/videovigilancia-inteligente.webp",
            "author": { "@type": "Organization", "name": "SATEKOR Telecomunicaciones" }
         },
         {
@@ -68,7 +94,7 @@
           "headline": "Internet Rural en Almería: Opciones Reales Más Allá de la Fibra",
            "url": "https://www.satekor.es/Blog/internet-rural-almeria-alternativas-fibra-optica.html",
            "datePublished": "2024-06-28",
-           "image": "https://www.satekor.es/Assets/Imagenes/Blog/imagen-post-3.jpg",
+           "image": "https://www.satekor.es/Assets/Imagenes/Blog/satelite.webp",
            "author": { "@type": "Organization", "name": "SATEKOR Telecomunicaciones" }
         }
       ]
@@ -76,24 +102,17 @@
     </script>
 
 </head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NY4Y6RT0TB"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-NY4Y6RT0TB');
-</script>
 
 <body>
+
+    <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
 
     <header class="site-header">
         <div class="container header-content">
             <!-- Logo SATEKOR -->
             <!-- La ruta ahora sube un nivel para encontrar Assets -->
             <a href="../index.html" class="logo">
-                <img src="../Assets/Imagenes/logoB.png" alt="Logo SATEKOR Telecomunicaciones Almería">
+                <img src="../Assets/Imagenes/logoB.webp" alt="Logo SATEKOR Telecomunicaciones Almería" width="160" height="50">
             </a>
             <!-- Botón Hamburguesa -->
             <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false"
@@ -143,7 +162,7 @@
         </div>
     </header>
 
-    <main>
+    <main id="contenido">
         <!-- === Sección Contenido Principal Blog === -->
         <section class="blog-listing-page section-padding">
             <div class="container">
@@ -156,23 +175,48 @@
                 <!-- Grid de Posts -->
                 <div class="blog-post-grid">
 
+                    <!-- Tarjeta Post Nuevo -->
+                    <article class="blog-post-card">
+                        <div class="post-image">
+                            <a href="saneamiento-armarios-rack-empresas-almeria.html">
+                                <img src="../Assets/Imagenes/Blog/cable-de-red-almeria.webp" width="1024" height="1024"
+                                    alt="Armario rack de red ordenado tras un saneamiento en una empresa de Almería" loading="lazy">
+                            </a>
+                        </div>
+                        <div class="post-content">
+                            <h2 class="post-title">
+                                <a href="saneamiento-armarios-rack-empresas-almeria.html">Saneamiento de Armarios Rack:
+                                    Cuándo lo Necesita tu Empresa</a>
+                            </h2>
+                            <div class="post-meta">
+                                <span><i class="fas fa-calendar-alt"></i> 15 Junio, 2026</span>
+                                <span><i class="fas fa-folder-open"></i> Infraestructura</span>
+                            </div>
+                            <div class="post-excerpt">
+                                <p>Cables sin etiquetar, latiguillos enrollados, sobrecalentamiento… Te contamos qué es el
+                                    saneamiento de un rack, cuándo lo necesitas y qué incluye.</p>
+                            </div>
+                            <a href="saneamiento-armarios-rack-empresas-almeria.html"
+                                class="btn btn-small read-more-btn">Leer Más</a>
+                        </div>
+                    </article>
+
                     <!-- Tarjeta Post 1 (Imagen Actualizada) -->
                     <article class="blog-post-card">
                         <div class="post-image">
                             <a href="cableado-cat-8-ventajas-empresas-almeria.html"> <!-- Enlace SEO-friendly -->
-                                <img src="../Assets/Imagenes/Blog/cable-de-red-almeria.webp"
+                                <img src="../Assets/Imagenes/Blog/cable-de-red-almeria.webp" width="1024" height="1024"
                                     alt="Cables de red Cat 8 conectados a un switch en Almería" loading="lazy">
                             </a>
                         </div>
                         <div class="post-content">
-                            <h3 class="post-title">
+                            <h2 class="post-title">
                                 <a href="cableado-cat-8-ventajas-empresas-almeria.html">¿Tu Empresa Necesita Cableado
                                     Cat 8? Ventajas Clave</a> <!-- Enlace SEO-friendly -->
-                            </h3>
+                            </h2>
                             <div class="post-meta">
                                 <span><i class="fas fa-calendar-alt"></i> 15 Julio, 2024</span>
-                                <span><i class="fas fa-folder-open"></i> <a
-                                        href="categoria/infraestructura.html">Infraestructura</a></span>
+                                <span><i class="fas fa-folder-open"></i> Infraestructura</span>
                             </div>
                             <div class="post-excerpt">
                                 <p>El cableado estructurado es la columna vertebral de tu red. Descubre si la inversión
@@ -189,19 +233,18 @@
                         <div class="post-image">
                             <a href="videovigilancia-inteligente-ia-seguridad-empresas-almeria.html">
                                 <!-- Enlace SEO-friendly -->
-                                <img src="../Assets/Imagenes/Blog/Videovigilancia Inteligente.webp"
+                                <img src="../Assets/Imagenes/Blog/videovigilancia-inteligente.webp" width="1024" height="907"
                                     alt="Cámara de seguridad IP con detección de movimiento" loading="lazy">
                             </a>
                         </div>
                         <div class="post-content">
-                            <h3 class="post-title">
+                            <h2 class="post-title">
                                 <a href="videovigilancia-inteligente-ia-seguridad-empresas-almeria.html">Videovigilancia
                                     Inteligente: Más Allá de la Grabación</a> <!-- Enlace SEO-friendly -->
-                            </h3>
+                            </h2>
                             <div class="post-meta">
                                 <span><i class="fas fa-calendar-alt"></i> 05 Julio, 2024</span>
-                                <span><i class="fas fa-folder-open"></i> <a
-                                        href="categoria/seguridad.html">Seguridad</a></span>
+                                <span><i class="fas fa-folder-open"></i> Seguridad</span>
                             </div>
                             <div class="post-excerpt">
                                 <p>Las cámaras modernas con IA pueden detectar intrusiones, analizar patrones y
@@ -218,19 +261,18 @@
                         <div class="post-image">
                             <a href="internet-rural-almeria-alternativas-fibra-optica.html">
                                 <!-- Enlace SEO-friendly -->
-                                <img src="../Assets/Imagenes/Blog/satelite .webp"
+                                <img src="../Assets/Imagenes/Blog/satelite.webp" width="1024" height="1024"
                                     alt="Antena de radioenlace en entorno rural" loading="lazy">
                             </a>
                         </div>
                         <div class="post-content">
-                            <h3 class="post-title">
+                            <h2 class="post-title">
                                 <a href="internet-rural-almeria-alternativas-fibra-optica.html">Internet Rural en
                                     Almería: Opciones Reales Más Allá de la Fibra</a> <!-- Enlace SEO-friendly -->
-                            </h3>
+                            </h2>
                             <div class="post-meta">
                                 <span><i class="fas fa-calendar-alt"></i> 28 Junio, 2024</span>
-                                <span><i class="fas fa-folder-open"></i> <a
-                                        href="categoria/conectividad.html">Conectividad</a></span>
+                                <span><i class="fas fa-folder-open"></i> Conectividad</span>
                             </div>
                             <div class="post-excerpt">
                                 <p>Si la fibra no llega a tu finca o nave, no te resignes a una mala conexión.
@@ -277,22 +319,30 @@
         <div class="container footer-content">
             <p>© <span id="current-year"></span> SATEKOR Telecomunicaciones. Todos los derechos reservados.</p>
             <nav class="footer-nav" aria-label="Navegación secundaria">
-                <nav class="footer-nav" aria-label="Navegación secundaria">
-                    <a href="../politica-privacidad.html">Política de Privacidad</a> |
-                    <a href="../terminos-uso.html">Términos de Uso</a> |
-                    <a href="../politica-cookies.html">Política de Cookies</a>
-                </nav>
+                <a href="../quienes-somos.html">Quiénes Somos</a> |
+                <a href="../politica-privacidad.html">Política de Privacidad</a> |
+                <a href="../terminos-uso.html">Términos de Uso</a> |
+                <a href="../politica-cookies.html">Política de Cookies</a>
+            </nav>
         </div>
     </footer>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-banner" class="cookie-banner" role="dialog" aria-modal="true" aria-labelledby="cookie-heading"
+        hidden>
+        <div class="cookie-content">
+            <h3 id="cookie-heading" class="cookie-title">🍪 Utilizamos Cookies</h3>
+            <p>Usamos cookies de análisis (Google Analytics) para mejorar tu experiencia. Solo se instalarán si las
+                aceptas. Más información en nuestra <a href="../politica-cookies.html">política de cookies</a>.</p>
+        </div>
+        <div class="cookie-actions">
+            <button id="reject-cookies" class="btn btn-small btn-secondary">Rechazar</button>
+            <button id="accept-cookies" class="btn btn-small btn-primary">Aceptar</button>
+        </div>
+    </div>
+
     <!-- FIN Pie de Página -->
 
-    <!-- Script para año actual (Copiado) -->
-    <script>
-        const currentYearSpan = document.getElementById('current-year');
-        if (currentYearSpan) {
-            currentYearSpan.textContent = new Date().getFullYear();
-        }
-    </script>
 
     <!-- Script JS principal (Copiado, asegúrate que la ruta es correcta) -->
     <script src="../Assets/JS/script.js" defer></script>

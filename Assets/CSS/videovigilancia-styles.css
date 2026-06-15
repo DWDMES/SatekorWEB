@@ -182,7 +182,7 @@
     line-height: 1;
 }
 
-.benefit-item h4 {
+.benefit-item h3 {
     font-size: 1.15rem;
     font-weight: 600;
     color: var(--color-text-primary);

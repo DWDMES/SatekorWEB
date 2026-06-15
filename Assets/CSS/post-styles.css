@@ -185,12 +185,13 @@
     padding-top: 1.5rem;
     font-size: 0.9rem;
 }
-.post-tags span {
+.post-tags .tag-label {
     font-weight: 600;
     color: var(--color-text-primary);
     margin-right: 0.8rem;
 }
-.post-tags a {
+.post-tags a,
+.post-tags .tag {
     display: inline-block;
     background-color: var(--color-surface);
     color: var(--color-text-secondary);

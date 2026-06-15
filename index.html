@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0F172A">
     <title>SATEKOR - Telecomunicaciones e Infraestructura para Empresas en Almería</title>
     <meta name="description"
-        content="SATEKOR: Expertos en videovigilancia para empresas, fibra óptica, infraestructura crítica, mantenimiento 24/7, automatización IoT y conexión a internet rural en Almería. Soluciones para hoteles, naves industriales y operadoras.">
+        content="SATEKOR: videovigilancia, fibra óptica, infraestructura, mantenimiento 24/7, IoT e internet rural para empresas en Almería. Hoteles, naves y operadoras.">
     <meta name="keywords"
         content="SATEKOR, telecomunicaciones empresas Almería, videovigilancia empresas Almería, cámaras seguridad negocios Almería, fibra óptica empresas Almería, internet rural Almería, infraestructura crítica Almería, cableado estructurado Cat 8, racks certificados, mantenimiento redes Almería, soporte técnico 24/7, automatización hoteles Almería, sensores inteligentes, conexión satélite Almería, radioenlace Almería">
     <meta name="author" content="SATEKOR Telecomunicaciones">
@@ -133,9 +134,8 @@
 
         .hero {
             background-color: var(--color-background);
-            padding: clamp(4rem, 15vh, 8rem) 0;
+            padding: clamp(3.25rem, 9vh, 6rem) 0;
             text-align: center;
-            min-height: 60vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -161,7 +161,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 1.5rem;
+            gap: 1.75rem;
         }
 
         .hero-text-content h1 {
@@ -173,9 +173,9 @@
             background-clip: text;
             color: transparent;
             -webkit-text-fill-color: transparent;
-            padding: 0.5rem 1rem;
-            background-color: var(--color-background);
-            border-radius: calc(var(--border-radius) * 0.5);
+            padding: 0 0.5rem;
+            text-shadow: 0 4px 30px rgba(0, 0, 0, 0.55);
+            letter-spacing: 0.5px;
             display: inline-block;
             max-width: 100%;
             box-sizing: border-box;
@@ -184,13 +184,11 @@
         .hero-text-content .subtitle {
             font-family: var(--font-main);
             font-size: clamp(0.95rem, 3.5vw, 1.3rem);
-            color: var(--color-text-primary);
-            max-width: 90%;
+            color: var(--color-text-secondary);
+            max-width: 720px;
             margin: 0 auto;
             line-height: 1.7;
-            padding: 0.75rem 1.25rem;
-            background-color: var(--color-background);
-            border-radius: calc(var(--border-radius) * 0.5);
+            text-shadow: 0 1px 14px rgba(0, 0, 0, 0.7);
             display: inline-block;
             box-sizing: border-box;
         }
@@ -231,16 +229,16 @@
       "email": "info@satekor.es",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Calle Falsa, 123",
-        "addressLocality": "Almería",
-        "postalCode": "04001",
+        "streetAddress": "Avenida Rosita Ferrer, 2 - Bl 2 Ptl 3 4 B",
+        "addressLocality": "Roquetas de Mar",
+        "postalCode": "04740",
         "addressRegion": "Almería",
         "addressCountry": "ES"
       },
       "geo": {
         "@type": "GeoCoordinates",
-        "latitude": 36.8340,
-        "longitude": -2.4637
+        "latitude": 36.7642,
+        "longitude": -2.6147
       },
       "openingHoursSpecification": [
         {
@@ -272,17 +270,10 @@
     }
     </script>
 </head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NY4Y6RT0TB"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-NY4Y6RT0TB');
-</script>
 
 <body>
+
+    <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
 
     <header class="site-header">
         <div class="container header-content">
@@ -313,14 +304,14 @@
                     </li>
                     <li><a href="index.html#clientes">Clientes</a></li>
                     <li><a href="index.html#faq">FAQ</a></li>
-                    <li><a href="Blog/">Blog</a></li>
+                    <li><a href="Blog/index.html">Blog</a></li>
                     <li><a href="contacto.html" class="nav-cta-button">Contacto</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <main>
+    <main id="contenido">
         <section class="hero">
             <div class="container hero-content">
                 <div class="data-stream-container" aria-hidden="true">
@@ -359,6 +350,12 @@
                         óptica, redes empresariales, soluciones IoT y conexión a internet en zonas rurales de Almería.
                     </p>
                     <a href="#servicios" class="btn btn-primary">Nuestros Servicios</a>
+                    <ul class="trust-bar">
+                        <li><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Soporte local en Almería</li>
+                        <li><i class="fas fa-clock" aria-hidden="true"></i> Atención urgente 24/7</li>
+                        <li><i class="fas fa-handshake" aria-hidden="true"></i> Sin permanencia</li>
+                        <li><i class="fas fa-certificate" aria-hidden="true"></i> Técnicos certificados</li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -457,25 +454,60 @@
                 <h3 class="ticker-title">Han confiado en nosotros:</h3>
                 <div class="logos-ticker-wrap">
                     <div class="logos-ticker-track">
-                        <div class="logo-slide"><img src="Assets/Imagenes/EMPRESAS/CIRCET.webp" alt="Logo Circet"></div>
+                        <div class="logo-slide"><img src="Assets/Imagenes/EMPRESAS/CIRCET.webp" alt="Logo Circet" loading="lazy"></div>
                         <div class="logo-slide"><img src="Assets/Imagenes/EMPRESAS/gcontrol.webp"
-                                alt="Logo Grupo Control"></div>
-                        <div class="logo-slide"><img src="Assets/Imagenes/EMPRESAS/MASORANGE.webp" alt="Logo MasOrange">
+                                alt="Logo Grupo Control" loading="lazy"></div>
+                        <div class="logo-slide"><img src="Assets/Imagenes/EMPRESAS/MASORANGE.webp" alt="Logo MasOrange" loading="lazy">
                         </div>
                         <div class="logo-slide"><img src="Assets/Imagenes/EMPRESAS/VERNE.webp"
-                                alt="Logo Verne Technology Group"></div>
-                        <div class="logo-slide"><img src="Assets/Imagenes/EMPRESAS/YOIGO.webp" alt="Logo Yoigo"></div>
+                                alt="Logo Verne Technology Group" loading="lazy"></div>
+                        <div class="logo-slide"><img src="Assets/Imagenes/EMPRESAS/YOIGO.webp" alt="Logo Yoigo" loading="lazy"></div>
                         <!-- Duplicated logos for continuous scroll effect -->
-                        <div class="logo-slide"><img src="Assets/Imagenes/EMPRESAS/CIRCET.webp" alt="Logo Circet"></div>
+                        <div class="logo-slide"><img src="Assets/Imagenes/EMPRESAS/CIRCET.webp" alt="Logo Circet" loading="lazy"></div>
                         <div class="logo-slide"><img src="Assets/Imagenes/EMPRESAS/gcontrol.webp"
-                                alt="Logo Grupo Control"></div>
-                        <div class="logo-slide"><img src="Assets/Imagenes/EMPRESAS/MASORANGE.webp" alt="Logo MasOrange">
+                                alt="Logo Grupo Control" loading="lazy"></div>
+                        <div class="logo-slide"><img src="Assets/Imagenes/EMPRESAS/MASORANGE.webp" alt="Logo MasOrange" loading="lazy">
                         </div>
                         <div class="logo-slide"><img src="Assets/Imagenes/EMPRESAS/VERNE.webp"
-                                alt="Logo Verne Technology Group"></div>
-                        <div class="logo-slide"><img src="Assets/Imagenes/EMPRESAS/YOIGO.webp" alt="Logo Yoigo"></div>
+                                alt="Logo Verne Technology Group" loading="lazy"></div>
+                        <div class="logo-slide"><img src="Assets/Imagenes/EMPRESAS/YOIGO.webp" alt="Logo Yoigo" loading="lazy"></div>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <section id="zonas" class="services section-padding reveal">
+            <div class="container">
+                <h2 class="section-title">Damos Servicio en Toda la Provincia de Almería</h2>
+                <p class="subtitle">Instalamos y mantenemos telecomunicaciones para empresas en Almería capital y en
+                    todos los municipios de la provincia. Estas son algunas de las zonas donde trabajamos:</p>
+                <div class="service-grid">
+                    <article class="service-card">
+                        <i class="fas fa-map-marker-alt service-icon" aria-hidden="true"></i>
+                        <h3><a href="Zonas/roquetas-de-mar.html">Roquetas de Mar</a></h3>
+                        <p>Videovigilancia, fibra, redes e IoT para hoteles, comercios y empresas turísticas.</p>
+                        <a href="Zonas/roquetas-de-mar.html" class="btn btn-small">Ver Roquetas de Mar</a>
+                    </article>
+                    <article class="service-card">
+                        <i class="fas fa-map-marker-alt service-icon" aria-hidden="true"></i>
+                        <h3><a href="Zonas/el-ejido.html">El Ejido</a></h3>
+                        <p>Internet rural, IoT para invernaderos y videovigilancia para fincas, cooperativas y naves.</p>
+                        <a href="Zonas/el-ejido.html" class="btn btn-small">Ver El Ejido</a>
+                    </article>
+                    <article class="service-card">
+                        <i class="fas fa-map-marker-alt service-icon" aria-hidden="true"></i>
+                        <h3><a href="Zonas/huercal-overa.html">Huércal-Overa</a></h3>
+                        <p>Fibra, cableado estructurado, videovigilancia y mantenimiento en la comarca del Almanzora.</p>
+                        <a href="Zonas/huercal-overa.html" class="btn btn-small">Ver Huércal-Overa</a>
+                    </article>
+                    <article class="service-card">
+                        <i class="fas fa-map-marker-alt service-icon" aria-hidden="true"></i>
+                        <h3><a href="Zonas/nijar.html">Níjar</a></h3>
+                        <p>Internet rural por satélite y radioenlace, IoT y videovigilancia para fincas y turismo rural.</p>
+                        <a href="Zonas/nijar.html" class="btn btn-small">Ver Níjar</a>
+                    </article>
+                </div>
+            </div>
         </section>
 
         <section id="faq" class="faq section-padding reveal">
@@ -684,6 +716,7 @@
         <div class="container footer-content">
             <p>© <span id="current-year"></span> SATEKOR Telecomunicaciones. Todos los derechos reservados.</p>
             <nav class="footer-nav" aria-label="Navegación secundaria">
+                <a href="quienes-somos.html">Quiénes Somos</a> |
                 <a href="politica-privacidad.html">Política de Privacidad</a> |
                 <a href="terminos-uso.html">Términos de Uso</a> |
                 <a href="politica-cookies.html">Política de Cookies</a>
@@ -696,10 +729,11 @@
         hidden>
         <div class="cookie-content">
             <h3 id="cookie-heading" class="cookie-title">🍪 Utilizamos Cookies</h3>
-            <p>Usamos cookies para mejorar tu experiencia de usuario. Al continuar navegando, aceptas nuestra <a
-                    href="politica-cookies.html">política de cookies</a>.</p>
+            <p>Usamos cookies de análisis (Google Analytics) para mejorar tu experiencia. Solo se instalarán si las
+                aceptas. Más información en nuestra <a href="politica-cookies.html">política de cookies</a>.</p>
         </div>
         <div class="cookie-actions">
+            <button id="reject-cookies" class="btn btn-small btn-secondary">Rechazar</button>
             <button id="accept-cookies" class="btn btn-small btn-primary">Aceptar</button>
         </div>
     </div>
@@ -709,12 +743,6 @@
         <i class="fas fa-arrow-up"></i>
     </button>
 
-    <script>
-        const currentYearSpan = document.getElementById('current-year');
-        if (currentYearSpan) {
-            currentYearSpan.textContent = new Date().getFullYear();
-        }
-    </script>
     <script src="Assets/JS/script.js" defer></script>
 
 </body>

@@ -1,7 +1,8 @@
 User-agent: *
 Allow: /
-Disallow: /politica-cookies.html
-Disallow: /politica-privacidad.html
-Disallow: /terminos-uso.html
+
+# Las páginas legales NO se bloquean aquí a propósito: llevan la etiqueta
+# <meta name="robots" content="noindex"> y Google necesita poder rastrearlas
+# para leer ese noindex y mantenerlas fuera del índice.
 
 Sitemap: https://www.satekor.es/sitemap.xml

@@ -2302,6 +2302,34 @@ a.read-more-btn:active,
 }
 
 /* ==========================================================================
+   18b. ACCESIBILIDAD Y NAVEGACIÓN
+   ========================================================================== */
+/* Enlace "Saltar al contenido": invisible hasta recibir foco con teclado */
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: 1rem;
+    background-color: var(--color-primary);
+    color: var(--color-button-text);
+    padding: 0.6rem 1.2rem;
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    font-weight: 600;
+    text-decoration: none;
+    z-index: 2000;
+    transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* Página actual resaltada en el menú (aria-current lo pone script.js) */
+.main-nav a[aria-current="page"]:not(.nav-cta-button),
+.main-nav .has-dropdown.current-section>a {
+    color: var(--color-primary);
+}
+
+/* ==========================================================================
    19. COOKIE CONSENT BANNER
    ========================================================================== */
 .cookie-banner {
@@ -2357,6 +2385,12 @@ a.read-more-btn:active,
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    gap: 0.75rem;
+}
+
+/* El display:flex del banner anularía el atributo [hidden] del navegador */
+.cookie-banner[hidden] {
+    display: none;
 }
 
 @media (min-width: 768px) {
@@ -2549,4 +2583,458 @@ a.read-more-btn:active,
 .hero-text-content h1 {
     /* Enhanced text shadow for legibility over potential busy background */
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* ==========================================================================
+   24. REFRESH GRÁFICO 2026 — profundidad, color y cohesión
+   --------------------------------------------------------------------------
+   Bloque aditivo: ajusta el aspecto visual sin reescribir las reglas previas.
+   Pensado para ser fácil de revisar y de revertir (basta con borrar la sección).
+   ========================================================================== */
+:root {
+    --color-accent: #00CCFF;
+    /* Cian secundario (ya insinuado en el degradado del hero) */
+    --gradient-brand: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+    --gradient-card: linear-gradient(160deg, rgba(30, 41, 59, 0.85) 0%, rgba(15, 23, 42, 0.92) 100%);
+    --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.35);
+    --shadow-card-hover: 0 22px 45px rgba(0, 0, 0, 0.45), 0 0 26px rgba(0, 255, 170, 0.12);
+    --radius-lg: 16px;
+}
+
+/* --- Título de sección con barra de acento degradada --- */
+.section-title {
+    position: relative;
+    padding-bottom: 1.1rem;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 64px;
+    height: 4px;
+    margin: 1.1rem auto 0;
+    border-radius: 99px;
+    background: var(--gradient-brand);
+    box-shadow: 0 0 12px rgba(0, 255, 170, 0.4);
+}
+
+/* --- Hero: menos espacio muerto, glow ambiental y texto sin "caja" --- */
+.hero {
+    min-height: auto;
+    padding: clamp(3.25rem, 9vh, 6rem) 0;
+    background:
+        radial-gradient(ellipse 65% 55% at 50% 42%, rgba(0, 255, 170, 0.13), transparent 70%),
+        radial-gradient(ellipse 55% 50% at 82% 12%, rgba(0, 204, 255, 0.10), transparent 70%),
+        var(--color-background);
+}
+
+.hero-text-content {
+    gap: 1.75rem;
+}
+
+.hero-text-content h1 {
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 0 0.5rem;
+    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.55);
+    letter-spacing: 0.5px;
+}
+
+.hero-text-content .subtitle {
+    background-color: transparent;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    max-width: 720px;
+    color: var(--color-text-secondary);
+    text-shadow: 0 1px 14px rgba(0, 0, 0, 0.7);
+}
+
+/* La lluvia de datos pasa a ser textura de fondo, no protagonista */
+.data-stream-container {
+    opacity: 0.45;
+}
+
+/* --- Botón primario con vida (degradado de marca que se invierte al pasar) --- */
+.btn-primary,
+a.btn-primary:visited {
+    background: var(--gradient-brand);
+    letter-spacing: 0.3px;
+}
+
+.btn-primary::before {
+    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-primary) 100%);
+}
+
+/* --- Fondo de secciones de tarjetas con glow muy sutil --- */
+.services {
+    background:
+        radial-gradient(circle at 12% 0%, rgba(0, 255, 170, 0.06), transparent 42%),
+        radial-gradient(circle at 88% 100%, rgba(0, 204, 255, 0.06), transparent 42%),
+        var(--color-surface);
+}
+
+/* --- Tarjetas de servicio (home): degradado, borde superior y medallón --- */
+.service-card {
+    background: var(--gradient-card);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    padding: 2.5rem 1.6rem 2rem;
+}
+
+.service-card::after {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 3px;
+    background: var(--gradient-brand);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+    z-index: 2;
+}
+
+.service-card:hover::after {
+    transform: scaleX(1);
+}
+
+.service-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 4.75rem;
+    height: 4.75rem;
+    font-size: 1.95rem;
+    border-radius: 50%;
+    color: var(--color-primary);
+    background: radial-gradient(circle at 32% 28%, rgba(0, 255, 170, 0.20), rgba(0, 204, 255, 0.06));
+    border: 1px solid rgba(0, 255, 170, 0.30);
+    box-shadow: inset 0 0 20px rgba(0, 255, 170, 0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+    transform: translateY(-3px) scale(1.06);
+    color: #ffffff;
+    box-shadow: 0 0 26px rgba(0, 255, 170, 0.40), inset 0 0 20px rgba(0, 255, 170, 0.18);
+}
+
+.service-card h3 a:hover {
+    text-decoration: none;
+    color: var(--color-primary);
+}
+
+/* --- Sombra de hover unificada y más rica para todas las tarjetas --- */
+.service-card:hover,
+.feature-card.feature-card:hover,
+.benefit-item.benefit-item:hover,
+.blog-post-card:hover {
+    box-shadow: var(--shadow-card-hover);
+    border-color: rgba(0, 255, 170, 0.45);
+}
+
+/* --- Páginas de servicio: feature-card y benefit-item al nuevo estándar
+       (doble clase para ganar a las hojas por página que cargan después) --- */
+.feature-card.feature-card,
+.benefit-item.benefit-item {
+    background: var(--gradient-card);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+}
+
+.feature-icon.feature-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    margin-top: 0;
+    font-size: 1.4rem;
+    border-radius: 12px;
+    color: var(--color-primary);
+    background: linear-gradient(150deg, rgba(0, 255, 170, 0.18), rgba(0, 204, 255, 0.08));
+    border: 1px solid rgba(0, 255, 170, 0.25);
+}
+
+.benefit-icon.benefit-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    margin: 0 auto 1.2rem;
+    font-size: 1.7rem;
+    border-radius: 50%;
+    color: var(--color-primary);
+    background: radial-gradient(circle at 32% 28%, rgba(0, 255, 170, 0.18), rgba(0, 204, 255, 0.06));
+    border: 1px solid rgba(0, 255, 170, 0.28);
+    box-shadow: inset 0 0 18px rgba(0, 255, 170, 0.12);
+}
+
+/* --- Etiquetas de aplicación con borde de marca --- */
+.application-tag {
+    border-color: rgba(0, 255, 170, 0.18);
+    background-color: rgba(30, 41, 59, 0.7);
+}
+
+/* --- Ticker de clientes: monocromo integrado que se colorea al pasar --- */
+.logo-slide img {
+    filter: grayscale(100%) brightness(1.7) contrast(0.9);
+    opacity: 0.55;
+}
+
+.logos-ticker-track:hover .logo-slide img,
+.logo-slide img:hover {
+    filter: none;
+    opacity: 1;
+}
+
+/* --- Blog: glow de fondo, overlay en imagen y categoría tipo píldora --- */
+.blog-listing-page {
+    background:
+        radial-gradient(circle at 12% 0%, rgba(0, 255, 170, 0.05), transparent 42%),
+        radial-gradient(circle at 88% 100%, rgba(0, 204, 255, 0.05), transparent 42%),
+        var(--color-background);
+}
+
+.blog-post-card {
+    border-radius: var(--radius-lg);
+}
+
+.post-image {
+    height: 190px;
+}
+
+.post-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(15, 23, 42, 0.55) 0%, transparent 45%);
+    pointer-events: none;
+}
+
+.post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 1rem;
+    margin-bottom: 0.7rem;
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+}
+
+.post-meta i {
+    color: var(--color-primary);
+    margin-right: 0.35rem;
+}
+
+.post-meta span:last-child {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.2rem 0.7rem;
+    border-radius: 50px;
+    background: rgba(0, 255, 170, 0.10);
+    border: 1px solid rgba(0, 255, 170, 0.22);
+    color: var(--color-primary);
+    font-weight: 500;
+}
+
+/* --- Contacto: glow de fondo y barra de acento superior en el formulario --- */
+.contact {
+    background:
+        radial-gradient(circle at 50% 0%, rgba(0, 204, 255, 0.06), transparent 45%),
+        var(--color-background);
+}
+
+.contact-form {
+    position: relative;
+    background: var(--gradient-card);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+}
+
+.contact-form::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 3px;
+    background: var(--gradient-brand);
+}
+
+/* --- Footer: enlaces con acento de marca y separadores discretos --- */
+.footer-nav a:hover,
+.footer-nav a:focus {
+    color: var(--color-accent);
+}
+
+/* --- Migas de pan (breadcrumbs) --- */
+.breadcrumb {
+    background-color: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    font-size: 0.85rem;
+}
+
+.breadcrumb .container {
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+}
+
+.breadcrumb a {
+    color: var(--color-text-secondary);
+}
+
+.breadcrumb a:hover,
+.breadcrumb a:focus {
+    color: var(--color-primary);
+}
+
+.breadcrumb span[aria-hidden] {
+    margin: 0 0.5rem;
+    color: var(--color-text-secondary);
+    opacity: 0.6;
+}
+
+.breadcrumb [aria-current="page"] {
+    color: var(--color-text-primary);
+    font-weight: 500;
+}
+
+/* --- Sección Zonas: rejilla equilibrada (evita la fila huérfana) --- */
+#zonas .service-grid {
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 600px) {
+    #zonas .service-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 992px) {
+    #zonas .service-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* --- Sellos de confianza (trust bar) --- */
+.trust-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem 1.5rem;
+    margin: 1.75rem auto 0;
+    padding: 0;
+    list-style: none;
+    max-width: 900px;
+}
+
+.trust-bar li {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    background: rgba(0, 255, 170, 0.06);
+    border: 1px solid rgba(0, 255, 170, 0.22);
+    border-radius: 50px;
+    padding: 0.45rem 1rem;
+}
+
+.trust-bar i {
+    color: var(--color-primary);
+    font-size: 1rem;
+}
+
+/* --- Línea de cobertura de zonas (SEO local) bajo las FAQ --- */
+.zonas-cobertura {
+    max-width: 850px;
+    margin: 2.5rem auto 0;
+    padding: 1rem 1.25rem;
+    text-align: center;
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    border-top: 1px solid var(--color-border);
+}
+
+.zonas-cobertura strong {
+    color: var(--color-text-primary);
+}
+
+/* --- Táctil (sin hover): equivalente al efecto glow de escritorio --- */
+@media (hover: none) {
+
+    /* Transición garantizada para que la activación por scroll sea fluida */
+    .service-card,
+    .feature-card,
+    .benefit-item,
+    .blog-post-card {
+        border-color: rgba(0, 255, 170, 0.14);
+        transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+    }
+
+    /* Tarjeta enfocada al pasar por el centro de la pantalla (la añade script.js).
+       Replica de forma dinámica el efecto hover de escritorio según haces scroll. */
+    .service-card.touch-active,
+    .feature-card.touch-active,
+    .benefit-item.touch-active,
+    .blog-post-card.touch-active {
+        transform: translateY(-8px) scale(1.02);
+        border-color: rgba(0, 255, 170, 0.45);
+        box-shadow: var(--shadow-card-hover);
+    }
+
+    .service-card.touch-active::after {
+        transform: scaleX(1);
+    }
+
+    .service-card.touch-active::before,
+    .feature-card.touch-active::before,
+    .benefit-item.touch-active::before,
+    .blog-post-card.touch-active::before {
+        opacity: 0.1;
+    }
+
+    .service-card.touch-active .service-icon {
+        transform: translateY(-3px) scale(1.06);
+        color: #ffffff;
+        box-shadow: 0 0 26px rgba(0, 255, 170, 0.40), inset 0 0 20px rgba(0, 255, 170, 0.18);
+    }
+
+    /* Feedback inmediato al tocar */
+    .service-card:active,
+    .feature-card:active,
+    .benefit-item:active,
+    .blog-post-card:active {
+        box-shadow: var(--shadow-card-hover);
+        border-color: rgba(0, 255, 170, 0.5);
+    }
+}
+
+/* --- Móvil: desactivar background-attachment:fixed (causa jank/parpadeo, sobre todo en iOS) --- */
+@media (max-width: 767px) {
+
+    body,
+    .faq,
+    .cta-section {
+        background-attachment: scroll !important;
+    }
+}
+
+/* --- Respeto a usuarios que prefieren menos movimiento --- */
+@media (prefers-reduced-motion: reduce) {
+
+    .logos-ticker-track,
+    .data-stream-container li {
+        animation: none !important;
+    }
+
+    .data-stream-container {
+        display: none;
+    }
 }

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0F172A">
     <title>Política de Cookies - SATEKOR Telecomunicaciones</title>
     <meta name="description" content="Información sobre el uso de cookies en el sitio web satekor.es, propiedad de SATEKOR Telecomunicaciones.">
      <meta name="robots" content="noindex, follow">
@@ -10,18 +11,21 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"></noscript>
 
     <!-- Font Awesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer"></noscript>
 
     <!-- Enlace a la hoja de estilos CSS (Asegúrate que la ruta es correcta desde la raíz) -->
     <link rel="stylesheet" href="Assets/CSS/styles.css">
-    <!-- Opcional: Estilos específicos para páginas legales si es necesario -->
-    <!-- <link rel="stylesheet" href="Assets/CSS/legal-styles.css"> -->
 
     <!-- Favicon -->
-    <link rel="icon" href="Assets/Imagenes/Favicon.png" type="image/png">
+    <link rel="icon" href="Assets/Imagenes/favicon.webp" type="image/webp">
 
      <style>
         /* Estilos básicos para mejorar legibilidad si styles.css no cubre bien */
@@ -42,11 +46,13 @@
 </head>
 <body>
 
+    <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+
     <!-- === Encabezado del Sitio (Copia el de index.html, rutas relativas a la raíz) === -->
     <header class="site-header">
         <div class="container header-content">
-            <a href="/" class="logo">
-                <img src="Assets/Imagenes/logoB.png" alt="Logo SATEKOR Telecomunicaciones Almería">
+            <a href="index.html" class="logo">
+                <img src="Assets/Imagenes/logoB.webp" alt="Logo SATEKOR Telecomunicaciones Almería" width="160" height="50">
             </a>
             <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
                 <span class="hamburger"></span>
@@ -76,9 +82,9 @@
         </div>
     </header>
 
-    <main class="legal-content">
+    <main id="contenido" class="legal-content">
         <h1>Política de Cookies</h1>
-        <span id="last-updated">Última actualización: 07/05/2025</span>
+        <span id="last-updated">Última actualización: 12/06/2026</span>
 
         <h2>1. ¿Qué son las Cookies?</h2>
         <p>Una cookie es un pequeño fichero de texto que un sitio web almacena en el navegador del usuario. Las cookies facilitan el uso y la navegación por una página web y son esenciales para el funcionamiento de internet, aportando innumerables ventajas en la prestación de servicios interactivos.</p>
@@ -89,37 +95,31 @@
 
         <h3>a) Cookies Técnicas o Necesarias</h3>
         <p>Son aquellas estrictamente necesarias para la correcta navegación por el Sitio Web y que permiten realizar funciones básicas como la gestión de la sesión, el acceso a partes de acceso restringido (si las hubiera), o el uso de elementos de seguridad. Sin estas cookies, el Sitio Web no funcionaría correctamente.</p>
-        <p><strong>[Placeholder: Debes listar aquí las cookies técnicas específicas que usa tu web si las conoces, ej., cookies de sesión PHP (PHPSESSID), cookies de balanceo de carga, etc. Si no estás seguro, puedes dejar esta descripción genérica, pero es mejor ser específico.]</strong></p>
-        <!-- Ejemplo si usaras una cookie de sesión común:
+        <p>Este Sitio Web es estático y no utiliza cookies técnicas de sesión. Únicamente almacenamos en el navegador (localStorage) su elección sobre el consentimiento de cookies, para no volver a preguntarle en cada visita:</p>
         <table class="cookie-table">
             <thead>
                 <tr><th>Nombre</th><th>Proveedor</th><th>Finalidad</th><th>Duración</th></tr>
             </thead>
             <tbody>
-                <tr><td>PHPSESSID</td><td>Propia</td><td>Identificador de sesión</td><td>Hasta cierre de sesión</td></tr>
+                <tr><td>cookiesAccepted</td><td>Propia (localStorage)</td><td>Recuerda si ha aceptado o rechazado las cookies de análisis</td><td>Hasta que borre los datos del navegador</td></tr>
             </tbody>
         </table>
-        -->
 
         <h3>b) Cookies de Análisis o Medición</h3>
         <p>Son aquellas que, bien tratadas por nosotros o por terceros (como Google Analytics), nos permiten cuantificar el número de usuarios y así realizar la medición y análisis estadístico de la utilización que hacen los usuarios del servicio ofertado. Para ello se analiza su navegación en nuestra página web con el fin de mejorar la oferta de productos o servicios que le ofrecemos.</p>
-         <p><strong>[Placeholder: CONFIRMA SI USAS GOOGLE ANALYTICS U OTRO. Si es así, completa la tabla. Si no usas ninguna, elimina esta sección 'b)'.]</strong></p>
-        <p>Este sitio utiliza <strong>Google Analytics</strong>, un servicio analítico de web prestado por Google, Inc., una compañía de Delaware cuya oficina principal está en 1600 Amphitheatre Parkway, Mountain View (California), CA 94043, Estados Unidos (“Google”).</p>
+        <p>Este sitio utiliza <strong>Google Analytics 4</strong>, un servicio analítico de web prestado por Google, Inc., una compañía de Delaware cuya oficina principal está en 1600 Amphitheatre Parkway, Mountain View (California), CA 94043, Estados Unidos (“Google”). Estas cookies <strong>solo se instalan si usted las acepta</strong> en el banner de consentimiento.</p>
         <table class="cookie-table">
              <thead>
                 <tr><th>Nombre</th><th>Proveedor</th><th>Finalidad</th><th>Duración</th><th>Más Info</th></tr>
             </thead>
             <tbody>
-                <tr><td>_ga</td><td>Google Analytics</td><td>Se usa para distinguir a los usuarios.</td><td>2 años</td><td rowspan="3"><a href="https://policies.google.com/privacy?hl=es" target="_blank" rel="noopener noreferrer">Política de Privacidad de Google</a></td></tr>
-                <tr><td>_gid</td><td>Google Analytics</td><td>Se usa para distinguir a los usuarios.</td><td>24 horas</td></tr>
-                <tr><td>_gat_gtag_UA_XXXXX_Y</td><td>Google Analytics</td><td>Se usa para limitar el porcentaje de solicitudes. (Reemplaza XXXXX_Y con tu ID)</td><td>1 minuto</td></tr>
-                 <!-- Añade aquí otras cookies de análisis si las usas -->
+                <tr><td>_ga</td><td>Google Analytics</td><td>Se usa para distinguir a los usuarios.</td><td>2 años</td><td rowspan="2"><a href="https://policies.google.com/privacy?hl=es" target="_blank" rel="noopener noreferrer">Política de Privacidad de Google</a></td></tr>
+                <tr><td>_ga_NY4Y6RT0TB</td><td>Google Analytics</td><td>Se usa para mantener el estado de la sesión.</td><td>2 años</td></tr>
             </tbody>
         </table>
         <p>La información que genera la cookie acerca de su uso del website (incluyendo su dirección IP) será directamente transmitida y archivada por Google en los servidores de Estados Unidos. Google usará esta información por cuenta nuestra con el propósito de seguir la pista de su uso del website, recopilando informes de la actividad del website y prestando otros servicios relacionados con la actividad del website y el uso de Internet.</p>
 
         <h3>c) Cookies de Publicidad o Marketing</h3>
-         <p><strong>[Placeholder: CONFIRMA SI USAS ESTE TIPO DE COOKIES (ej. Facebook Pixel, Google Ads Remarketing). Si NO las usas, puedes dejar este texto o eliminar la sección 'c)'. Si SÍ las usas, descríbelas y lista las cookies aquí.]</strong></p>
         <p>Actualmente, <strong>no utilizamos cookies de publicidad comportamental ni de marketing</strong> en nuestro Sitio Web. Estas cookies permiten gestionar de la forma más eficaz posible los espacios publicitarios, almacenando información del comportamiento de los usuarios obtenida a través de la observación continuada de sus hábitos de navegación, lo que permite desarrollar un perfil específico para mostrar publicidad en función del mismo.</p>
         <p>En caso de que en el futuro decidamos implementar este tipo de cookies, actualizaremos esta política y solicitaremos su consentimiento previo.</p>
 
@@ -139,15 +139,15 @@
             <li><a href="http://www.youronlinechoices.com/es/" target="_blank" rel="noopener noreferrer">Your Online Choices</a></li>
             <li><a href="http://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer">AboutAds.info</a></li>
         </ul>
-        <p><strong>Importante:</strong> Además de la configuración del navegador, necesitará un **banner o panel de consentimiento de cookies** en su Sitio Web para cumplir con la normativa, permitiendo al usuario aceptar o rechazar las cookies no esenciales (como las de análisis o publicidad) antes de que se instalen.</p>
+        <p>Además de la configuración del navegador, este Sitio Web muestra un <strong>banner de consentimiento de cookies</strong> en su primera visita, que le permite aceptar o rechazar las cookies no esenciales (las de análisis) antes de que se instalen. Si desea cambiar su elección posteriormente, puede hacerlo borrando los datos de navegación de este sitio en su navegador; el banner volverá a mostrarse en su siguiente visita.</p>
 
         <h2>4. Terceros y Transferencias Internacionales</h2>
         <p>Como se mencionó, utilizamos Google Analytics, lo que implica que Google actúa como un tercero procesando datos en nuestro nombre. Esto puede implicar la transferencia internacional de datos a Estados Unidos, la cual se realiza bajo el escudo del Marco de Privacidad de Datos UE-EE.UU. (Data Privacy Framework) o mediante otras garantías adecuadas.</p>
-        <p><strong>[Placeholder: Si usas otros servicios de terceros que instalen cookies o impliquen transferencias, añádelos aquí.]</strong></p>
+        <p>Asimismo, la página de contacto incorpora un mapa interactivo de <strong>Google Maps</strong>, servicio prestado igualmente por Google, que puede instalar sus propias cookies y recopilar datos de navegación conforme a la <a href="https://policies.google.com/privacy?hl=es" target="_blank" rel="noopener noreferrer">Política de Privacidad de Google</a>.</p>
 
 
         <h2>5. Cambios en la Política de Cookies</h2>
-        <p>SATEKOR puede modificar esta Política de Cookies en función de exigencias legislativas, reglamentarias, o con la finalidad de adaptar dicha política به las instrucciones dictadas por la Agencia Española de Protección de Datos, por ello se aconseja a los usuarios que la visiten periódicamente.</p>
+        <p>SATEKOR puede modificar esta Política de Cookies en función de exigencias legislativas, reglamentarias, o con la finalidad de adaptar dicha política a las instrucciones dictadas por la Agencia Española de Protección de Datos, por ello se aconseja a los usuarios que la visiten periódicamente.</p>
         <p>Cuando se produzcan cambios significativos en esta Política de Cookies, se comunicarán a los usuarios bien mediante la web o a través de correo electrónico a los usuarios registrados (si aplica).</p>
 
 
@@ -165,16 +165,29 @@
          <div class="container footer-content">
             <p>© <span id="current-year"></span> SATEKOR Telecomunicaciones. Todos los derechos reservados.</p>
              <nav class="footer-nav" aria-label="Navegación secundaria">
-                <a href="../politica-privacidad.html">Política de Privacidad</a> |
-                <a href="../terminos-uso.html">Términos de Uso</a> |
-                <a href="../politica-cookies.html">Política de Cookies</a>
+                <a href="quienes-somos.html">Quiénes Somos</a> |
+                <a href="politica-privacidad.html">Política de Privacidad</a> |
+                <a href="terminos-uso.html">Términos de Uso</a> |
+                <a href="politica-cookies.html">Política de Cookies</a>
             </nav>
         </div>
     </footer>
 
-    <script>
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-    </script>
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-banner" class="cookie-banner" role="dialog" aria-modal="true" aria-labelledby="cookie-heading"
+        hidden>
+        <div class="cookie-content">
+            <h3 id="cookie-heading" class="cookie-title">🍪 Utilizamos Cookies</h3>
+            <p>Usamos cookies de análisis (Google Analytics) para mejorar tu experiencia. Solo se instalarán si las
+                aceptas. Más información en nuestra <a href="politica-cookies.html">política de cookies</a>.</p>
+        </div>
+        <div class="cookie-actions">
+            <button id="reject-cookies" class="btn btn-small btn-secondary">Rechazar</button>
+            <button id="accept-cookies" class="btn btn-small btn-primary">Aceptar</button>
+        </div>
+    </div>
+
+
     <script src="Assets/JS/script.js" defer></script>
 
 </body>

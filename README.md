@@ -37,3 +37,39 @@ Este repositorio contiene el código fuente del sitio web oficial de **SATEKOR I
 *   **No puede** utilizar este código, en todo o en parte, para ningún proyecto comercial o no comercial sin el permiso explícito y por escrito de SATEKOR Telecomunicaciones.
 
 **Consultas:** Para cualquier pregunta sobre el uso o licencia de este código, por favor contacte con SATEKOR Telecomunicaciones en [info@satekor.es](mailto:info@satekor.es).
+---
+
+## Estructura del Proyecto
+
+```
+SatekorWEB/
+├── index.html                  # Página principal (servicios, clientes, FAQ)
+├── contacto.html               # Página de contacto (formulario, mapa)
+├── politica-privacidad.html    # Legal (noindex)
+├── politica-cookies.html       # Legal (noindex)
+├── terminos-uso.html           # Legal (noindex)
+├── Servicios/                  # Una página por servicio (6)
+├── Blog/
+│   ├── index.html              # Listado de artículos
+│   └── *.html                  # Artículos individuales
+├── Assets/
+│   ├── CSS/
+│   │   ├── styles.css          # Hoja principal (todas las páginas)
+│   │   ├── service-page.css    # Compartida por 4 páginas de Servicios
+│   │   ├── infraestructura-telecom.css   # Variante propia
+│   │   ├── videovigilancia-styles.css    # Variante propia
+│   │   └── post-styles.css     # Artículos del blog
+│   ├── JS/script.js            # Menú, banner cookies + carga condicional
+│   │                           # de Google Analytics (RGPD), año del footer,
+│   │                           # página activa en navegación, animaciones
+│   └── Imagenes/               # Logos, favicon e imágenes (WebP)
+├── sitemap.xml
+├── robots.txt
+└── CNAME                       # Dominio de GitHub Pages (www.satekor.es)
+```
+
+**Notas técnicas:**
+
+- Sitio 100% estático servido con GitHub Pages; sin proceso de build.
+- Google Analytics solo se carga tras aceptar el banner de cookies (gestión en `script.js`).
+- Las rutas públicas (`/Servicios/`, `/Blog/`) no deben renombrarse: están indexadas y referenciadas en `sitemap.xml` y los canonicals.

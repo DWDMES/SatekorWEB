@@ -116,29 +116,97 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // --- Lógica del Banner de Cookies ---
+    // --- Resaltar la Página Actual en la Navegación ---
+    const currentPath = window.location.pathname.replace(/index\.html$/, '');
+    document.querySelectorAll('.main-nav a[href]').forEach(link => {
+        if (link.getAttribute('href').startsWith('#') || link.hash) {
+            return; // Ignora enlaces a secciones (#servicios, #faq...)
+        }
+        const linkPath = new URL(link.href, window.location.href).pathname.replace(/index\.html$/, '');
+        if (linkPath === currentPath) {
+            link.setAttribute('aria-current', 'page');
+            // Si es un enlace del submenú, marca también "Servicios"
+            const dropdown = link.closest('.has-dropdown');
+            if (dropdown) {
+                dropdown.classList.add('current-section');
+            }
+        }
+    });
+
+
+    // --- Consentimiento de Cookies y Carga Condicional de Google Analytics ---
+    // RGPD: Google Analytics solo se carga si el usuario acepta las cookies.
+    const GA_MEASUREMENT_ID = 'G-NY4Y6RT0TB';
+
+    function loadGoogleAnalytics() {
+        if (window.gaLoaded) {
+            return;
+        }
+        window.gaLoaded = true;
+
+        const gaScript = document.createElement('script');
+        gaScript.async = true;
+        gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_MEASUREMENT_ID;
+        document.head.appendChild(gaScript);
+
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () { dataLayer.push(arguments); };
+        gtag('js', new Date());
+        gtag('config', GA_MEASUREMENT_ID, { 'anonymize_ip': true });
+    }
+
+    // Lectura/escritura segura: localStorage puede lanzar excepción en file://,
+    // en modo privado o con el almacenamiento bloqueado. Si falla, el banner debe
+    // seguir funcionando (cerrarse al pulsar), aunque la elección no se recuerde.
+    function getConsent() {
+        try { return localStorage.getItem('cookiesAccepted'); }
+        catch (e) { return null; }
+    }
+    function setConsent(value) {
+        try { localStorage.setItem('cookiesAccepted', value); }
+        catch (e) { /* almacenamiento no disponible */ }
+    }
+
+    const cookieConsent = getConsent();
+
+    // Si ya aceptó en una visita anterior, carga GA directamente
+    if (cookieConsent === 'true') {
+        loadGoogleAnalytics();
+    }
+
     const cookieBanner = document.getElementById('cookie-banner');
     const acceptCookiesBtn = document.getElementById('accept-cookies');
+    const rejectCookiesBtn = document.getElementById('reject-cookies');
 
     if (cookieBanner && acceptCookiesBtn) {
-        // Verifica si ya se aceptaron las cookies
-        if (!localStorage.getItem('cookiesAccepted')) {
-            // Muestra el banner (quita el atributo hidden)
+        // Muestra el banner solo si aún no ha elegido (ni aceptar ni rechazar)
+        if (cookieConsent === null) {
             // Pequeño timeout para animación suave
             setTimeout(() => {
                 cookieBanner.hidden = false;
             }, 500);
         }
 
-        acceptCookiesBtn.addEventListener('click', () => {
-            localStorage.setItem('cookiesAccepted', 'true');
-            // Oculta con animación si es posible, o simplemente hidden = true
+        function hideCookieBanner() {
             cookieBanner.style.opacity = '0';
             cookieBanner.style.transform = 'translateY(100%)';
             setTimeout(() => {
                 cookieBanner.hidden = true;
             }, 500); // Espera a que termine la transición CSS si hubiera
+        }
+
+        acceptCookiesBtn.addEventListener('click', () => {
+            hideCookieBanner();   // cerrar siempre primero, aunque falle el almacenamiento
+            setConsent('true');
+            loadGoogleAnalytics();
         });
+
+        if (rejectCookiesBtn) {
+            rejectCookiesBtn.addEventListener('click', () => {
+                hideCookieBanner();
+                setConsent('false');
+            });
+        }
     }
 
     // --- Lógica del Botón "Volver Arriba" ---
@@ -186,5 +254,64 @@ document.addEventListener('DOMContentLoaded', () => {
 
         revealElements.forEach(el => revealObserver.observe(el));
     }
+
+
+    // --- Tarjetas dinámicas en táctil (sustituto del hover) ---
+    // En dispositivos sin ratón, cada tarjeta se "enciende" al pasar por el centro
+    // de la pantalla mientras haces scroll, replicando el efecto hover de escritorio.
+    const noHover = window.matchMedia && window.matchMedia('(hover: none)').matches;
+    const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (noHover && !reduceMotion && 'IntersectionObserver' in window) {
+        const cards = document.querySelectorAll('.service-card, .feature-card, .benefit-item, .blog-post-card');
+        if (cards.length > 0) {
+            const cardObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    // Solo cuenta la franja central de la pantalla (rootMargin)
+                    entry.target.classList.toggle('touch-active', entry.isIntersecting);
+                });
+            }, {
+                root: null,
+                threshold: 0,
+                rootMargin: '-45% 0px -45% 0px' // banda estrecha en el centro vertical
+            });
+            cards.forEach(card => cardObserver.observe(card));
+        }
+    }
+
+
+    // --- Medición de Conversiones (eventos GA4; solo si hay consentimiento) ---
+    // gtag solo existe si el usuario aceptó cookies (ver carga condicional arriba).
+    function trackEvent(name, params) {
+        if (typeof window.gtag === 'function') {
+            window.gtag('event', name, params || {});
+        }
+    }
+
+    // Clics en WhatsApp
+    document.querySelectorAll('a.whatsapp-btn, a[href*="wa.me"]').forEach(el => {
+        el.addEventListener('click', () => trackEvent('contacto_whatsapp', { method: 'whatsapp' }));
+    });
+
+    // Clics en teléfono
+    document.querySelectorAll('a[href^="tel:"]').forEach(el => {
+        el.addEventListener('click', () => trackEvent('contacto_telefono', { method: 'telefono' }));
+    });
+
+    // Clics en email
+    document.querySelectorAll('a[href^="mailto:"]').forEach(el => {
+        el.addEventListener('click', () => trackEvent('contacto_email', { method: 'email' }));
+    });
+
+    // Envío del formulario de contacto
+    const contactForm = document.querySelector('.contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', () => trackEvent('envio_formulario', { form: 'contacto' }));
+    }
+
+    // Clic en CTAs principales (botones primarios hacia contacto)
+    document.querySelectorAll('a.btn-primary[href*="contacto"]').forEach(el => {
+        el.addEventListener('click', () => trackEvent('clic_cta_contacto', { cta: el.textContent.trim().slice(0, 50) }));
+    });
 
 }); // Fin de DOMContentLoaded
