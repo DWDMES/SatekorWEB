@@ -2066,7 +2066,9 @@ body.no-scroll .scroll-to-top {
     .main-nav {
         display: flex;
         position: static;
+        top: auto;
         transform: none;
+        opacity: 1;
         visibility: visible;
         max-height: none;
         overflow: visible;
@@ -2074,6 +2076,8 @@ body.no-scroll .scroll-to-top {
         box-shadow: none;
         padding: 0;
         background-color: transparent;
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
         width: auto;
         bottom: auto;
         margin-left: auto;
