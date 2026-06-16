@@ -193,6 +193,202 @@
             box-sizing: border-box;
         }
 
+        /* Botones (above-the-fold) */
+        .btn {
+            display: inline-block;
+            padding: 0.7rem 1.5rem;
+            border: 1px solid transparent;
+            border-radius: var(--border-radius);
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 600;
+            line-height: 1.4;
+            min-height: 44px;
+            text-align: center;
+            text-decoration: none;
+            box-sizing: border-box;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #00FFAA 0%, #00CCFF 100%);
+            border: none;
+            color: var(--color-background);
+            box-shadow: 0 4px 15px rgba(0, 255, 170, 0.3);
+            letter-spacing: 0.3px;
+        }
+
+        /* Botón de menú (móvil) */
+        .menu-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 50%;
+            right: 1.25rem;
+            transform: translateY(-50%);
+            width: 46px;
+            height: 46px;
+            background-color: rgba(0, 255, 170, 0.10);
+            border: 1px solid rgba(0, 255, 170, 0.30);
+            border-radius: 12px;
+            cursor: pointer;
+            z-index: 1200;
+        }
+
+        .hamburger {
+            display: block;
+            position: relative;
+            width: 24px;
+            height: 2.5px;
+            background-color: var(--color-primary);
+            border-radius: 3px;
+        }
+
+        .hamburger::before,
+        .hamburger::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 2.5px;
+            background-color: var(--color-primary);
+            border-radius: 3px;
+        }
+
+        .hamburger::before {
+            top: -8px;
+        }
+
+        .hamburger::after {
+            bottom: -8px;
+        }
+
+        /* Navegación: oculta en móvil hasta cargar la hoja completa */
+        .main-nav {
+            display: none;
+        }
+
+        /* Enlace de salto oculto fuera de pantalla */
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 1rem;
+        }
+
+        /* Submenú desplegable oculto (se muestra al pasar el ratón vía hoja completa) */
+        .dropdown-menu {
+            display: none;
+        }
+
+        /* Lluvia de datos: fuera de flujo y oculta (la anima la hoja completa) */
+        .data-stream-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+            opacity: 0.45;
+        }
+
+        .data-stream-container ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .data-stream-container li {
+            position: absolute;
+            opacity: 0;
+        }
+
+        /* Sellos de confianza */
+        .trust-bar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.75rem 1.5rem;
+            margin: 1.75rem auto 0;
+            padding: 0;
+            list-style: none;
+            max-width: 900px;
+        }
+
+        .trust-bar li {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--color-text-primary);
+            background: rgba(0, 255, 170, 0.06);
+            border: 1px solid rgba(0, 255, 170, 0.22);
+            border-radius: 50px;
+            padding: 0.45rem 1rem;
+        }
+
+        .trust-bar i {
+            color: var(--color-primary);
+            font-size: 1rem;
+            width: 1em;
+            text-align: center;
+        }
+
+        @media (min-width: 768px) {
+            .menu-toggle {
+                display: none;
+            }
+
+            .main-nav {
+                display: flex;
+                margin-left: auto;
+                height: 100%;
+            }
+
+            .main-nav ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+
+            .main-nav>ul {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: flex-end;
+                height: 100%;
+            }
+
+            .main-nav>ul>li {
+                display: flex;
+                align-items: center;
+            }
+
+            .main-nav>ul>li>a {
+                display: flex;
+                align-items: center;
+                height: 100%;
+                padding: 0.5rem 1rem;
+                color: var(--color-text-secondary);
+                text-decoration: none;
+                font-weight: 500;
+                font-size: 0.95rem;
+            }
+
+            .main-nav>ul>li>a.nav-cta-button {
+                background-color: #00cc88;
+                color: var(--color-background);
+                border-radius: var(--border-radius);
+                padding: 0.4rem 1.2rem;
+            }
+        }
+
         /* --- FIN CSS CRÍTICO --- */
     </style>
 
@@ -212,8 +408,11 @@
             crossorigin="anonymous" referrerpolicy="no-referrer">
     </noscript>
 
-    <!-- styles.css en carga bloqueante: evita el reflujo masivo (CLS) al aplicarse tras el render -->
-    <link rel="stylesheet" href="Assets/CSS/styles.css?v=20260618">
+    <!-- styles.css asíncrono: el CSS crítico de arriba cubre lo visible (FCP rápido sin CLS) -->
+    <link rel="stylesheet" href="Assets/CSS/styles.css?v=20260619" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="Assets/CSS/styles.css?v=20260619">
+    </noscript>
 
     <script type="application/ld+json">
     {
@@ -741,7 +940,7 @@
         <i class="fas fa-arrow-up"></i>
     </button>
 
-    <script src="Assets/JS/script.js?v=20260618" defer></script>
+    <script src="Assets/JS/script.js?v=20260619" defer></script>
 
 </body>
 

@@ -2969,6 +2969,8 @@ a.btn-primary:visited {
 .trust-bar i {
     color: var(--color-primary);
     font-size: 1rem;
+    width: 1em;
+    text-align: center;
 }
 
 /* --- Línea de cobertura de zonas (SEO local) bajo las FAQ --- */
