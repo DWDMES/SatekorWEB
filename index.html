@@ -370,7 +370,7 @@
                 align-items: center;
             }
 
-            .main-nav>ul>li>a {
+            .main-nav>ul>li>a:not(.nav-cta-button) {
                 display: flex;
                 align-items: center;
                 height: 100%;
@@ -382,10 +382,14 @@
             }
 
             .main-nav>ul>li>a.nav-cta-button {
+                display: inline-flex;
+                align-items: center;
                 background-color: #00cc88;
                 color: var(--color-background);
                 border-radius: var(--border-radius);
-                padding: 0.4rem 1.2rem;
+                padding: 0.2rem 1.2rem;
+                font-weight: 600;
+                text-decoration: none;
             }
         }
 
