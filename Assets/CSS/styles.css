@@ -2982,6 +2982,28 @@ a.btn-primary:visited {
     color: var(--color-text-primary);
 }
 
+/* Variante con botones (enlaces a otras zonas): fila centrada que envuelve limpio */
+.zonas-cobertura:has(.btn) {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.7rem;
+    border-top: none;
+    padding-top: 0;
+    margin-top: 2rem;
+}
+
+.zonas-cobertura:has(.btn) strong {
+    flex-basis: 100%;
+    margin-bottom: 0.4rem;
+    font-size: 1rem;
+}
+
+.zonas-cobertura .btn {
+    margin: 0;
+}
+
 /* --- Táctil (sin hover): equivalente al efecto glow de escritorio --- */
 @media (hover: none) {
 
