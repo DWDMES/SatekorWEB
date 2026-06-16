@@ -408,7 +408,9 @@
             crossorigin="anonymous" referrerpolicy="no-referrer">
     </noscript>
 
-    <!-- styles.css asíncrono: el CSS crítico de arriba cubre lo visible (FCP rápido sin CLS) -->
+    <!-- Escritorio (≥768px): bloqueante, conexión rápida y sin CLS. -->
+    <link rel="stylesheet" href="Assets/CSS/styles.css?v=20260619" media="(min-width: 768px)">
+    <!-- Móvil (<768px): el CSS crítico de arriba cubre lo visible y la hoja entra asíncrona (FCP rápido). -->
     <link rel="stylesheet" href="Assets/CSS/styles.css?v=20260619" media="print" onload="this.media='all'">
     <noscript>
         <link rel="stylesheet" href="Assets/CSS/styles.css?v=20260619">
