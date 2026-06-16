@@ -212,10 +212,8 @@
             crossorigin="anonymous" referrerpolicy="no-referrer">
     </noscript>
 
-    <link rel="stylesheet" href="Assets/CSS/styles.css?v=20260616" media="print" onload="this.media='all'">
-    <noscript>
-        <link rel="stylesheet" href="Assets/CSS/styles.css?v=20260616">
-    </noscript>
+    <!-- styles.css en carga bloqueante: evita el reflujo masivo (CLS) al aplicarse tras el render -->
+    <link rel="stylesheet" href="Assets/CSS/styles.css?v=20260616">
 
     <script type="application/ld+json">
     {
