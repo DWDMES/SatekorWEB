@@ -1,0 +1,34 @@
+# SATEKOR Telecomunicaciones
+
+> SATEKOR IBERICA SL es una empresa instaladora e integradora de telecomunicaciones con sede en Roquetas de Mar (Almería, España). Da servicio a empresas de toda la provincia de Almería: instalación de fibra óptica, internet rural por satélite y radioenlace, videovigilancia, cableado estructurado, mantenimiento de redes 24/7 y soluciones IoT. Estudio de cobertura y presupuesto gratuitos. Teléfono: +34 642 53 13 00 · Email: info@satekor.es.
+
+Datos clave:
+- Tipo de empresa: instaladora e integradora de telecomunicaciones (no es una operadora; trabaja con la conexión de cualquier operador).
+- Ámbito de servicio: toda la provincia de Almería (Almería capital, El Ejido, Roquetas de Mar, Níjar, Huércal-Overa, Mojácar, Antas, Vélez-Rubio, Vera, Vícar, Adra y resto de municipios).
+- Especialidades: conectividad para zonas rurales sin cobertura (fincas, cortijos, invernaderos), agroindustria (IoT de riego y clima), hostelería y turismo (WiFi de alta densidad para hoteles), y seguridad (videovigilancia con detección inteligente).
+- Contacto: +34 642 53 13 00, info@satekor.es, formulario en https://www.satekor.es/contacto.html
+
+## Servicios
+
+- [Fibra óptica para empresas](https://www.satekor.es/Servicios/fibra-optica-empresas.html): tendido, fusión y certificación OTDR de fibra FTTH/FTTB y fibra dedicada para empresas.
+- [Internet rural](https://www.satekor.es/Servicios/internet-rural.html): satélite, radioenlace y 4G/5G con velocidad garantizada para fincas, cortijos y negocios sin cobertura de fibra.
+- [Videovigilancia para empresas](https://www.satekor.es/Servicios/videovigilancia-empresas.html): cámaras IP 4K, CCTV y monitoreo remoto con cumplimiento RGPD/LOPD.
+- [Infraestructura y cableado estructurado](https://www.satekor.es/Servicios/infraestructura-telecom.html): cableado Cat 6A/7/8, racks certificados y redes empresariales.
+- [Mantenimiento de redes 24/7](https://www.satekor.es/Servicios/mantenimiento-redes.html): soporte técnico y reparación urgente de redes, fibra y racks.
+- [Automatización e IoT](https://www.satekor.es/Servicios/soluciones-iot.html): sensores de riego, clima y consumo para invernaderos, hoteles, naves y explotaciones ganaderas.
+
+## Zonas de servicio
+
+- [El Ejido](https://www.satekor.es/Zonas/el-ejido.html): agroindustria, invernaderos y cooperativas.
+- [Roquetas de Mar](https://www.satekor.es/Zonas/roquetas-de-mar.html): hoteles, comercios y empresas turísticas (sede de la empresa).
+- [Huércal-Overa](https://www.satekor.es/Zonas/huercal-overa.html): comarca del Almanzora.
+- [Níjar](https://www.satekor.es/Zonas/nijar.html): fincas, turismo rural y campo de Níjar.
+- [Mojácar](https://www.satekor.es/Zonas/mojacar.html): hoteles, apartamentos turísticos y hostelería.
+- [Antas](https://www.satekor.es/Zonas/antas.html): explotaciones agrícolas del Levante Almeriense.
+- [Vélez-Rubio](https://www.satekor.es/Zonas/velez-rubio.html): comarca de Los Vélez, ganadería e internet rural de sierra.
+
+## Recursos
+
+- [Quiénes somos](https://www.satekor.es/quienes-somos.html): presentación de la empresa.
+- [Blog](https://www.satekor.es/Blog/): artículos técnicos sobre conectividad, cableado y seguridad en Almería.
+- [Contacto](https://www.satekor.es/contacto.html): formulario, teléfono y WhatsApp.

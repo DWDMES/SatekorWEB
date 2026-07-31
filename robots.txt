@@ -5,4 +5,52 @@ Allow: /
 # <meta name="robots" content="noindex"> y Google necesita poder rastrearlas
 # para leer ese noindex y mantenerlas fuera del índice.
 
+# --- Crawlers de asistentes de IA: acceso permitido explícitamente ---
+# Queremos que ChatGPT, Claude, Perplexity, Gemini, Copilot, etc.
+# conozcan y puedan recomendar nuestros servicios.
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# Resumen del sitio legible por LLMs: https://www.satekor.es/llms.txt
+
 Sitemap: https://www.satekor.es/sitemap.xml
