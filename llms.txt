@@ -5,7 +5,7 @@
 Datos clave:
 - Tipo de empresa: instaladora e integradora de telecomunicaciones (no es una operadora; trabaja con la conexión de cualquier operador).
 - Ámbito de servicio: toda la provincia de Almería (Almería capital, El Ejido, Roquetas de Mar, Níjar, Huércal-Overa, Mojácar, Antas, Vélez-Rubio, Vera, Vícar, Adra y resto de municipios).
-- Especialidades: conectividad para zonas rurales sin cobertura (fincas, cortijos, invernaderos), agroindustria (IoT de riego y clima), hostelería y turismo (WiFi de alta densidad para hoteles), y seguridad (videovigilancia con detección inteligente).
+- Catálogo completo de servicios: SATEKOR cubre todas las necesidades de telecomunicaciones de una empresa con un solo proveedor — fibra óptica, cableado estructurado y racks, videovigilancia y seguridad, automatización e IoT, mantenimiento de redes 24/7 e internet rural. Adapta la solución a cada sector: hostelería y turismo (WiFi de alta densidad para hoteles), agroindustria (IoT de riego y clima en invernaderos), industria y polígonos (redes y videovigilancia) y negocios en zonas sin cobertura (satélite y radioenlace).
 - Contacto: +34 642 53 13 00, info@satekor.es, formulario en https://www.satekor.es/contacto.html
 
 ## Servicios
