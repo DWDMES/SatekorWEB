@@ -1247,6 +1247,36 @@ body.no-scroll .scroll-to-top {
     /* Reducido */
 }
 
+/* Aviso bajo el botón de envío y confirmación tras abrir WhatsApp */
+.form-note {
+    margin-top: 0.85rem;
+    margin-bottom: 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--color-text-secondary);
+}
+
+.form-status {
+    margin-top: 1rem;
+    margin-bottom: 0;
+    padding: 0.85rem 1rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-primary);
+    background-color: rgba(0, 255, 170, 0.08);
+    color: var(--color-text-primary);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.form-status.is-error {
+    border-color: #F87171;
+    background-color: rgba(248, 113, 113, 0.1);
+}
+
+.form-status[hidden] {
+    display: none;
+}
+
 .form-group label {
     display: block;
     margin-bottom: 0.6rem;

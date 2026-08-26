@@ -303,10 +303,56 @@ document.addEventListener('DOMContentLoaded', () => {
         el.addEventListener('click', () => trackEvent('contacto_email', { method: 'email' }));
     });
 
-    // Envío del formulario de contacto
+    // Envío del formulario de contacto.
+    // El sitio es estático (GitHub Pages), así que no hay backend que reciba un
+    // POST: lo componemos como mensaje de WhatsApp. El action del <form> apunta
+    // a wa.me por GET para que, si este script no llega a ejecutarse, el visitante
+    // acabe igualmente en la conversación en vez de en un error del servidor.
     const contactForm = document.querySelector('.contact-form');
     if (contactForm) {
-        contactForm.addEventListener('submit', () => trackEvent('envio_formulario', { form: 'contacto' }));
+        const WHATSAPP = '34642531300';
+        const estado = document.getElementById('form-status');
+
+        const mostrar = (texto, esError) => {
+            if (!estado) return;
+            estado.textContent = texto;
+            estado.classList.toggle('is-error', !!esError);
+            estado.hidden = false;
+        };
+
+        contactForm.addEventListener('submit', (e) => {
+            if (!contactForm.checkValidity()) return;   // deja actuar a la validación del navegador
+            e.preventDefault();
+
+            const val = (id) => (document.getElementById(id)?.value || '').trim();
+            const servicioSel = document.getElementById('servicio');
+            const servicio = servicioSel && servicioSel.selectedIndex > 0
+                ? servicioSel.options[servicioSel.selectedIndex].text.trim()
+                : '';
+
+            const lineas = ['Nueva consulta desde satekor.es', ''];
+            lineas.push('Nombre: ' + val('nombre'));
+            lineas.push('Email: ' + val('email'));
+            if (val('telefono')) lineas.push('Teléfono: ' + val('telefono'));
+            if (servicio) lineas.push('Servicio: ' + servicio);
+            lineas.push('', val('mensaje'));
+
+            const url = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(lineas.join('\n'));
+            trackEvent('envio_formulario', { form: 'contacto', metodo: 'whatsapp' });
+
+            // Ojo: window.open(url, '_blank', 'noopener') devuelve null aunque haya
+            // funcionado, así que no sirve para detectar un bloqueo. Se abre sin esa
+            // opción y se anula opener a mano, que sí permite distinguir los casos.
+            const ventana = window.open(url, '_blank');
+            if (ventana) {
+                try { ventana.opener = null; } catch (err) { /* origen distinto: ya está aislado */ }
+                mostrar('Te hemos abierto WhatsApp con el mensaje redactado. Dale a enviar y te respondemos lo antes posible.', false);
+                contactForm.reset();
+            } else {
+                // Ventana emergente bloqueada: nunca dejar al visitante sin salida.
+                mostrar('Tu navegador ha bloqueado la ventana de WhatsApp. Escríbenos a info@satekor.es o llama al 642 53 13 00.', true);
+            }
+        });
     }
 
     // Clic en CTAs principales (botones primarios hacia contacto)
