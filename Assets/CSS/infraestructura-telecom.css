@@ -98,17 +98,16 @@
 }
 
 .feature-content li::before {
-    content: '\f058';
-    /* Font Awesome check-circle solid */
-    font-family: 'Font Awesome 6 Free';
-    font-weight: 900;
-    /* Necesario para iconos solid */
-    color: var(--color-primary-darker);
-    font-size: 0.85em;
+    /* Check: máscara SVG (antes era un glifo de Font Awesome) */
+    content: '';
+    width: 0.85em;
+    height: 0.85em;
+    background-color: var(--color-primary-darker);
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z'/%3E%3C/svg%3E") center / contain no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z'/%3E%3C/svg%3E") center / contain no-repeat;
     position: absolute;
     left: 0;
-    top: 0.3em;
-    line-height: 1;
+    top: 0.45em;
 }
 
 .feature-content li strong {
@@ -231,14 +230,14 @@
     transform: translateY(-2px);
 }
 
-.application-tag i.fa-fw {
+.application-tag .icon-fw {
     margin-right: 0.6em;
     opacity: 0.8;
     transition: opacity var(--transition-speed-fast) ease;
     font-size: 1em;
 }
 
-.application-tag:hover i.fa-fw {
+.application-tag:hover .icon-fw {
     opacity: 1;
 }
 

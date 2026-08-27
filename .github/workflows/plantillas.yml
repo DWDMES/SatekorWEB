@@ -1,0 +1,16 @@
+# Avisa si alguien edita a mano la cabecera, el pie o el resto de bloques
+# comunes en una página suelta en vez de en _plantillas/.
+name: Plantillas sincronizadas
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  verificar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Comprobar que las páginas coinciden con _plantillas/
+        run: python3 _herramientas/construir.py --verificar

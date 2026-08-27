@@ -4,6 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- @plantilla inicio: fuentes -->
+    <!-- Fuentes servidas desde nuestro propio dominio: ni una petición a Google
+         (evita transferir la IP del visitante antes del consentimiento, RGPD). -->
+    <link rel="preload" href="../Assets/Fuentes/poppins-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../Assets/Fuentes/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <style>
+        @font-face { font-family: 'Poppins'; font-style: normal; font-weight: 300; font-display: swap; src: url('../Assets/Fuentes/poppins-300-latin.woff2') format('woff2'); }
+        @font-face { font-family: 'Poppins'; font-style: normal; font-weight: 400; font-display: swap; src: url('../Assets/Fuentes/poppins-400-latin.woff2') format('woff2'); }
+        @font-face { font-family: 'Poppins'; font-style: normal; font-weight: 600; font-display: swap; src: url('../Assets/Fuentes/poppins-600-latin.woff2') format('woff2'); }
+        @font-face { font-family: 'Poppins'; font-style: normal; font-weight: 700; font-display: swap; src: url('../Assets/Fuentes/poppins-700-latin.woff2') format('woff2'); }
+    </style>
+    <!-- @plantilla fin: fuentes -->
     <meta name="theme-color" content="#0F172A">
 
     <!-- === Meta Tags SEO (Específicas para Videovigilancia) === -->
@@ -18,36 +31,28 @@
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="SATEKOR Telecomunicaciones">
+    <meta property="og:locale" content="es_ES">
     <meta property="og:url" content="https://www.satekor.es/Servicios/videovigilancia-empresas.html">
     <meta property="og:title" content="Videovigilancia para Empresas en Almería · Cámaras IP y CCTV">
     <meta property="og:description" content="Instalamos cámaras IP y CCTV 4K en naves, hoteles y oficinas de Almería, con grabación local que sigue funcionando aunque se caiga internet.">
-    <meta property="og:image" content="https://www.satekor.es/Assets/Imagenes/logoB.webp">
+    <meta property="og:image" content="https://www.satekor.es/Assets/Imagenes/og-satekor.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="SATEKOR · Telecomunicaciones para empresas en Almería">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://www.satekor.es/Servicios/videovigilancia-empresas.html">
     <meta property="twitter:title" content="Videovigilancia para Empresas en Almería · Cámaras IP y CCTV">
     <meta property="twitter:description" content="Instalamos cámaras IP y CCTV 4K en naves, hoteles y oficinas de Almería, con grabación local que sigue funcionando aunque se caiga internet.">
-    <meta property="twitter:image" content="https://www.satekor.es/Assets/Imagenes/logoB.webp">
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"></noscript>
-
-    <!-- Font Awesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer"></noscript>
+    <meta property="twitter:image" content="https://www.satekor.es/Assets/Imagenes/og-satekor.png">
 
     <!-- === Enlace a la hoja de estilos CSS PRINCIPAL (AJUSTAR RUTA) === -->
-    <link rel="stylesheet" href="../Assets/CSS/styles.css?v=20260826b">
+    <link rel="stylesheet" href="../Assets/CSS/styles.css?v=20260827">
 
     <!-- === Enlace a la hoja de estilos CSS ESPECÍFICA para esta página (AJUSTAR RUTA) === -->
-    <link rel="stylesheet" href="../Assets/CSS/videovigilancia-styles.css?v=20260826b">
+    <link rel="stylesheet" href="../Assets/CSS/videovigilancia-styles.css?v=20260827">
 
     <!-- Favicon (AJUSTAR RUTA) -->
     <link rel="icon" href="../Assets/Imagenes/favicon.webp" type="image/webp">
@@ -102,57 +107,51 @@
     <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
 
     <!-- === Encabezado del Sitio === -->
+    <!-- @plantilla inicio: cabecera -->
     <header class="site-header">
         <div class="container header-content">
-            <!-- Logo SATEKOR -->
-            <!-- La ruta ahora sube un nivel para encontrar Assets -->
             <a href="../index.html" class="logo">
-                <img src="../Assets/Imagenes/logoB.webp" alt="Logo SATEKOR Telecomunicaciones Almería" width="160" height="50">
+                <img src="../Assets/Imagenes/logoB.webp" alt="Logo SATEKOR Telecomunicaciones Almería"
+                    fetchpriority="high" width="160" height="50">
             </a>
-            <!-- Botón Hamburguesa -->
+
+            <!-- Llamada directa. Es el camino más corto para una avería urgente,
+                 así que va visible en todas las páginas y en todos los tamaños. -->
+            <a href="tel:+34642531300" class="header-call" aria-label="Llamar a SATEKOR, teléfono 642 53 13 00">
+                <svg class="icon" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><use href="../Assets/Iconos/sprite.svg#phone"></use></svg>
+                <span class="header-call-texto">642 53 13 00</span>
+            </a>
+
             <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false"
                 aria-controls="main-nav">
                 <span class="hamburger"></span>
             </button>
 
-            <!-- === Navegación Principal con Desplegable === -->
             <nav id="main-nav" class="main-nav" aria-label="Navegación principal">
                 <ul>
-                    <!-- Enlace a Inicio (sube un nivel para encontrar index.html en la raíz) -->
                     <li><a href="../index.html">Inicio</a></li>
-
-                    <!-- Elemento de Menú con Desplegable para Servicios -->
                     <li class="has-dropdown dropdown-servicios">
-                        <!-- El enlace principal a la sección #servicios en index.html (sube un nivel) -->
                         <a href="../index.html#servicios" aria-haspopup="true" aria-expanded="false">
-                            Servicios <i class="fas fa-chevron-down fa-xs nav-arrow"></i>
+                            Servicios <svg class="icon icon-xs nav-arrow" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><use href="../Assets/Iconos/sprite.svg#chevron-down"></use></svg>
                         </a>
                         <ul class="dropdown-menu" aria-label="Submenú de servicios">
-                            <!-- Estas rutas son relativas A LA CARPETA ACTUAL (Servicios/).
-                                 Por lo tanto, no necesitan 'Servicios/' delante. -->
-                            <li><a href="videovigilancia-empresas.html">Videovigilancia Empresas</a></li>
-                            <li><a href="fibra-optica-empresas.html">Fibra Óptica Empresas</a></li>
-                            <li><a href="infraestructura-telecom.html">Infraestructura Crítica</a></li>
-                            <li><a href="mantenimiento-redes.html">Mantenimiento Urgente</a></li>
-                            <li><a href="soluciones-iot.html">Automatización / IoT</a></li>
-                            <li><a href="internet-rural.html">Internet Rural Empresas</a></li>
+                            <li><a href="../Servicios/videovigilancia-empresas.html">Videovigilancia Empresas</a></li>
+                            <li><a href="../Servicios/fibra-optica-empresas.html">Fibra Óptica Empresas</a></li>
+                            <li><a href="../Servicios/infraestructura-telecom.html">Infraestructura Crítica</a></li>
+                            <li><a href="../Servicios/mantenimiento-redes.html">Mantenimiento Urgente</a></li>
+                            <li><a href="../Servicios/soluciones-iot.html">Automatización / IoT</a></li>
+                            <li><a href="../Servicios/internet-rural.html">Internet Rural Empresas</a></li>
                         </ul>
                     </li>
-                    <!-- Fin Elemento de Menú Desplegable -->
-
-                    <!-- Enlaces a secciones en index.html (suben un nivel) -->
                     <li><a href="../index.html#clientes">Clientes</a></li>
                     <li><a href="../index.html#faq">FAQ</a></li>
-                    <!-- Enlace a la carpeta Blog (sube un nivel para encontrar la carpeta Blog) -->
                     <li><a href="../Blog/index.html">Blog</a></li>
-                    <!-- Enlace a contacto.html (sube un nivel para encontrar contacto.html en la raíz) -->
                     <li><a href="../contacto.html" class="nav-cta-button">Contacto</a></li>
                 </ul>
             </nav>
-            <!-- === FIN Navegación Principal === -->
         </div>
     </header>
-
+    <!-- @plantilla fin: cabecera -->
     <main id="contenido">
         <nav class="breadcrumb" aria-label="Migas de pan">
             <div class="container">
@@ -235,7 +234,7 @@
                     <!-- Característica 1: Tecnología -->
                     <article class="feature-card">
                         <div class="feature-header">
-                            <i class="fas fa-camera-retro feature-icon" aria-hidden="true"></i>
+                            <span class="feature-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><use href="../Assets/Iconos/sprite.svg#camera-retro"></use></svg></span>
                             <h3>Tecnología de Cámaras Avanzada</h3>
                         </div>
                         <div class="feature-content">
@@ -258,7 +257,7 @@
                     <!-- Característica 2: Monitoreo -->
                     <article class="feature-card">
                         <div class="feature-header">
-                            <i class="fas fa-desktop feature-icon" aria-hidden="true"></i>
+                            <span class="feature-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 576 512" aria-hidden="true" focusable="false"><use href="../Assets/Iconos/sprite.svg#desktop"></use></svg></span>
                             <h3>Monitoreo Remoto y Acceso Fácil</h3>
                         </div>
                         <div class="feature-content">
@@ -279,7 +278,7 @@
                     <!-- Característica 3: Cumplimiento -->
                     <article class="feature-card">
                         <div class="feature-header">
-                            <i class="fas fa-shield-alt feature-icon" aria-hidden="true"></i>
+                            <span class="feature-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><use href="../Assets/Iconos/sprite.svg#shield-alt"></use></svg></span>
                             <h3>Cumplimiento Normativo Garantizado</h3>
                         </div>
                         <div class="feature-content">
@@ -300,7 +299,7 @@
                     <!-- Característica 4: Instalación y Mantenimiento -->
                     <article class="feature-card">
                         <div class="feature-header">
-                            <i class="fas fa-cogs feature-icon" aria-hidden="true"></i>
+                            <span class="feature-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 640 512" aria-hidden="true" focusable="false"><use href="../Assets/Iconos/sprite.svg#cogs"></use></svg></span>
                             <h3>Instalación Profesional y Soporte</h3>
                         </div>
                         <div class="feature-content">
@@ -322,7 +321,7 @@
                     <!-- Característica 5: Analíticas (Opcional) -->
                     <article class="feature-card">
                         <div class="feature-header">
-                            <i class="fas fa-brain feature-icon" aria-hidden="true"></i>
+                            <span class="feature-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><use href="../Assets/Iconos/sprite.svg#brain"></use></svg></span>
                             <h3>Analíticas Inteligentes de Vídeo</h3>
                         </div>
                         <div class="feature-content">
@@ -345,7 +344,7 @@
                     <!-- === NUEVA Característica 6: Integración y Escalabilidad === -->
                     <article class="feature-card">
                         <div class="feature-header">
-                            <i class="fas fa-network-wired feature-icon" aria-hidden="true"></i> <!-- Icono cambiado -->
+                            <span class="feature-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 640 512" aria-hidden="true" focusable="false"><use href="../Assets/Iconos/sprite.svg#network-wired"></use></svg></span> <!-- Icono cambiado -->
                             <h3>Integración y Escalabilidad</h3>
                         </div>
                         <div class="feature-content">
@@ -378,37 +377,37 @@
                     seguridad básica, un sistema bien implementado ofrece ventajas tangibles para su negocio.</p>
                 <div class="benefits-grid">
                     <article class="benefit-item">
-                        <i class="fas fa-eye benefit-icon"></i>
+                        <span class="benefit-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 576 512" aria-hidden="true" focusable="false"><use href="../Assets/Iconos/sprite.svg#eye"></use></svg></span>
                         <h3>Disuasión de Actos Ilícitos</h3>
                         <p>Reduce robos, vandalismo y comportamientos indebidos con la presencia visible de cámaras
                             profesionales.</p>
                     </article>
                     <article class="benefit-item">
-                        <i class="fas fa-video benefit-icon"></i>
+                        <span class="benefit-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 576 512" aria-hidden="true" focusable="false"><use href="../Assets/Iconos/sprite.svg#video"></use></svg></span>
                         <h3>Registro y Evidencia Fiable</h3>
                         <p>Obtenga pruebas claras en alta definición para investigaciones internas o procedimientos
                             legales.</p>
                     </article>
                     <article class="benefit-item">
-                        <i class="fas fa-chart-line benefit-icon"></i>
+                        <span class="benefit-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><use href="../Assets/Iconos/sprite.svg#chart-line"></use></svg></span>
                         <h3>Optimización Operacional</h3>
                         <p>Supervise la productividad, controle accesos no autorizados y mejore la gestión de sus
                             instalaciones.</p>
                     </article>
                     <article class="benefit-item">
-                        <i class="fas fa-mobile-alt benefit-icon"></i>
+                        <span class="benefit-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 384 512" aria-hidden="true" focusable="false"><use href="../Assets/Iconos/sprite.svg#mobile-alt"></use></svg></span>
                         <h3>Supervisión Remota Constante</h3>
                         <p>Acceda a su negocio 24/7 desde cualquier lugar, aportando tranquilidad y capacidad de
                             respuesta rápida.</p>
                     </article>
                     <article class="benefit-item">
-                        <i class="fas fa-balance-scale benefit-icon"></i>
+                        <span class="benefit-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 640 512" aria-hidden="true" focusable="false"><use href="../Assets/Iconos/sprite.svg#balance-scale"></use></svg></span>
                         <h3>Seguridad Jurídica</h3>
                         <p>Opere con la confianza de cumplir la LOPD/RGPD y evitar costosas sanciones administrativas.
                         </p>
                     </article>
                     <article class="benefit-item">
-                        <i class="fas fa-headset benefit-icon"></i>
+                        <span class="benefit-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><use href="../Assets/Iconos/sprite.svg#headset"></use></svg></span>
                         <h3>Soporte Técnico Local</h3>
                         <p>Respuesta rápida y eficaz ante cualquier incidencia por parte de nuestro equipo experto en
                             Almería.</p>
@@ -424,25 +423,25 @@
                 <p class="subtitle">Implementamos soluciones de videovigilancia escalables y personalizadas para las
                     necesidades específicas de:</p>
                 <div class="application-tags-container">
-                    <span class="application-tag"><i class="fas fa-hotel fa-fw" aria-hidden="true"></i> Hoteles y
+                    <span class="application-tag"><svg class="icon icon-fw" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><use href="../Assets/Iconos/sprite.svg#hotel"></use></svg> Hoteles y
                         Turismo</span>
-                    <span class="application-tag"><i class="fas fa-industry fa-fw" aria-hidden="true"></i> Naves
+                    <span class="application-tag"><svg class="icon icon-fw" viewBox="0 0 576 512" aria-hidden="true" focusable="false"><use href="../Assets/Iconos/sprite.svg#industry"></use></svg> Naves
                         Industriales</span>
-                    <span class="application-tag"><i class="fas fa-store fa-fw" aria-hidden="true"></i> Comercios y
+                    <span class="application-tag"><svg class="icon icon-fw" viewBox="0 0 576 512" aria-hidden="true" focusable="false"><use href="../Assets/Iconos/sprite.svg#store"></use></svg> Comercios y
                         Retail</span>
-                    <span class="application-tag"><i class="fas fa-building fa-fw" aria-hidden="true"></i> Oficinas y
+                    <span class="application-tag"><svg class="icon icon-fw" viewBox="0 0 384 512" aria-hidden="true" focusable="false"><use href="../Assets/Iconos/sprite.svg#building"></use></svg> Oficinas y
                         Corporativo</span>
-                    <span class="application-tag"><i class="fas fa-users fa-fw" aria-hidden="true"></i>
+                    <span class="application-tag"><svg class="icon icon-fw" viewBox="0 0 640 512" aria-hidden="true" focusable="false"><use href="../Assets/Iconos/sprite.svg#users"></use></svg>
                         Comunidades</span>
-                    <span class="application-tag"><i class="fas fa-tractor fa-fw" aria-hidden="true"></i> Sector
+                    <span class="application-tag"><svg class="icon icon-fw" viewBox="0 0 640 512" aria-hidden="true" focusable="false"><use href="../Assets/Iconos/sprite.svg#tractor"></use></svg> Sector
                         Agrícola</span>
-                    <span class="application-tag"><i class="fas fa-warehouse fa-fw" aria-hidden="true"></i> Logística y
+                    <span class="application-tag"><svg class="icon icon-fw" viewBox="0 0 640 512" aria-hidden="true" focusable="false"><use href="../Assets/Iconos/sprite.svg#warehouse"></use></svg> Logística y
                         Almacenes</span>
-                    <span class="application-tag"><i class="fas fa-solar-panel fa-fw" aria-hidden="true"></i> Energía e
+                    <span class="application-tag"><svg class="icon icon-fw" viewBox="0 0 640 512" aria-hidden="true" focusable="false"><use href="../Assets/Iconos/sprite.svg#solar-panel"></use></svg> Energía e
                         Infraestructura</span>
-                    <span class="application-tag"><i class="fas fa-graduation-cap fa-fw" aria-hidden="true"></i> Centros
+                    <span class="application-tag"><svg class="icon icon-fw" viewBox="0 0 640 512" aria-hidden="true" focusable="false"><use href="../Assets/Iconos/sprite.svg#graduation-cap"></use></svg> Centros
                         Educativos</span>
-                    <span class="application-tag"><i class="fas fa-clinic-medical fa-fw" aria-hidden="true"></i> Centros
+                    <span class="application-tag"><svg class="icon icon-fw" viewBox="0 0 576 512" aria-hidden="true" focusable="false"><use href="../Assets/Iconos/sprite.svg#clinic-medical"></use></svg> Centros
                         Sanitarios</span>
                 </div>
                 <p class="text-center" style="margin-top: 2rem; color: var(--color-text-secondary);"><em>Analizamos las
@@ -633,14 +632,14 @@
                 <h2 class="section-title">Servicios Complementarios</h2>
                 <div class="service-grid"> <!-- Quitamos estilos inline -->
                     <article class="service-card related-card">
-                        <i class="fas fa-tools service-icon" aria-hidden="true"></i>
+                        <span class="service-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><use href="../Assets/Iconos/sprite.svg#tools"></use></svg></span>
                         <h3><a href="mantenimiento-redes.html">Mantenimiento y Soporte</a></h3>
                         <p>Asegure el rendimiento continuo de su sistema de videovigilancia y redes con nuestros planes
                             de mantenimiento.</p>
                         <a href="mantenimiento-redes.html" class="btn btn-small btn-secondary">Ver Mantenimiento</a>
                     </article>
                     <article class="service-card related-card">
-                        <i class="fas fa-server service-icon" aria-hidden="true"></i>
+                        <span class="service-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><use href="../Assets/Iconos/sprite.svg#server"></use></svg></span>
                         <h3><a href="infraestructura-telecom.html">Infraestructura de Red</a></h3>
                         <p>Una base sólida con cableado estructurado y racks adecuados es esencial para su sistema de
                             seguridad.</p>
@@ -648,7 +647,7 @@
                             Infraestructura</a>
                     </article>
                     <article class="service-card related-card">
-                        <i class="fas fa-microchip service-icon" aria-hidden="true"></i>
+                        <span class="service-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><use href="../Assets/Iconos/sprite.svg#microchip"></use></svg></span>
                         <h3><a href="soluciones-iot.html">Automatización / IoT</a></h3>
                         <p>Integre sus cámaras con sensores y sistemas inteligentes para una seguridad y gestión más
                             avanzadas.</p>
@@ -658,16 +657,11 @@
             </div>
         </section>
 
-
     </main>
 
     <!-- === Botón Flotante de WhatsApp === -->
-    <a href="https://wa.me/34642531300?text=Hola%2C%20necesito%20información%20sobre%20vuestros%20sistemas%20de%20videovigilancia%20para%20empresas."
-        target="_blank" rel="noopener noreferrer" class="whatsapp-btn" aria-label="Contactar por WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
     <!-- === Pie de Página === -->
+    <!-- @plantilla inicio: pie -->
     <footer class="site-footer">
         <div class="container footer-content">
             <p>© <span id="current-year"></span> SATEKOR Telecomunicaciones. Todos los derechos reservados.</p>
@@ -679,8 +673,20 @@
             </nav>
         </div>
     </footer>
+    <!-- @plantilla fin: pie -->
 
-    <!-- Cookie Consent Banner -->
+    <!-- @plantilla inicio: flotantes -->
+    <a href="https://wa.me/34642531300?text=Hola%2C%20necesito%20información%20sobre%20vuestros%20servicios."
+        target="_blank" rel="noopener noreferrer" class="whatsapp-btn" aria-label="Contactar por WhatsApp">
+        <svg class="icon" viewBox="0 0 448 512" aria-hidden="true" focusable="false"><use href="../Assets/Iconos/sprite.svg#whatsapp"></use></svg>
+    </a>
+
+    <button id="scroll-to-top" class="scroll-to-top" aria-label="Volver arriba">
+        <svg class="icon" viewBox="0 0 384 512" aria-hidden="true" focusable="false"><use href="../Assets/Iconos/sprite.svg#arrow-up"></use></svg>
+    </button>
+    <!-- @plantilla fin: flotantes -->
+
+    <!-- @plantilla inicio: cookies -->
     <div id="cookie-banner" class="cookie-banner" role="dialog" aria-modal="true" aria-labelledby="cookie-heading"
         hidden>
         <div class="cookie-content">
@@ -693,11 +699,8 @@
             <button id="accept-cookies" class="btn btn-small btn-primary">Aceptar</button>
         </div>
     </div>
-
-
-
-    <!-- === Script JS principal (AJUSTAR RUTA) === -->
-    <script src="../Assets/JS/script.js?v=20260826b" defer></script>
+    <!-- @plantilla fin: cookies -->
+    <script src="../Assets/JS/script.js?v=20260827" defer></script>
 
 </body>
 

@@ -1,0 +1,43 @@
+    <header class="site-header">
+        <div class="container header-content">
+            <a href="{{BASE}}index.html" class="logo">
+                <img src="{{BASE}}Assets/Imagenes/logoB.webp" alt="Logo SATEKOR Telecomunicaciones Almería"
+                    fetchpriority="high" width="160" height="50">
+            </a>
+
+            <!-- Llamada directa. Es el camino más corto para una avería urgente,
+                 así que va visible en todas las páginas y en todos los tamaños. -->
+            <a href="tel:+34642531300" class="header-call" aria-label="Llamar a SATEKOR, teléfono 642 53 13 00">
+                <svg class="icon" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><use href="{{BASE}}Assets/Iconos/sprite.svg#phone"></use></svg>
+                <span class="header-call-texto">642 53 13 00</span>
+            </a>
+
+            <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false"
+                aria-controls="main-nav">
+                <span class="hamburger"></span>
+            </button>
+
+            <nav id="main-nav" class="main-nav" aria-label="Navegación principal">
+                <ul>
+                    <li><a href="{{BASE}}index.html">Inicio</a></li>
+                    <li class="has-dropdown dropdown-servicios">
+                        <a href="{{BASE}}index.html#servicios" aria-haspopup="true" aria-expanded="false">
+                            Servicios <svg class="icon icon-xs nav-arrow" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><use href="{{BASE}}Assets/Iconos/sprite.svg#chevron-down"></use></svg>
+                        </a>
+                        <ul class="dropdown-menu" aria-label="Submenú de servicios">
+                            <li><a href="{{BASE}}Servicios/videovigilancia-empresas.html">Videovigilancia Empresas</a></li>
+                            <li><a href="{{BASE}}Servicios/fibra-optica-empresas.html">Fibra Óptica Empresas</a></li>
+                            <li><a href="{{BASE}}Servicios/infraestructura-telecom.html">Infraestructura Crítica</a></li>
+                            <li><a href="{{BASE}}Servicios/mantenimiento-redes.html">Mantenimiento Urgente</a></li>
+                            <li><a href="{{BASE}}Servicios/soluciones-iot.html">Automatización / IoT</a></li>
+                            <li><a href="{{BASE}}Servicios/internet-rural.html">Internet Rural Empresas</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="{{BASE}}index.html#clientes">Clientes</a></li>
+                    <li><a href="{{BASE}}index.html#faq">FAQ</a></li>
+                    <li><a href="{{BASE}}Blog/index.html">Blog</a></li>
+                    <li><a href="{{BASE}}contacto.html" class="nav-cta-button">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>

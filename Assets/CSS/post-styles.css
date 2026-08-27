@@ -34,7 +34,7 @@
     justify-content: center; /* Centra los elementos meta */
     gap: 0.5rem 1.5rem; /* Espacio entre elementos meta */
 }
-.post-meta-full span i {
+.post-meta-full span .icon {
     margin-right: 0.4em;
     color: var(--color-primary);
 }
@@ -118,8 +118,6 @@
 /* Estilo de viñetas (opcional, si quieres personalizarlas) */
 .post-content-full ul li::marker {
    color: var(--color-primary); /* Color de las viñetas */
-   /* content: '\f058 '; Puedes usar iconos de FontAwesome si prefieres */
-   /* font-family: 'Font Awesome 6 Free'; */
    /* font-weight: 900; */
 }
 

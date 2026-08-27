@@ -4,6 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- @plantilla inicio: fuentes -->
+    <!-- Fuentes servidas desde nuestro propio dominio: ni una petición a Google
+         (evita transferir la IP del visitante antes del consentimiento, RGPD). -->
+    <link rel="preload" href="Assets/Fuentes/poppins-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="Assets/Fuentes/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <style>
+        @font-face { font-family: 'Poppins'; font-style: normal; font-weight: 300; font-display: swap; src: url('Assets/Fuentes/poppins-300-latin.woff2') format('woff2'); }
+        @font-face { font-family: 'Poppins'; font-style: normal; font-weight: 400; font-display: swap; src: url('Assets/Fuentes/poppins-400-latin.woff2') format('woff2'); }
+        @font-face { font-family: 'Poppins'; font-style: normal; font-weight: 600; font-display: swap; src: url('Assets/Fuentes/poppins-600-latin.woff2') format('woff2'); }
+        @font-face { font-family: 'Poppins'; font-style: normal; font-weight: 700; font-display: swap; src: url('Assets/Fuentes/poppins-700-latin.woff2') format('woff2'); }
+    </style>
+    <!-- @plantilla fin: fuentes -->
     <meta name="theme-color" content="#0F172A">
     <title>Telecomunicaciones para Empresas en Almería · Soporte 24/7</title>
     <meta name="description"
@@ -16,11 +29,16 @@
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="SATEKOR Telecomunicaciones">
+    <meta property="og:locale" content="es_ES">
     <meta property="og:url" content="https://www.satekor.es/">
     <meta property="og:title" content="Telecomunicaciones para Empresas en Almería · Soporte 24/7">
     <meta property="og:description"
         content="Instalamos y mantenemos la red de tu empresa en Almería: fibra óptica certificada con OTDR, videovigilancia, cableado, IoT, mantenimiento e internet rural.">
-    <meta property="og:image" content="https://www.satekor.es/Assets/Imagenes/logoB.webp">
+    <meta property="og:image" content="https://www.satekor.es/Assets/Imagenes/og-satekor.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="SATEKOR · Telecomunicaciones para empresas en Almería">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
@@ -28,19 +46,10 @@
     <meta property="twitter:title" content="Telecomunicaciones para Empresas en Almería · Soporte 24/7">
     <meta property="twitter:description"
         content="Instalamos y mantenemos la red de tu empresa en Almería: fibra óptica certificada con OTDR, videovigilancia, cableado, IoT, mantenimiento e internet rural.">
-    <meta property="twitter:image" content="https://www.satekor.es/Assets/Imagenes/logoB.webp">
+    <meta property="twitter:image" content="https://www.satekor.es/Assets/Imagenes/og-satekor.png">
 
     <link rel="icon" href="Assets/Imagenes/favicon.webp" type="image/webp">
     <link rel="preload" href="Assets/Imagenes/logoB.webp" as="image">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-
-    <link rel="preload" as="style"
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap">
-
-    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
         /* --- INICIO CSS CRÍTICO --- */
@@ -396,28 +405,12 @@
         /* --- FIN CSS CRÍTICO --- */
     </style>
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
-        media="print" onload="this.media='all'">
-    <noscript>
-        <link rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap">
-    </noscript>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'">
-    <noscript>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-            integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-            crossorigin="anonymous" referrerpolicy="no-referrer">
-    </noscript>
-
     <!-- Escritorio (≥768px): bloqueante, conexión rápida y sin CLS. -->
-    <link rel="stylesheet" href="Assets/CSS/styles.css?v=20260826b" media="(min-width: 768px)">
+    <link rel="stylesheet" href="Assets/CSS/styles.css?v=20260827" media="(min-width: 768px)">
     <!-- Móvil (<768px): el CSS crítico de arriba cubre lo visible y la hoja entra asíncrona (FCP rápido). -->
-    <link rel="stylesheet" href="Assets/CSS/styles.css?v=20260826b" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="Assets/CSS/styles.css?v=20260827" media="print" onload="this.media='all'">
     <noscript>
-        <link rel="stylesheet" href="Assets/CSS/styles.css?v=20260826b">
+        <link rel="stylesheet" href="Assets/CSS/styles.css?v=20260827">
     </noscript>
 
     <script type="application/ld+json">
@@ -478,12 +471,21 @@
 
     <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
 
+    <!-- @plantilla inicio: cabecera -->
     <header class="site-header">
         <div class="container header-content">
             <a href="index.html" class="logo">
-                <img src="Assets/Imagenes/logoB.webp" alt="Logo SATEKOR Telecomunicaciones Almería" fetchpriority="high"
-                    width="160" height="50">
+                <img src="Assets/Imagenes/logoB.webp" alt="Logo SATEKOR Telecomunicaciones Almería"
+                    fetchpriority="high" width="160" height="50">
             </a>
+
+            <!-- Llamada directa. Es el camino más corto para una avería urgente,
+                 así que va visible en todas las páginas y en todos los tamaños. -->
+            <a href="tel:+34642531300" class="header-call" aria-label="Llamar a SATEKOR, teléfono 642 53 13 00">
+                <svg class="icon" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><use href="Assets/Iconos/sprite.svg#phone"></use></svg>
+                <span class="header-call-texto">642 53 13 00</span>
+            </a>
+
             <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false"
                 aria-controls="main-nav">
                 <span class="hamburger"></span>
@@ -494,7 +496,7 @@
                     <li><a href="index.html">Inicio</a></li>
                     <li class="has-dropdown dropdown-servicios">
                         <a href="index.html#servicios" aria-haspopup="true" aria-expanded="false">
-                            Servicios <i class="fas fa-chevron-down fa-xs nav-arrow"></i>
+                            Servicios <svg class="icon icon-xs nav-arrow" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><use href="Assets/Iconos/sprite.svg#chevron-down"></use></svg>
                         </a>
                         <ul class="dropdown-menu" aria-label="Submenú de servicios">
                             <li><a href="Servicios/videovigilancia-empresas.html">Videovigilancia Empresas</a></li>
@@ -513,7 +515,7 @@
             </nav>
         </div>
     </header>
-
+    <!-- @plantilla fin: cabecera -->
     <main id="contenido">
         <section class="hero">
             <div class="container hero-content">
@@ -552,12 +554,20 @@
                     <p class="subtitle">SATEKOR: Expertos en instalación y mantenimiento de videovigilancia, fibra
                         óptica, redes empresariales, soluciones IoT y conexión a internet en zonas rurales de Almería.
                     </p>
-                    <a href="#servicios" class="btn btn-primary">Nuestros Servicios</a>
+                    <div class="hero-cta">
+                        <!-- La acción principal es llamar: la mayoría de visitas llegan
+                             buscando resolver una avería, no leer el catálogo. -->
+                        <a href="tel:+34642531300" class="btn btn-primary btn-icono">
+                            <svg class="icon" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><use href="Assets/Iconos/sprite.svg#phone"></use></svg>
+                            Llamar ahora · 642 53 13 00
+                        </a>
+                        <a href="#servicios" class="btn btn-ghost">Nuestros Servicios</a>
+                    </div>
                     <ul class="trust-bar">
-                        <li><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Soporte local en Almería</li>
-                        <li><i class="fas fa-clock" aria-hidden="true"></i> Atención urgente 24/7</li>
-                        <li><i class="fas fa-handshake" aria-hidden="true"></i> Sin permanencia</li>
-                        <li><i class="fas fa-certificate" aria-hidden="true"></i> Técnicos certificados</li>
+                        <li><svg class="icon" viewBox="0 0 384 512" aria-hidden="true" focusable="false"><use href="Assets/Iconos/sprite.svg#map-marker-alt"></use></svg> Soporte local en Almería</li>
+                        <li><svg class="icon" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><use href="Assets/Iconos/sprite.svg#clock"></use></svg> Atención urgente 24/7</li>
+                        <li><svg class="icon" viewBox="0 0 640 512" aria-hidden="true" focusable="false"><use href="Assets/Iconos/sprite.svg#handshake"></use></svg> Sin permanencia</li>
+                        <li><svg class="icon" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><use href="Assets/Iconos/sprite.svg#certificate"></use></svg> Técnicos certificados</li>
                     </ul>
                 </div>
             </div>
@@ -569,7 +579,7 @@
                     Almería</h2>
                 <div class="service-grid">
                     <article class="service-card reveal delay-200">
-                        <i class="fas fa-video service-icon" aria-hidden="true"></i>
+                        <span class="service-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 576 512" aria-hidden="true" focusable="false"><use href="Assets/Iconos/sprite.svg#video"></use></svg></span>
                         <h3><a href="Servicios/videovigilancia-empresas.html">Videovigilancia para Empresas en
                                 Almería</a></h3>
                         <p>Instalación profesional de <strong>cámaras de seguridad IP, CCTV 4K y sistemas de monitoreo
@@ -583,7 +593,7 @@
                             type="application/ld+json">{ "@context": "https://schema.org", "@type": "Service", "serviceType": "Instalación de cámaras de seguridad para empresas", "name": "Videovigilancia Profesional para Empresas", "description": "Instalación de cámaras IP, CCTV 4K y monitoreo remoto para hoteles, naves industriales y oficinas en Almería.", "provider": { "@type": "LocalBusiness", "name": "SATEKOR Telecomunicaciones" }, "areaServed": { "@type": "AdministrativeArea", "name": "Almería" }, "keywords": "videovigilancia empresas almería, cámaras seguridad hoteles, cctv naves industriales almería, monitoreo remoto oficinas" }</script>
                     </article>
                     <article class="service-card reveal delay-300">
-                        <i class="fas fa-wifi service-icon" aria-hidden="true"></i>
+                        <span class="service-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 640 512" aria-hidden="true" focusable="false"><use href="Assets/Iconos/sprite.svg#wifi"></use></svg></span>
                         <h3><a href="Servicios/fibra-optica-empresas.html">Fibra Óptica Empresas en Almería</a></h3>
                         <p><strong>Internet ultra-rápido para empresas y zonas rurales</strong>. Instalación de fibra
                             monomodo, redes FTTH y soluciones personalizadas para hoteles, centros de datos y operadoras
@@ -596,7 +606,7 @@
                             type="application/ld+json">{ "@context": "https://schema.org", "@type": "Service", "serviceType": "Instalación de Fibra Óptica para Empresas", "name": "Fibra Óptica de Alta Velocidad para Empresas", "description": "Instalación de fibra monomodo, redes FTTH y soluciones de internet ultra-rápido para empresas, hoteles y zonas rurales en Almería.", "provider": { "@type": "LocalBusiness", "name": "SATEKOR Telecomunicaciones" }, "areaServed": { "@type": "AdministrativeArea", "name": "Almería" }, "keywords": "fibra óptica empresas almería, internet empresas almería, ftth almería, internet hoteles almería, internet rural empresas almería" }</script>
                     </article>
                     <article class="service-card reveal delay-100">
-                        <i class="fas fa-server service-icon" aria-hidden="true"></i>
+                        <span class="service-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><use href="Assets/Iconos/sprite.svg#server"></use></svg></span>
                         <h3><a href="Servicios/infraestructura-telecom.html">Infraestructura Crítica para Empresas</a>
                         </h3>
                         <p>Expertos en <strong>racks certificados, cableado estructurado Cat 8 y redes
@@ -610,7 +620,7 @@
                             type="application/ld+json">{ "@context": "https://schema.org", "@type": "Service", "serviceType": "Instalación de Infraestructura de Telecomunicaciones Crítica", "name": "Instalación de Infraestructura de Redes y Telecomunicaciones", "description": "Diseño e instalación de racks certificados, cableado estructurado Cat 8 y redes empresariales para operadoras y centros de datos en Almería.", "provider": { "@type": "LocalBusiness", "name": "SATEKOR Telecomunicaciones" }, "areaServed": { "@type": "AdministrativeArea", "name": "Almería" }, "keywords": "infraestructura telecomunicaciones almería, racks certificados almería, cableado estructurado cat 8, redes empresariales almería, instalación centros de datos almería" }</script>
                     </article>
                     <article class="service-card reveal delay-200">
-                        <i class="fas fa-tools service-icon" aria-hidden="true"></i>
+                        <span class="service-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><use href="Assets/Iconos/sprite.svg#tools"></use></svg></span>
                         <h3><a href="Servicios/mantenimiento-redes.html">Mantenimiento Urgente para Empresas</a></h3>
                         <p><strong>Soporte técnico 24/7</strong> en Almería. Reparación de redes, racks y fibra óptica
                             para hoteles, naves industriales y operadoras. Contratos de mantenimiento preventivo y
@@ -623,7 +633,7 @@
                             type="application/ld+json">{ "@context": "https://schema.org", "@type": "Service", "serviceType": "Mantenimiento Urgente de Telecomunicaciones para Empresas", "name": "Mantenimiento y Soporte Técnico 24/7", "description": "Servicio de mantenimiento preventivo y correctivo urgente 24/7 para redes, racks y fibra óptica en hoteles, naves y operadoras de Almería.", "provider": { "@type": "LocalBusiness", "name": "SATEKOR Telecomunicaciones" }, "areaServed": { "@type": "AdministrativeArea", "name": "Almería" }, "keywords": "mantenimiento telecomunicaciones almería, soporte técnico 24/7 almería, reparación redes almería, mantenimiento fibra óptica, mantenimiento racks almería" }</script>
                     </article>
                     <article class="service-card">
-                        <i class="fas fa-microchip service-icon" aria-hidden="true"></i>
+                        <span class="service-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><use href="Assets/Iconos/sprite.svg#microchip"></use></svg></span>
                         <h3><a href="Servicios/soluciones-iot.html">Automatización para Empresas y Hoteles</a></h3>
                         <p>Sistemas IoT con <strong>sensores inteligentes</strong> para control de energía, seguridad y
                             ocupación en tiempo real. Integración con cámaras y redes WiFi para hoteles y naves
@@ -636,7 +646,7 @@
                             type="application/ld+json">{ "@context": "https://schema.org", "@type": "Service", "serviceType": "Automatización y Soluciones IoT para Empresas y Hoteles", "name": "Soluciones de Automatización e IoT", "description": "Implementación de sistemas IoT con sensores inteligentes para control de energía, seguridad y ocupación en hoteles y naves industriales de Almería.", "provider": { "@type": "LocalBusiness", "name": "SATEKOR Telecomunicaciones" }, "areaServed": { "@type": "AdministrativeArea", "name": "Almería" }, "keywords": "iot almería, automatización empresas almería, sensores inteligentes almería, control energía iot, automatización hoteles almería" }</script>
                     </article>
                     <article class="service-card reveal delay-300">
-                        <i class="fas fa-satellite-dish service-icon" aria-hidden="true"></i>
+                        <span class="service-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><use href="Assets/Iconos/sprite.svg#satellite-dish"></use></svg></span>
                         <h3><a href="Servicios/internet-rural.html">Internet para Empresas Rurales en Almería</a></h3>
                         <p><strong>Conexión satélite, radioenlace y 5G</strong> en zonas sin cobertura. Soluciones
                             estables para fincas agrícolas, hoteles rurales y naves industriales en pueblos como El
@@ -686,43 +696,43 @@
                     todos los municipios de la provincia. Estas son algunas de las zonas donde trabajamos:</p>
                 <div class="service-grid">
                     <article class="service-card">
-                        <i class="fas fa-map-marker-alt service-icon" aria-hidden="true"></i>
+                        <span class="service-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 384 512" aria-hidden="true" focusable="false"><use href="Assets/Iconos/sprite.svg#map-marker-alt"></use></svg></span>
                         <h3><a href="Zonas/roquetas-de-mar.html">Roquetas de Mar</a></h3>
                         <p>Videovigilancia, fibra, redes e IoT para hoteles, comercios y empresas turísticas.</p>
                         <a href="Zonas/roquetas-de-mar.html" class="btn btn-small">Ver Roquetas de Mar</a>
                     </article>
                     <article class="service-card">
-                        <i class="fas fa-map-marker-alt service-icon" aria-hidden="true"></i>
+                        <span class="service-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 384 512" aria-hidden="true" focusable="false"><use href="Assets/Iconos/sprite.svg#map-marker-alt"></use></svg></span>
                         <h3><a href="Zonas/el-ejido.html">El Ejido</a></h3>
                         <p>Internet rural, IoT para invernaderos y videovigilancia para fincas, cooperativas y naves.</p>
                         <a href="Zonas/el-ejido.html" class="btn btn-small">Ver El Ejido</a>
                     </article>
                     <article class="service-card">
-                        <i class="fas fa-map-marker-alt service-icon" aria-hidden="true"></i>
+                        <span class="service-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 384 512" aria-hidden="true" focusable="false"><use href="Assets/Iconos/sprite.svg#map-marker-alt"></use></svg></span>
                         <h3><a href="Zonas/huercal-overa.html">Huércal-Overa</a></h3>
                         <p>Fibra, cableado estructurado, videovigilancia y mantenimiento en la comarca del Almanzora.</p>
                         <a href="Zonas/huercal-overa.html" class="btn btn-small">Ver Huércal-Overa</a>
                     </article>
                     <article class="service-card">
-                        <i class="fas fa-map-marker-alt service-icon" aria-hidden="true"></i>
+                        <span class="service-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 384 512" aria-hidden="true" focusable="false"><use href="Assets/Iconos/sprite.svg#map-marker-alt"></use></svg></span>
                         <h3><a href="Zonas/nijar.html">Níjar</a></h3>
                         <p>Internet rural por satélite y radioenlace, IoT y videovigilancia para fincas y turismo rural.</p>
                         <a href="Zonas/nijar.html" class="btn btn-small">Ver Níjar</a>
                     </article>
                     <article class="service-card">
-                        <i class="fas fa-map-marker-alt service-icon" aria-hidden="true"></i>
+                        <span class="service-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 384 512" aria-hidden="true" focusable="false"><use href="Assets/Iconos/sprite.svg#map-marker-alt"></use></svg></span>
                         <h3><a href="Zonas/mojacar.html">Mojácar</a></h3>
                         <p>Fibra, WiFi para hoteles y apartamentos turísticos, videovigilancia y radioenlace.</p>
                         <a href="Zonas/mojacar.html" class="btn btn-small">Ver Mojácar</a>
                     </article>
                     <article class="service-card">
-                        <i class="fas fa-map-marker-alt service-icon" aria-hidden="true"></i>
+                        <span class="service-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 384 512" aria-hidden="true" focusable="false"><use href="Assets/Iconos/sprite.svg#map-marker-alt"></use></svg></span>
                         <h3><a href="Zonas/antas.html">Antas</a></h3>
                         <p>Internet rural para cortijos y fincas, fibra, videovigilancia e IoT agrícola en el Levante.</p>
                         <a href="Zonas/antas.html" class="btn btn-small">Ver Antas</a>
                     </article>
                     <article class="service-card">
-                        <i class="fas fa-map-marker-alt service-icon" aria-hidden="true"></i>
+                        <span class="service-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 384 512" aria-hidden="true" focusable="false"><use href="Assets/Iconos/sprite.svg#map-marker-alt"></use></svg></span>
                         <h3><a href="Zonas/velez-rubio.html">Vélez-Rubio</a></h3>
                         <p>Internet por satélite y radioenlace, IoT ganadero y videovigilancia en Los Vélez.</p>
                         <a href="Zonas/velez-rubio.html" class="btn btn-small">Ver Vélez-Rubio</a>
@@ -928,11 +938,7 @@
 
     </main>
 
-    <a href="https://wa.me/34642531300?text=Hola%2C%20necesito%20información%20sobre%20vuestros%20servicios."
-        target="_blank" rel="noopener noreferrer" class="whatsapp-btn" aria-label="Contactar por WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
+    <!-- @plantilla inicio: pie -->
     <footer class="site-footer">
         <div class="container footer-content">
             <p>© <span id="current-year"></span> SATEKOR Telecomunicaciones. Todos los derechos reservados.</p>
@@ -944,8 +950,20 @@
             </nav>
         </div>
     </footer>
+    <!-- @plantilla fin: pie -->
 
-    <!-- Cookie Consent Banner -->
+    <!-- @plantilla inicio: flotantes -->
+    <a href="https://wa.me/34642531300?text=Hola%2C%20necesito%20información%20sobre%20vuestros%20servicios."
+        target="_blank" rel="noopener noreferrer" class="whatsapp-btn" aria-label="Contactar por WhatsApp">
+        <svg class="icon" viewBox="0 0 448 512" aria-hidden="true" focusable="false"><use href="Assets/Iconos/sprite.svg#whatsapp"></use></svg>
+    </a>
+
+    <button id="scroll-to-top" class="scroll-to-top" aria-label="Volver arriba">
+        <svg class="icon" viewBox="0 0 384 512" aria-hidden="true" focusable="false"><use href="Assets/Iconos/sprite.svg#arrow-up"></use></svg>
+    </button>
+    <!-- @plantilla fin: flotantes -->
+
+    <!-- @plantilla inicio: cookies -->
     <div id="cookie-banner" class="cookie-banner" role="dialog" aria-modal="true" aria-labelledby="cookie-heading"
         hidden>
         <div class="cookie-content">
@@ -958,13 +976,8 @@
             <button id="accept-cookies" class="btn btn-small btn-primary">Aceptar</button>
         </div>
     </div>
-
-    <!-- Scroll to Top Button -->
-    <button id="scroll-to-top" class="scroll-to-top" aria-label="Volver arriba">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <script src="Assets/JS/script.js?v=20260826b" defer></script>
+    <!-- @plantilla fin: cookies -->
+    <script src="Assets/JS/script.js?v=20260827" defer></script>
 
 </body>
 

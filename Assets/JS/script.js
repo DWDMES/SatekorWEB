@@ -303,15 +303,22 @@ document.addEventListener('DOMContentLoaded', () => {
         el.addEventListener('click', () => trackEvent('contacto_email', { method: 'email' }));
     });
 
-    // Envío del formulario de contacto.
-    // El sitio es estático (GitHub Pages), así que no hay backend que reciba un
-    // POST: lo componemos como mensaje de WhatsApp. El action del <form> apunta
-    // a wa.me por GET para que, si este script no llega a ejecutarse, el visitante
-    // acabe igualmente en la conversación en vez de en un error del servidor.
+    // --- Envío del formulario de contacto ---------------------------------
+    // El sitio es estático (GitHub Pages), así que no hay backend propio. El
+    // envío por correo se delega en Web3Forms, que recibe el POST y lo reenvía
+    // a info@satekor.es. Mientras CLAVE_FORMULARIO esté vacía, el formulario
+    // sigue funcionando por WhatsApp igual que antes, sin dar ningún error.
+    //
+    // Para activar el correo: date de alta en https://web3forms.com con
+    // info@satekor.es, copia la "Access Key" que te llegue y pégala aquí.
+    const CLAVE_FORMULARIO = '';
+
     const contactForm = document.querySelector('.contact-form');
     if (contactForm) {
         const WHATSAPP = '34642531300';
         const estado = document.getElementById('form-status');
+        const botonEnviar = contactForm.querySelector('button[type="submit"]');
+        const botonWhatsApp = document.getElementById('enviar-whatsapp');
 
         const mostrar = (texto, esError) => {
             if (!estado) return;
@@ -320,22 +327,29 @@ document.addEventListener('DOMContentLoaded', () => {
             estado.hidden = false;
         };
 
-        contactForm.addEventListener('submit', (e) => {
-            if (!contactForm.checkValidity()) return;   // deja actuar a la validación del navegador
-            e.preventDefault();
+        const val = (id) => (document.getElementById(id)?.value || '').trim();
 
-            const val = (id) => (document.getElementById(id)?.value || '').trim();
+        function datosFormulario() {
             const servicioSel = document.getElementById('servicio');
-            const servicio = servicioSel && servicioSel.selectedIndex > 0
-                ? servicioSel.options[servicioSel.selectedIndex].text.trim()
-                : '';
+            return {
+                nombre: val('nombre'),
+                email: val('email'),
+                telefono: val('telefono'),
+                servicio: servicioSel && servicioSel.selectedIndex > 0
+                    ? servicioSel.options[servicioSel.selectedIndex].text.trim()
+                    : '',
+                mensaje: val('mensaje')
+            };
+        }
 
+        function abrirWhatsApp() {
+            const d = datosFormulario();
             const lineas = ['Nueva consulta desde satekor.es', ''];
-            lineas.push('Nombre: ' + val('nombre'));
-            lineas.push('Email: ' + val('email'));
-            if (val('telefono')) lineas.push('Teléfono: ' + val('telefono'));
-            if (servicio) lineas.push('Servicio: ' + servicio);
-            lineas.push('', val('mensaje'));
+            lineas.push('Nombre: ' + d.nombre);
+            lineas.push('Email: ' + d.email);
+            if (d.telefono) lineas.push('Teléfono: ' + d.telefono);
+            if (d.servicio) lineas.push('Servicio: ' + d.servicio);
+            lineas.push('', d.mensaje);
 
             const url = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(lineas.join('\n'));
             trackEvent('envio_formulario', { form: 'contacto', metodo: 'whatsapp' });
@@ -352,7 +366,65 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Ventana emergente bloqueada: nunca dejar al visitante sin salida.
                 mostrar('Tu navegador ha bloqueado la ventana de WhatsApp. Escríbenos a info@satekor.es o llama al 642 53 13 00.', true);
             }
+        }
+
+        async function enviarPorCorreo() {
+            const d = datosFormulario();
+            const carga = {
+                access_key: CLAVE_FORMULARIO,
+                subject: 'Nueva consulta desde satekor.es',
+                from_name: 'Formulario satekor.es',
+                botcheck: contactForm.querySelector('[name="botcheck"]')?.checked || false,
+                nombre: d.nombre,
+                email: d.email,
+                telefono: d.telefono || '(no indicado)',
+                servicio: d.servicio || '(no indicado)',
+                mensaje: d.mensaje
+            };
+
+            if (botonEnviar) { botonEnviar.disabled = true; }
+            mostrar('Enviando…', false);
+
+            try {
+                const respuesta = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+                    body: JSON.stringify(carga)
+                });
+                const resultado = await respuesta.json().catch(() => ({}));
+
+                if (respuesta.ok && resultado.success) {
+                    trackEvent('envio_formulario', { form: 'contacto', metodo: 'email' });
+                    mostrar('Mensaje enviado. Te respondemos lo antes posible; si es urgente, llámanos al 642 53 13 00.', false);
+                    contactForm.reset();
+                } else {
+                    throw new Error(resultado.message || 'respuesta no válida');
+                }
+            } catch (err) {
+                // Nunca dejar al visitante sin salida: se le ofrecen los otros canales.
+                mostrar('No hemos podido enviar el mensaje. Prueba con el botón de WhatsApp, escríbenos a info@satekor.es o llama al 642 53 13 00.', true);
+            } finally {
+                if (botonEnviar) { botonEnviar.disabled = false; }
+            }
+        }
+
+        contactForm.addEventListener('submit', (e) => {
+            if (!contactForm.checkValidity()) return;   // deja actuar a la validación del navegador
+            e.preventDefault();
+            if (CLAVE_FORMULARIO) {
+                enviarPorCorreo();
+            } else {
+                abrirWhatsApp();
+            }
         });
+
+        if (botonWhatsApp) {
+            botonWhatsApp.addEventListener('click', () => {
+                // reportValidity muestra los mensajes del navegador, incluido el
+                // de la casilla de consentimiento, antes de abrir WhatsApp.
+                if (contactForm.reportValidity()) abrirWhatsApp();
+            });
+        }
     }
 
     // Clic en CTAs principales (botones primarios hacia contacto)

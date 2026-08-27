@@ -6,6 +6,7 @@
    ------------------
    1.  VARIABLES Y CONFIGURACIÓN BASE
    2.  RESETEO Y ESTILOS GLOBALES
+   2.5 ICONOS SVG (sprite propio)
    3.  LAYOUT Y COMPONENTES COMUNES
        3.1 BOTONES (Estilos Base y Variantes)
            3.1.1 REGLA GLOBAL COLOR TEXTO BOTONES
@@ -187,6 +188,33 @@ select:focus:not(:focus-visible),
 textarea:focus:not(:focus-visible) {
     outline: none;
 }
+
+/* ==========================================================================
+   2.5 ICONOS SVG (sprite propio, sustituye a Font Awesome)
+   ==========================================================================
+   Los iconos son <svg class="icon"><use href="Assets/Iconos/sprite.svg#nombre">
+   El viewBox va en el propio <svg>, así width:auto respeta la proporción de
+   cada icono igual que hacía la fuente de Font Awesome. */
+.icon {
+    height: 1em;
+    width: auto;
+    fill: currentColor;
+    vertical-align: -0.125em;
+    flex-shrink: 0;
+}
+
+/* Ancho fijo: alinea iconos de distinta anchura en listas (antes .fa-fw) */
+.icon-fw {
+    width: 1.25em;
+}
+
+.icon-2xs { font-size: 0.625em; }
+.icon-xs  { font-size: 0.75em; }
+.icon-sm  { font-size: 0.875em; }
+.icon-lg  { font-size: 1.25em; }
+.icon-xl  { font-size: 1.5em; }
+.icon-2x  { font-size: 2em; }
+.icon-3x  { font-size: 3em; }
 
 /* ==========================================================================
    3. LAYOUT Y COMPONENTES COMUNES
@@ -430,6 +458,77 @@ a.read-more-btn:active,
 .contact-form button[type="submit"]:not(.btn):hover,
 .contact-form button[type="submit"]:not(.btn):focus {
     color: var(--color-button-text) !important;
+}
+
+/* --- Botón fantasma (contorno): para acciones secundarias junto a un CTA --- */
+/* Lleva !important porque la regla global 3.1.1 fija el color de todos los .btn */
+.btn-ghost,
+a.btn-ghost:link,
+a.btn-ghost:visited,
+a.btn-ghost:hover,
+a.btn-ghost:focus,
+a.btn-ghost:active {
+    background-color: transparent;
+    border-color: var(--color-surface-light);
+    color: var(--color-text-primary) !important;
+}
+
+.btn-ghost:hover,
+.btn-ghost:focus {
+    border-color: var(--color-primary);
+    color: var(--color-primary) !important;
+    transform: translateY(-2px);
+}
+
+/* Botón con icono a la izquierda (llamar, WhatsApp…) */
+.btn-icono {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55em;
+}
+
+/* --- Llamada directa desde la cabecera ---------------------------------
+   Móvil: pastilla cuadrada a la izquierda, simétrica al botón de menú
+   (el logo va centrado en absoluto, así que ese hueco está libre).
+   Escritorio: pastilla con el número visible al final de la navegación. */
+.header-call {
+    position: absolute;
+    top: 50%;
+    left: 1.25rem;
+    transform: translateY(-50%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    background-color: rgba(0, 255, 170, 0.10);
+    border: 1px solid rgba(0, 255, 170, 0.30);
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    z-index: 1200;
+    transition: background-color var(--transition-speed) ease,
+        border-color var(--transition-speed) ease;
+}
+
+.header-call:hover,
+.header-call:focus-visible {
+    background-color: rgba(0, 255, 170, 0.18);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.header-call .icon {
+    font-size: 1.1rem;
+}
+
+/* El número solo cabe a partir de pantallas medianas */
+.header-call-texto {
+    display: none;
 }
 
 /* ==========================================================================
@@ -861,6 +960,13 @@ body.no-scroll .scroll-to-top {
     /* Espacio entre h1, subtítulo y botón */
 }
 
+.hero-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
 .hero-text-content h1 {
     font-size: clamp(1.7rem, 5.5vw, 3.2rem);
     /* Ligeramente ajustado el clamp */
@@ -1277,6 +1383,78 @@ body.no-scroll .scroll-to-top {
     display: none;
 }
 
+/* --- Consentimiento RGPD y acciones del formulario --------------------- */
+.form-consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.7rem;
+    margin-bottom: 1rem;
+}
+
+.form-consent input[type="checkbox"] {
+    width: 1.15rem;
+    height: 1.15rem;
+    margin: 0.2rem 0 0;
+    flex-shrink: 0;
+    accent-color: var(--color-primary-darker);
+    cursor: pointer;
+}
+
+.form-consent label {
+    margin-bottom: 0;
+    font-weight: 400;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    cursor: pointer;
+}
+
+/* Información básica de protección de datos, plegada por defecto */
+.form-rgpd {
+    margin-bottom: 1.5rem;
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+}
+
+.form-rgpd summary {
+    cursor: pointer;
+    color: var(--color-text-secondary);
+    padding: 0.35rem 0;
+}
+
+.form-rgpd summary:hover {
+    color: var(--color-primary);
+}
+
+.form-rgpd ul {
+    margin: 0.5rem 0 0;
+    padding-left: 1.1rem;
+    line-height: 1.6;
+}
+
+.form-rgpd li {
+    margin-bottom: 0.4rem;
+}
+
+.form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+/* Los dos botones comparten fila y crecen por igual */
+.form-actions .btn {
+    flex: 1 1 14rem;
+}
+
+/* Trampa antispam: fuera de la vista pero accesible para los bots */
+.campo-trampa {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
 .form-group label {
     display: block;
     margin-bottom: 0.6rem;
@@ -1350,6 +1528,11 @@ body.no-scroll .scroll-to-top {
     opacity: 0.7;
 }
 
+.contact-form .form-actions button[type="submit"] {
+    width: auto;
+    margin-top: 0;
+}
+
 .contact-form button[type="submit"] {
     width: 100%;
     margin-top: 1.2rem;
@@ -1362,11 +1545,10 @@ body.no-scroll .scroll-to-top {
     line-height: 1.8;
 }
 
-.contact-info i {
+.contact-info .icon {
     margin-right: 0.8rem;
     color: var(--color-primary);
     width: 1.2em;
-    text-align: center;
 }
 
 .map-container {
@@ -1577,25 +1759,23 @@ body.no-scroll .scroll-to-top {
 }
 
 .faq-question::after {
-    /* Icono flecha */
-    content: '\f078';
-    /* Font Awesome chevron-down */
-    font-family: 'Font Awesome 6 Free';
-    font-weight: 900;
-    font-size: 0.75rem;
-    /* Ajustado */
-    color: var(--color-primary);
-    transition: transform 0.3s ease-in-out, color 0.2s ease;
-    line-height: 1;
+    /* Flecha: máscara SVG (antes era un glifo de Font Awesome) */
+    content: '';
+    width: 0.75rem;
+    height: 0.75rem;
+    background-color: var(--color-primary);
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z'/%3E%3C/svg%3E") center / contain no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z'/%3E%3C/svg%3E") center / contain no-repeat;
+    transition: transform 0.3s ease-in-out, background-color 0.2s ease;
     flex-shrink: 0;
     /* Para que no se encoja */
-    padding-left: 0.8rem;
+    margin-left: 0.8rem;
     /* Espacio a la izquierda del icono */
 }
 
 .faq-toggle:checked+.faq-question::after {
     transform: rotate(180deg);
-    color: var(--color-primary-darker);
+    background-color: var(--color-primary-darker);
 }
 
 .faq-answer {
@@ -1860,7 +2040,7 @@ body.no-scroll .scroll-to-top {
     align-items: center;
 }
 
-.post-meta i {
+.post-meta .icon {
     margin-right: 0.3em;
     color: var(--color-primary-darker);
     font-size: 0.9em;
@@ -2076,6 +2256,22 @@ body.no-scroll .scroll-to-top {
     .header-content {
         justify-content: space-between;
         position: static;
+    }
+
+    /* La pastilla pasa a ser un elemento flex más, al final de la fila */
+    .header-call {
+        position: static;
+        transform: none;
+        order: 3;
+        width: auto;
+        height: auto;
+        padding: 0.45rem 0.9rem;
+        margin-left: 1rem;
+        white-space: nowrap;
+    }
+
+    .header-call-texto {
+        display: inline;
     }
 
     .logo {
@@ -2494,7 +2690,7 @@ body.no-scroll .scroll-to-top {
     transform: translateY(-5px);
 }
 
-.scroll-to-top i {
+.scroll-to-top .icon {
     font-size: 1.2rem;
 }
 
@@ -2879,7 +3075,7 @@ a.btn-primary:visited {
     color: var(--color-text-secondary);
 }
 
-.post-meta i {
+.post-meta .icon {
     color: var(--color-primary);
     margin-right: 0.35rem;
 }
@@ -2999,11 +3195,9 @@ a.btn-primary:visited {
     padding: 0.45rem 1rem;
 }
 
-.trust-bar i {
+.trust-bar .icon {
     color: var(--color-primary);
     font-size: 1rem;
-    width: 1em;
-    text-align: center;
 }
 
 /* --- Línea de cobertura de zonas (SEO local) bajo las FAQ --- */
